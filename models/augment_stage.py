@@ -61,7 +61,7 @@ class AugmentStage(nn.Module):
             nn.Conv2d(C_in, C_cur, 3, 1, 1, bias=False),
             nn.BatchNorm2d(C_cur)
         )
-        # C_pp, C_p, C_cur = C_cur, C_cur, C
+        C_pp, C_p, C_cur = C_cur, C_cur, C
 
         self.cells = nn.ModuleList()
 
@@ -71,35 +71,50 @@ class AugmentStage(nn.Module):
             # if i in [0,1,2,3,4,5]:
             if i in range(lenDAG1):
                 reduction = False
-                cell = GetCell(genotype, 4 * C, 4 * C, C, reduction) # out 144=4*C
+                cell = GetCell(genotype, C_pp, C_p, C_cur, reduction) # out 144=4*C
+                # cell = GetCell(genotype, 4 * C, 4 * C, C, reduction) # out 144=4*C
                 # 144 144 36  out=144  DAG_out=144*2=288
                 self.cells.append(cell)
             # if i in [6]:
             if i in [lenDAG1]:
+                self.bigDAG1 = GetStage(DAG, self.cells, 0, lenDAG1 - 1, C_pp, C_p, 4 * C_cur)
+
                 reduction = True
-                cell = GetCell(genotype, 8 * C, 8 * C, 2 * C, reduction) # out 72*4=288
+                C_pp, C_p = 2*cell.multiplier*C_cur
+                C_cur *= 2
+                cell = GetCell(genotype, C_pp, C_p, C_cur, reduction) # out 72*4=288
+                # cell = GetCell(genotype, 8 * C, 8 * C, 2 * C, reduction) # out 72*4=288
                 # 288, 288, 72 out=288=4*72
                 self.cells.append(cell)
             # if i in [7,8,9,10,11,12]:
             if i in range(lenDAG1 + 1, lenDAG1 + 1 + lenDAG2):
                 reduction = False
-                cell = GetCell(genotype, 8 * C, 8 * C, 2 * C, reduction) # out 288
+                cell = GetCell(genotype, C_pp, C_p, C_cur, reduction) # out 288
+                # cell = GetCell(genotype, 8 * C, 8 * C, 2 * C, reduction) # out 288
                 # 288, 288, 72, out=72*4=288  DAG_out=288*2=576
                 self.cells.append(cell)
             # if i in [13]:
             if i in [lenDAG1 + 1 + lenDAG2]:
+                self.bigDAG2 = GetStage(DAG, self.cells, lenDAG1 + 1, lenDAG1 + lenDAG2, C_pp, C_p, 4 * C_cur)
+
                 reduction = True
-                cell = GetCell(genotype, 16 * C, 16 * C, 4 * C, reduction) # out 144*4=576
+                C_pp, C_p = 2*cell.multiplier*C_cur
+                C_cur *= 2
+                cell = GetCell(genotype, C_pp, C_p, C_cur, reduction) # out 144*4=576
+                # cell = GetCell(genotype, 16 * C, 16 * C, 4 * C, reduction) # out 144*4=576
                 self.cells.append(cell)
             # if i in [14,15,16,17,18,19]:
             if i in range(lenDAG1 + 2 + lenDAG2, lenDAG1 + 2 + lenDAG2 + lenDAG3):
                 reduction = False
-                cell = GetCell(genotype, 16 * C, 16 * C, 4 * C, reduction) # out 144*4=576
+                cell = GetCell(genotype, C_pp, C_p, C_cur, reduction) # out 144*4=576
+                # cell = GetCell(genotype, 16 * C, 16 * C, 4 * C, reduction) # out 144*4=576
                 self.cells.append(cell)  # DAG_out=576*2=1152
+
+            C_pp, C_p = cell.multiplier*C_cur, cell.multiplier*C_cur
         
-        self.bigDAG1 = GetStage(DAG, self.cells, 0, lenDAG1 - 1, 4 * C, 4 * C, 4 * C)
-        self.bigDAG2 = GetStage(DAG, self.cells, lenDAG1 + 1, lenDAG1 + lenDAG2, 8 * C, 8 * C, 8 * C)
-        self.bigDAG3 = GetStage(DAG, self.cells, lenDAG1 + 2 + lenDAG2, lenDAG1 + 1 + lenDAG2 + lenDAG3, 16 * C, 16 * C, 16 * C)
+        # self.bigDAG1 = GetStage(DAG, self.cells, 0, lenDAG1 - 1, 4 * C, 4 * C, 4 * C)
+        # self.bigDAG2 = GetStage(DAG, self.cells, lenDAG1 + 1, lenDAG1 + lenDAG2, 8 * C, 8 * C, 8 * C)
+        self.bigDAG3 = GetStage(DAG, self.cells, lenDAG1 + 2 + lenDAG2, lenDAG1 + 1 + lenDAG2 + lenDAG3, C_pp, C_p, 4 * C_cur)
 
         self.aux_head = AuxiliaryHead(input_size // 4, 16 * C, n_classes)
 
@@ -110,9 +125,9 @@ class AugmentStage(nn.Module):
         s0 = s1 = self.stem(x)
         aux_logits = None
         s0 = s1 = self.bigDAG1(s0, s1)
-        s0 = s1 = self.cells[6](s0, s1)
+        s0 = s1 = self.cells[6](s0, s1) # reduction
         s0 = s1 = self.bigDAG2(s0, s1) 
-        s0 = s1 = self.cells[13](s0, s1)
+        s0 = s1 = self.cells[13](s0, s1) # reduction
         aux_logits = self.aux_head(s1)
         s0 = s1 = self.bigDAG3(s0, s1)
 
