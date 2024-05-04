@@ -115,6 +115,7 @@ class SearchStageController(nn.Module):
         self.alpha_DAG = nn.ParameterList()
 
         # 3 stages
+        # initialize architecture parameter(alpha)
         for _ in range(3):
             for i in range(self.n_big_nodes):
                 # sliding window

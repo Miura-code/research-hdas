@@ -43,7 +43,7 @@ def run_task(config):
             best_macro = macro_arch
         else:
             is_best = False
-        # trainer.save_checkpoint(epoch, is_best=is_best)
+        trainer.save_checkpoint(epoch, is_best=is_best)
         logger.info("Until now, best Prec@1 = {:.4%}".format(best_top1))
 
     logger.info("Final best Prec@1 = {:.4%}".format(best_top1))
