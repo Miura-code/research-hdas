@@ -39,6 +39,9 @@ class SearchStageConfig(BaseConfig):
         parser.add_argument('--local_rank', default=0)
         parser.add_argument('--resume_path', type=str, default=None)
 
+        parser.add_argument('--train_portion', type=float, default=0.5, help='portion of training data')
+
+
         return parser
     
     def __init__(self):
