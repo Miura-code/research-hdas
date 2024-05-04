@@ -48,7 +48,7 @@ class SearchCellConfig(BaseConfig):
         args = parser.parse_args()
         super().__init__(**vars(args))
 
-        self.data_path = './data/'
+        self.data_path = '../data/'
         self.path = os.path.join('results/search_cell_HcDAS/cifar/', self.name)
         self.plot_path = os.path.join(self.path, 'plots')
         self.gpus = parse_gpus(self.gpus)
