@@ -72,7 +72,6 @@ def main():
     train_loader = torch.utils.data.DataLoader(train_data,
                                                batch_size=config.batch_size,
                                                sampler=train_sampler,
-                                               shuffle=True,
                                                num_workers=config.workers,
                                                pin_memory=True)
     valid_loader = torch.utils.data.DataLoader(valid_data,
