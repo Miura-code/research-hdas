@@ -13,6 +13,8 @@ import numpy as np
 import utils
 import torch.backends.cudnn as cudnn
 from tensorboardX import SummaryWriter
+from tqdm import tqdm
+
 from utils.data_util import get_data
 from utils.logging_util import get_std_logging
 from utils.eval_util import AverageMeter, accuracy
@@ -86,7 +88,7 @@ def main():
 
     best_top1 = 0.
     # training loop
-    for epoch in range(config.epochs):
+    for epoch in tqdm(range(config.epochs)):
         lr_scheduler.step()
         drop_prob = config.drop_path_prob * epoch / config.epochs
         model.module.drop_path_prob(drop_prob)
@@ -127,7 +129,7 @@ def train(train_loader, model, optimizer, criterion, epoch):
 
     model.train()
 
-    for step, (X, y) in enumerate(train_loader):
+    for step, (X, y) in enumerate(tqdm(train_loader)):
         X, y = X.to(device, non_blocking=True), y.to(device, non_blocking=True)
         N = X.size(0)
 
