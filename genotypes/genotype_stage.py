@@ -3,12 +3,8 @@
     - gene: discrete ops information (w/o output connection)
     - dag: real ops (can be mixed or discrete, but Genotype has only discrete information itself)
 """
-from collections import namedtuple
-import torch
-import torch.nn as nn
-from models import ops
 
-from genotype_cell import Genotype2
+from genotypes.genotype_cell import Genotype2
 
 HS_DAS_CIFAR = Genotype2(
     DAG1=[
