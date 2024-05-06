@@ -63,8 +63,15 @@ def main():
     optimizer = torch.optim.SGD(model.parameters(), config.lr, momentum=config.momentum,
                                 weight_decay=config.weight_decay)
 
+    # データ数を減らす
+    n_train = len(train_data)
+    split = int(np.floor(config.train_portion * n_train))
+    indices = list(range(n_train))
+    train_sampler = torch.utils.data.sampler.SubsetRandomSampler(indices[:split])
+
     train_loader = torch.utils.data.DataLoader(train_data,
                                                batch_size=config.batch_size,
+                                               sampler=train_sampler,
                                                shuffle=True,
                                                num_workers=config.workers,
                                                pin_memory=True)
