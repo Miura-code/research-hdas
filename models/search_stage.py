@@ -14,7 +14,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.nn.parallel._functions import Broadcast
 
-import genotypes as gt
+import genotypes.genotypes as gt
 from models.search_bigDAG import SearchBigDAG, SearchBigDAG_CS
 
 

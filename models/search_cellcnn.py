@@ -11,7 +11,7 @@ import logging
 import torch.nn as nn
 import torch.nn.functional as F
 
-import genotypes as gt
+import genotypes.genotypes as gt
 from models.search_stage import broadcast_list
 from models.search_cell import SearchCell
 

@@ -8,7 +8,7 @@ import torch
 import torch.nn as nn
 from models import ops
 
-from genotypes import Genotype2
+from genotype_cell import Genotype2
 
 HS_DAS_CIFAR = Genotype2(
     DAG1=[

@@ -7,7 +7,7 @@
 
 import os
 from utils.parser import get_parser, parse_gpus, BaseConfig
-import genotypes as gt
+import genotypes.genotypes as gt
 
 
 class AugmentStageImageNetConfig(BaseConfig):
