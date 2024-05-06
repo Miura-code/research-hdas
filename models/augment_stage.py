@@ -80,7 +80,7 @@ class AugmentStage(nn.Module):
                 self.bigDAG1 = GetStage(DAG, self.cells, 0, lenDAG1 - 1, C_pp, C_p, 4 * C_cur)
 
                 reduction = True
-                C_pp, C_p = 2*cell.multiplier*C_cur
+                C_pp = C_p = 2*cell.multiplier*C_cur
                 C_cur *= 2
                 cell = GetCell(genotype, C_pp, C_p, C_cur, reduction) # out 72*4=288
                 # cell = GetCell(genotype, 8 * C, 8 * C, 2 * C, reduction) # out 72*4=288
@@ -98,7 +98,7 @@ class AugmentStage(nn.Module):
                 self.bigDAG2 = GetStage(DAG, self.cells, lenDAG1 + 1, lenDAG1 + lenDAG2, C_pp, C_p, 4 * C_cur)
 
                 reduction = True
-                C_pp, C_p = 2*cell.multiplier*C_cur
+                C_pp = C_p = 2*cell.multiplier*C_cur
                 C_cur *= 2
                 cell = GetCell(genotype, C_pp, C_p, C_cur, reduction) # out 144*4=576
                 # cell = GetCell(genotype, 16 * C, 16 * C, 4 * C, reduction) # out 144*4=576
