@@ -46,7 +46,7 @@ class SearchStageImageNetConfig(BaseConfig):
         args = parser.parse_args()
         super().__init__(**vars(args))
 
-        self.data_path = './data/'
+        self.data_path = '../data/'
         self.path = os.path.join('results/search_Stage/ImageNet/', self.name)
         self.genotype = gt.from_str(self.genotype)
         self.DAG_path = os.path.join(self.path, 'DAG')

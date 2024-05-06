@@ -53,7 +53,7 @@ class AugmentStageImageNetConfig(BaseConfig):
         super().__init__(**vars(args))
 
         # self.data_path = './data/'
-        self.data_path = './data/imagenet/'
+        self.data_path = '../data/imagenet/'
         self.path = os.path.join('results/augment_Stage/imagenet/', self.name)
         # self.path = os.path.join('augments/imagenet/', self.name)
         self.genotype = gt.from_str(self.genotype)
