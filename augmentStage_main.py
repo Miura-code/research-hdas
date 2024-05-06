@@ -76,9 +76,13 @@ def main():
                                                sampler=train_sampler,
                                                num_workers=config.workers,
                                                pin_memory=True)
+    n_val = len(valid_data)
+    split = int(np.floor(config.train_portion * n_val))
+    indices = list(range(n_val))
+    val_sampler = torch.utils.data.sampler.SubsetRandomSampler(indices[:split])
     valid_loader = torch.utils.data.DataLoader(valid_data,
                                                batch_size=config.batch_size,
-                                               shuffle=False,
+                                               sampler=val_sampler,
                                                num_workers=config.workers,
                                                pin_memory=True)
     lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, config.epochs)
