@@ -15,6 +15,9 @@ import torch
 import torch.nn as nn
 from models import ops
 
+from genotype_cell import *
+from genotype_stage import *
+
 
 Genotype = namedtuple('Genotype', 'normal normal_concat reduce reduce_concat')
 Genotype2 = namedtuple('Genotype2', 'DAG1 DAG1_concat DAG2 DAG2_concat DAG3 DAG3_concat')
