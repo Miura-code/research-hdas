@@ -6,3 +6,6 @@ augments
 
 plots/
 tb/
+DAG/
+
+history_*.png
