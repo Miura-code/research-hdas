@@ -156,6 +156,36 @@ STAGE_HSDAS_V3 = Genotype2(
     DAG3_concat=[6, 7]
 )
 
+STAGE_SHALLOW = Genotype2(
+    DAG1=[
+        [('skip_connect', 0), ('skip_connect', 1)], 
+        [('skip_connect', 0), ('skip_connect', 1)], 
+        [('skip_connect', 0), ('skip_connect', 1)],
+        [('skip_connect', 0), ('skip_connect', 1)],
+        [('skip_connect', 0), ('skip_connect', 1)],  
+        [('skip_connect', 0), ('skip_connect', 1)],
+    ], 
+    DAG1_concat=[6, 7], 
+    DAG2=[
+        [('skip_connect', 0), ('skip_connect', 1)], 
+        [('skip_connect', 0), ('skip_connect', 1)], 
+        [('skip_connect', 0), ('skip_connect', 1)],
+        [('skip_connect', 0), ('skip_connect', 1)],
+        [('skip_connect', 0), ('skip_connect', 1)],  
+        [('skip_connect', 0), ('skip_connect', 1)],
+    ],
+    DAG2_concat=[6, 7], 
+    DAG3=[
+        [('skip_connect', 0), ('skip_connect', 1)], 
+        [('skip_connect', 0), ('skip_connect', 1)], 
+        [('skip_connect', 0), ('skip_connect', 1)],
+        [('skip_connect', 0), ('skip_connect', 1)],
+        [('skip_connect', 0), ('skip_connect', 1)],  
+        [('skip_connect', 0), ('skip_connect', 1)],
+    ], 
+    DAG3_concat=[6, 7]
+)
+
 STAGE_MIDDLE = Genotype2(
     DAG1=[
         [('skip_connect', 0), ('skip_connect', 1)], 
