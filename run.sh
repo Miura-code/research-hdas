@@ -20,17 +20,32 @@ seed=0
 #     --train_portion $train_portion \
 #     --seed $seed \
 
-# # for arch in "${stage_architecture[@]}"; do
-# #     echo $arch
-# #     python augmentStage_main.py \
-# #     --name $arch  \
-# #     --batch_size $batch_size \
-# #     --dataset cifar10 \
-# #     --epochs $epoch \
-# #     --genotype DARTS_V1 \
-# #     --DAG $arch \
-# #     --train_portion $train_portion \
-# #     --seed $seed
+for seed in 1 2; do
+    for arch in "${stage_architecture[@]}"; do
+        echo $arch
+        python augmentStage_main.py \
+        --name $arch  \
+        --batch_size $batch_size \
+        --dataset cifar10 \
+        --epochs $epoch \
+        --genotype DARTS_V1 \
+        --DAG $arch \
+        --train_portion $train_portion \
+        --seed $seed
+    done
+done
+
+# for arch in "${stage_architecture[@]}"; do
+#     echo $arch
+#     python augmentStage_main.py \
+#     --name $arch  \
+#     --batch_size $batch_size \
+#     --dataset cifar10 \
+#     --epochs $epoch \
+#     --genotype DARTS_V1 \
+#     --DAG $arch \
+#     --train_portion $train_portion \
+#     --seed $seed
 # done
 
 
