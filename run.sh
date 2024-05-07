@@ -44,8 +44,8 @@ seed=0
 #     --genotype DARTS_V1
 
 ## ステージのテスト
-arch="HS_DAS_CIFAR"
-path=/home/miura/lab/research-hdas/results/augment_Stage/cifar/HS_DAS_CIFAR/checkpoint.pth.tar
+arch=$1
+path=$2
 python testStage_main.py \
     --name test \
     --dataset cifar10 \
