@@ -36,7 +36,7 @@ class TestStageConfig(BaseConfig):
         parser.add_argument('--resume_path', type=str, default=None)
         parser.add_argument('--exclude_bias_and_bn', type=bool, default=True)
 
-        parser.add_argument('--train_portion', type=float, default=0.5, help='portion of training data')
+        parser.add_argument('--train_portion', type=float, default=1.0, help='portion of training data')
 
         return parser
 
