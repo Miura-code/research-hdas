@@ -63,5 +63,5 @@ class AugmentStageConfig(BaseConfig):
         self.amp_sync_bn = True
         self.amp_opt_level = "O0"
 
-        args.save = '{}/{}-{}'.format(args.path, args.save, time.strftime("%Y%m%d-%H%M%S"))
+        self.path = '{}/{}-{}'.format(self.path, args.save, time.strftime("%Y%m%d-%H%M%S"))
         utils.create_exp_dir(args.save, scripts_to_save=None)
