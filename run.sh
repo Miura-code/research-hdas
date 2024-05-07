@@ -30,7 +30,7 @@ for arch in "${stage_architecture[@]}"; do
     --DAG $arch \
     --train_portion $train_portion \
     --seed $seed
-done
+done | tac
 
 # python searchStage_main.py \
 #     --name macro-cifar10-test \
