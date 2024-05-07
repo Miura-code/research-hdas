@@ -6,6 +6,8 @@
 # This source code is licensed under the LICENSE file in the root directory of this source tree.
 
 import os
+import time
+import utils
 from utils.parser import get_parser, parse_gpus, BaseConfig
 import genotypes.genotypes as gt
 
@@ -42,12 +44,14 @@ class AugmentStageConfig(BaseConfig):
         parser.add_argument('--exclude_bias_and_bn', type=bool, default=True)
 
         parser.add_argument('--train_portion', type=float, default=0.5, help='portion of training data')
+        parser.add_argument('--save', type=str, default='EXP', help='experiment name')
 
         return parser
 
     def __init__(self):
         parser = self.build_parser()
         args = parser.parse_args()
+
         super().__init__(**vars(args))
 
         self.data_path = '../data/'
@@ -58,3 +62,6 @@ class AugmentStageConfig(BaseConfig):
         self.gpus = parse_gpus(self.gpus)
         self.amp_sync_bn = True
         self.amp_opt_level = "O0"
+
+        args.save = '{}/{}-{}'.format(args.path, args.save, time.strftime("%Y%m%d-%H%M%S"))
+        utils.create_exp_dir(args.save, scripts_to_save=None)
