@@ -1,0 +1,48 @@
+05/08 05:36:16PM parser.py:28 [INFO] 
+05/08 05:36:16PM parser.py:29 [INFO] Parameters:
+05/08 05:36:16PM parser.py:31 [INFO] DAG=Genotype2(DAG1=[[('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 1), ('skip_connect', 2)], [('skip_connect', 2), ('skip_connect', 3)], [('skip_connect', 3), ('skip_connect', 4)], [('skip_connect', 4), ('skip_connect', 5)], [('skip_connect', 5), ('skip_connect', 6)]], DAG1_concat=[6, 7], DAG2=[[('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 1), ('skip_connect', 2)], [('skip_connect', 2), ('skip_connect', 3)], [('skip_connect', 3), ('skip_connect', 4)], [('skip_connect', 4), ('skip_connect', 5)], [('skip_connect', 5), ('skip_connect', 6)]], DAG2_concat=[6, 7], DAG3=[[('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 1), ('skip_connect', 2)], [('skip_connect', 2), ('skip_connect', 3)], [('skip_connect', 3), ('skip_connect', 4)], [('skip_connect', 4), ('skip_connect', 5)], [('skip_connect', 5), ('skip_connect', 6)]], DAG3_concat=[6, 7])
+05/08 05:36:16PM parser.py:31 [INFO] AMP_OPT_LEVEL=O0
+05/08 05:36:16PM parser.py:31 [INFO] AMP_SYNC_BN=True
+05/08 05:36:16PM parser.py:31 [INFO] AUX_WEIGHT=0.4
+05/08 05:36:16PM parser.py:31 [INFO] BATCH_SIZE=128
+05/08 05:36:16PM parser.py:31 [INFO] CUTOUT_LENGTH=16
+05/08 05:36:16PM parser.py:31 [INFO] DATA_PATH=../data/
+05/08 05:36:16PM parser.py:31 [INFO] DATASET=cifar10
+05/08 05:36:16PM parser.py:31 [INFO] DIST=False
+05/08 05:36:16PM parser.py:31 [INFO] DROP_PATH_PROB=0.2
+05/08 05:36:16PM parser.py:31 [INFO] EPOCHS=100
+05/08 05:36:16PM parser.py:31 [INFO] EXCLUDE_BIAS_AND_BN=True
+05/08 05:36:16PM parser.py:31 [INFO] GENOTYPE=Genotype(normal=[[('sep_conv_3x3', 1), ('sep_conv_3x3', 0)], [('skip_connect', 0), ('sep_conv_3x3', 1)], [('skip_connect', 0), ('sep_conv_3x3', 1)], [('sep_conv_3x3', 0), ('skip_connect', 2)]], normal_concat=[2, 3, 4, 5], reduce=[[('max_pool_3x3', 0), ('max_pool_3x3', 1)], [('skip_connect', 2), ('max_pool_3x3', 0)], [('max_pool_3x3', 0), ('skip_connect', 2)], [('skip_connect', 2), ('avg_pool_3x3', 0)]], reduce_concat=[2, 3, 4, 5])
+05/08 05:36:16PM parser.py:31 [INFO] GPUS=[0]
+05/08 05:36:16PM parser.py:31 [INFO] GRAD_CLIP=5.0
+05/08 05:36:16PM parser.py:31 [INFO] INIT_CHANNELS=36
+05/08 05:36:16PM parser.py:31 [INFO] LAYERS=20
+05/08 05:36:16PM parser.py:31 [INFO] LOCAL_RANK=0
+05/08 05:36:16PM parser.py:31 [INFO] LOGGER=<Logger H-DAS (INFO)>
+05/08 05:36:16PM parser.py:31 [INFO] LR=0.025
+05/08 05:36:16PM parser.py:31 [INFO] MOMENTUM=0.9
+05/08 05:36:16PM parser.py:31 [INFO] NAME=STAGE_DARTS
+05/08 05:36:16PM parser.py:31 [INFO] PATH=results/augment_Stage/cifar/STAGE_DARTS/eval-20240508-173616
+05/08 05:36:16PM parser.py:31 [INFO] PRINT_FREQ=50
+05/08 05:36:16PM parser.py:31 [INFO] RESUME_PATH=None
+05/08 05:36:16PM parser.py:31 [INFO] SAVE=eval
+05/08 05:36:16PM parser.py:31 [INFO] SEED=2
+05/08 05:36:16PM parser.py:31 [INFO] TRAIN_PORTION=0.5
+05/08 05:36:16PM parser.py:31 [INFO] WEIGHT_DECAY=0.0003
+05/08 05:36:16PM parser.py:31 [INFO] WORKERS=4
+05/08 05:36:16PM parser.py:32 [INFO] 
+05/08 05:36:16PM augmentStage_main.py:41 [INFO] Logger is set - training start
+05/08 05:36:18PM augmentStage_main.py:127 [INFO] Epoch 0 LR 0.024993832004571646
+05/08 05:36:19PM augmentStage_main.py:152 [INFO] Train: [  1/100] Step 000/195 Loss 3.365 Prec@(1,5) (13.3%, 42.2%)
+05/08 05:36:27PM augmentStage_main.py:152 [INFO] Train: [  1/100] Step 050/195 Loss 3.200 Prec@(1,5) (14.9%, 59.2%)
+05/08 05:36:34PM augmentStage_main.py:152 [INFO] Train: [  1/100] Step 100/195 Loss 3.132 Prec@(1,5) (16.8%, 64.5%)
+05/08 05:36:41PM augmentStage_main.py:152 [INFO] Train: [  1/100] Step 150/195 Loss 3.029 Prec@(1,5) (19.3%, 69.7%)
+05/08 05:36:48PM augmentStage_main.py:152 [INFO] Train: [  1/100] Step 195/195 Loss 2.935 Prec@(1,5) (21.7%, 72.9%)
+05/08 05:36:48PM augmentStage_main.py:163 [INFO] Train: [  1/100] Final Prec@1 21.7480%
+05/08 05:36:49PM augmentStage_main.py:189 [INFO] Valid: [  1/100] Step 000/039 Loss 1.893 Prec@(1,5) (31.2%, 86.7%)
+05/08 05:36:50PM augmentStage_main.py:189 [INFO] Valid: [  1/100] Step 039/039 Loss 1.923 Prec@(1,5) (27.6%, 85.7%)
+05/08 05:36:50PM augmentStage_main.py:199 [INFO] Valid: [  1/100] Final Prec@1 27.6000%
+05/08 05:36:51PM augmentStage_main.py:112 [INFO] until now best Prec@1 = 27.6000%
+05/08 05:36:51午後 augmentStage_main.py:127 [INFO] Epoch 1 LR 0.024975334105353394
+05/08 05:36:51午後 augmentStage_main.py:152 [INFO] Train: [  2/100] Step 000/195 Loss 2.460 Prec@(1,5) (34.4%, 85.9%)
+05/08 05:36:59午後 augmentStage_main.py:152 [INFO] Train: [  2/100] Step 050/195 Loss 2.493 Prec@(1,5) (33.2%, 86.3%)

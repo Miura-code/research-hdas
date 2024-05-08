@@ -2,7 +2,8 @@
 
 name=$1
 
-stage_architecture=("HS_DAS_CIFAR" "HS_DAS_CIFAR_SKIP" "STAGE_HSDAS_V1" "STAGE_HSDAS_V2" "STAGE_HSDAS_V3" "STAGE_SHALLOW" "STAGE_MIDDLE" "STAGE_DEEP" "STAGE_DARTS" )
+# stage_architecture=("HS_DAS_CIFAR" "HS_DAS_CIFAR_SKIP" "STAGE_HSDAS_V1" "STAGE_HSDAS_V2" "STAGE_HSDAS_V3" "STAGE_SHALLOW" "STAGE_MIDDLE" "STAGE_DEEP" "STAGE_DARTS" )
+stage_architecture=("STAGE_DARTS" "STAGE_DEEP" "STAGE_MIDDLE" "STAGE_SHALLOW")
 
 batch_size=128
 epoch=100
@@ -20,7 +21,7 @@ seed=0
 #     --train_portion $train_portion \
 #     --seed $seed \
 
-for seed in 1 2; do
+for seed in 2; do
     for arch in "${stage_architecture[@]}"; do
         echo $arch
         python augmentStage_main.py \
@@ -31,7 +32,8 @@ for seed in 1 2; do
         --genotype DARTS_V1 \
         --DAG $arch \
         --train_portion $train_portion \
-        --seed $seed
+        --seed $seed \
+        --save eval
     done
 done
 
@@ -59,13 +61,13 @@ done
 #     --genotype DARTS_V1
 
 ## ステージのテスト
-arch=$1
-path=$2
-python testStage_main.py \
-    --name test \
-    --dataset cifar10 \
-    --batch_size 128 \
-    --genotype DARTS_V1 \
-    --DAG $arch \
-    --seed $seed \
-    --resume_path $path
+# arch=$1
+# path=$2
+# python testStage_main.py \
+#     --name test \
+#     --dataset cifar10 \
+#     --batch_size 128 \
+#     --genotype DARTS_V1 \
+#     --DAG $arch \
+#     --seed $seed \
+#     --resume_path $path
