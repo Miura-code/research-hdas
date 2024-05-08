@@ -8,4 +8,4 @@ plots/
 tb/
 DAG/
 
-history_*.png
+# history_*.png
