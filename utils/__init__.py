@@ -8,8 +8,6 @@ import torchvision.datasets as dset
 import torchvision.transforms as transforms
 import torch.backends.cudnn as cudnn
 
-from ptflops import get_model_complexity_info
-
 def save_checkpoint(state, ckpt_dir, is_best=False):
     filename = os.path.join(ckpt_dir, 'checkpoint.pth.tar')
     torch.save(state, filename)
@@ -21,20 +19,6 @@ def load_checkpoint(model, model_path, device='cuda:0'):
     model = torch.load(model_path, map_location=device)
 #    model.load_state_dict(checkpoint.module, strict=True)
     return model
-
-def count_ModelSize_byptflops(model, inputSize):
-  # SUMMARY = summary(model, inputSize)
-
-  macs, params = get_model_complexity_info(model, inputSize, as_strings=False,
-                                           print_per_layer_stat=True, verbose=False)
-
-  # print(f"TorchInfo summary : \n  {SUMMARY}")
-  # print('{:<30}  {:<8}'.format('Computational complexity: ', macs))
-  # print('{:<30}  {:<8}'.format('Number of parameters: ', params))
-  return macs, params
-
-def count_parameters_in_MB(model):
-  return np.sum(np.prod(v.size()) for name, v in model.named_parameters() if "auxiliary" not in name)/1e6
 
 def set_seed_gpu(seed, gpu):
   random.seed(seed)
