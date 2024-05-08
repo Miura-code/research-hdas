@@ -44,11 +44,7 @@ def main():
     torch.cuda.set_device(config.gpus[0])
 
     # set seed
-    np.random.seed(config.seed)
-    torch.manual_seed(config.seed)
-    torch.cuda.manual_seed_all(config.seed)
-
-    torch.backends.cudnn.benchmark = True
+    utils.set_seed_gpu(config.seed, config.gpus[0])
 
     # get data with meta info
     input_size, input_channels, n_classes, train_data, valid_data = get_data(
