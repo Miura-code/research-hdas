@@ -31,7 +31,8 @@ for seed in 1 2; do
         --genotype DARTS_V1 \
         --DAG $arch \
         --train_portion $train_portion \
-        --seed $seed
+        --seed $seed \
+        --save eval
     done
 done
 
