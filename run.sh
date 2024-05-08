@@ -2,7 +2,8 @@
 
 name=$1
 
-stage_architecture=("HS_DAS_CIFAR" "HS_DAS_CIFAR_SKIP" "STAGE_HSDAS_V1" "STAGE_HSDAS_V2" "STAGE_HSDAS_V3" "STAGE_SHALLOW" "STAGE_MIDDLE" "STAGE_DEEP" "STAGE_DARTS" )
+# stage_architecture=("HS_DAS_CIFAR" "HS_DAS_CIFAR_SKIP" "STAGE_HSDAS_V1" "STAGE_HSDAS_V2" "STAGE_HSDAS_V3" "STAGE_SHALLOW" "STAGE_MIDDLE" "STAGE_DEEP" "STAGE_DARTS" )
+stage_architecture=("STAGE_DARTS" "STAGE_DEEP" "STAGE_MIDDLE" "STAGE_SHALLOW")
 
 batch_size=128
 epoch=100
@@ -61,6 +62,7 @@ seed=0
 ## ステージのテスト
 # arch=$1
 # seed=0
+
 # path=$2
 # python testStage_main.py \
 #     --name test \
