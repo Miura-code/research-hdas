@@ -3,7 +3,7 @@ import time
 
 from ptflops import get_model_complexity_info
 
-class Caluculate_time():
+class TimeKeeper():
     def __init__(self):
         self.start = time.time()
     def end(self):
