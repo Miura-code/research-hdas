@@ -18,8 +18,10 @@ from tqdm import tqdm
 from utils.data_util import get_data
 from utils.logging_util import get_std_logging
 from utils.eval_util import AverageMeter, accuracy
+from utils.measurement_utils import TimeKeeper
 from models.augment_stage import AugmentStage
 from config.testStage_config import TestStageConfig
+import utils.measurement_utils
 
 
 config = TestStageConfig()
@@ -51,6 +53,9 @@ def main():
     logger.info(f"--> Loaded checkpoint '{config.resume_path}'")
     logger.info("param size = %fMB", utils.count_parameters_in_MB(model))
 
+    mac, params = utils.measurement_utils.count_ModelSize_byptflops(model, (3,32,32))
+    logger.info("param size = {}MB, mac = {}".format(params, mac))
+
     # データ数を減らす
     n_val = len(valid_data)
     split = int(np.floor(config.train_portion * n_val))
@@ -61,9 +66,13 @@ def main():
                                                sampler=test_sampler,
                                                num_workers=config.workers,
                                                pin_memory=True)
-    
+    time_keeper = TimeKeeper()
     test_top1, test_top5 = validate(test_loader, model, criterion)
+    time_keeper.end()
+    start, end, diff = time_keeper.print_info()
+
     logger.info("Test Prec(@1, @5) = ({:.4%}, {:.4%})".format(test_top1, test_top5))
+    logger.info("Time to Test = ({}, {}, {})".format(start, end, diff))
 
 def validate(valid_loader, model, criterion):
     top1 = AverageMeter()
