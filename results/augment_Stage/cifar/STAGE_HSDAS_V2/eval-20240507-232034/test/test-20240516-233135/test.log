@@ -1,0 +1,35 @@
+05/16 11:31:35PM parser.py:28 [INFO] 
+05/16 11:31:35PM parser.py:29 [INFO] Parameters:
+05/16 11:31:35PM parser.py:31 [INFO] DAG=Genotype2(DAG1=[[('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 1), ('skip_connect', 2)], [('skip_connect', 2), ('skip_connect', 3)], [('skip_connect', 3), ('skip_connect', 5)], [('skip_connect', 4), ('skip_connect', 6)]], DAG1_concat=[6, 7], DAG2=[[('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 1), ('skip_connect', 2)], [('skip_connect', 2), ('skip_connect', 3)], [('skip_connect', 3), ('skip_connect', 5)], [('skip_connect', 4), ('skip_connect', 6)]], DAG2_concat=[6, 7], DAG3=[[('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 1), ('skip_connect', 2)], [('skip_connect', 2), ('skip_connect', 3)], [('skip_connect', 3), ('skip_connect', 5)], [('skip_connect', 4), ('skip_connect', 6)]], DAG3_concat=[6, 7])
+05/16 11:31:35PM parser.py:31 [INFO] AMP_OPT_LEVEL=O0
+05/16 11:31:35PM parser.py:31 [INFO] AMP_SYNC_BN=True
+05/16 11:31:35PM parser.py:31 [INFO] AUX_WEIGHT=0.0
+05/16 11:31:35PM parser.py:31 [INFO] BATCH_SIZE=128
+05/16 11:31:35PM parser.py:31 [INFO] CUTOUT_LENGTH=16
+05/16 11:31:35PM parser.py:31 [INFO] DATA_PATH=../data/
+05/16 11:31:35PM parser.py:31 [INFO] DATASET=cifar10
+05/16 11:31:35PM parser.py:31 [INFO] DIST=False
+05/16 11:31:35PM parser.py:31 [INFO] EXCLUDE_BIAS_AND_BN=True
+05/16 11:31:35PM parser.py:31 [INFO] GENOTYPE=Genotype(normal=[[('sep_conv_3x3', 1), ('sep_conv_3x3', 0)], [('skip_connect', 0), ('sep_conv_3x3', 1)], [('skip_connect', 0), ('sep_conv_3x3', 1)], [('sep_conv_3x3', 0), ('skip_connect', 2)]], normal_concat=[2, 3, 4, 5], reduce=[[('max_pool_3x3', 0), ('max_pool_3x3', 1)], [('skip_connect', 2), ('max_pool_3x3', 0)], [('max_pool_3x3', 0), ('skip_connect', 2)], [('skip_connect', 2), ('avg_pool_3x3', 0)]], reduce_concat=[2, 3, 4, 5])
+05/16 11:31:35PM parser.py:31 [INFO] GPUS=[0]
+05/16 11:31:35PM parser.py:31 [INFO] INIT_CHANNELS=36
+05/16 11:31:35PM parser.py:31 [INFO] LAYERS=20
+05/16 11:31:35PM parser.py:31 [INFO] LOCAL_RANK=0
+05/16 11:31:35PM parser.py:31 [INFO] LOGGER=<Logger H-DAS (INFO)>
+05/16 11:31:35PM parser.py:31 [INFO] NAME=test
+05/16 11:31:35PM parser.py:31 [INFO] PATH=/home/miura/lab/research-hdas/results/augment_Stage/cifar/STAGE_HSDAS_V2/eval-20240507-232034/test/test-20240516-233135
+05/16 11:31:35PM parser.py:31 [INFO] PRINT_FREQ=50
+05/16 11:31:35PM parser.py:31 [INFO] RESUME_PATH=/home/miura/lab/research-hdas/results/augment_Stage/cifar/STAGE_HSDAS_V2/eval-20240507-232034/best.pth.tar
+05/16 11:31:35PM parser.py:31 [INFO] SEED=0
+05/16 11:31:35PM parser.py:31 [INFO] TRAIN_PORTION=1.0
+05/16 11:31:35PM parser.py:31 [INFO] WORKERS=4
+05/16 11:31:35PM parser.py:32 [INFO] 
+05/16 11:31:35PM testStage_main.py:37 [INFO] Logger is set - test start
+05/16 11:31:36PM testStage_main.py:53 [INFO] --> Loaded checkpoint '/home/miura/lab/research-hdas/results/augment_Stage/cifar/STAGE_HSDAS_V2/eval-20240507-232034/best.pth.tar'
+05/16 11:31:36PM testStage_main.py:54 [INFO] param size = 4.689156MB
+05/16 11:31:37PM testStage_main.py:57 [INFO] param size = 4.69 MMB, mac = 2.9 GMac
+05/16 11:31:37PM testStage_main.py:98 [INFO] Test: Step 000/078 Prec@(1,5) (93.0%, 100.0%)
+05/16 11:31:42PM testStage_main.py:98 [INFO] Test: Step 050/078 Prec@(1,5) (93.0%, 99.8%)
+05/16 11:31:44PM testStage_main.py:98 [INFO] Test: Step 078/078 Prec@(1,5) (93.1%, 99.8%)
+05/16 11:31:44PM testStage_main.py:74 [INFO] Test Prec(@1, @5) = (93.1100%, 99.7700%)
+05/16 11:31:44PM testStage_main.py:75 [INFO] Time to Test = (1715869897.093407, 1715869904.693912, 7.600505113601685)
