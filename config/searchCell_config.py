@@ -7,7 +7,7 @@
 
 import os
 from utils.parser import get_parser, parse_gpus, BaseConfig
-import genotypes as gt
+import genotypes.genotypes as gt
 
 
 class SearchCellConfig(BaseConfig):
@@ -38,6 +38,9 @@ class SearchCellConfig(BaseConfig):
         parser.add_argument('--local_rank', default=0)
         parser.add_argument('--resume_path', type=str, default=None)
 
+        parser.add_argument('--train_portion', type=float, default=0.5, help='portion of training data')
+
+
         return parser
     
     def __init__(self):
@@ -45,7 +48,7 @@ class SearchCellConfig(BaseConfig):
         args = parser.parse_args()
         super().__init__(**vars(args))
 
-        self.data_path = './data/'
+        self.data_path = '../data/'
         self.path = os.path.join('results/search_cell_HcDAS/cifar/', self.name)
         self.plot_path = os.path.join(self.path, 'plots')
         self.gpus = parse_gpus(self.gpus)

@@ -14,7 +14,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.nn.parallel._functions import Broadcast
 
-import genotypes as gt
+import genotypes.genotypes as gt
 from models.search_bigDAG import SearchBigDAG, SearchBigDAG_CS
 
 
@@ -115,6 +115,7 @@ class SearchStageController(nn.Module):
         self.alpha_DAG = nn.ParameterList()
 
         # 3 stages
+        # initialize architecture parameter(alpha)
         for _ in range(3):
             for i in range(self.n_big_nodes):
                 # sliding window

@@ -8,7 +8,7 @@
 import torch
 import torch.nn as nn
 from models import ops
-import genotypes as gt
+import genotypes.genotypes as gt
 
 
 class GetCell(nn.Module):
@@ -16,6 +16,10 @@ class GetCell(nn.Module):
         super().__init__()
         self.reduction = reduction
         self.n_nodes = len(genotype.normal)
+        
+        self.C_pp = C_pp
+        self.C_p = C_p
+        self.C = C
 
         self.preproc0 = ops.StdConv(C_pp, C, 1, 1, 0)
         self.preproc1 = ops.StdConv(C_p, C, 1, 1, 0)
@@ -28,6 +32,7 @@ class GetCell(nn.Module):
             self.concat = genotype.normal_concat
         
         self.dag = gt.to_dag(C, gene, reduction)
+        self.multiplier = len(self.concat)
 
     def forward(self, s0, s1):
         s0 = self.preproc0(s0)

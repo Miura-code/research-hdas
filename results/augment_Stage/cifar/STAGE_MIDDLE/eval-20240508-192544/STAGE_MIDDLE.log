@@ -1,0 +1,1135 @@
+05/08 07:25:44PM parser.py:28 [INFO] 
+05/08 07:25:44PM parser.py:29 [INFO] Parameters:
+05/08 07:25:44PM parser.py:31 [INFO] DAG=Genotype2(DAG1=[[('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 1), ('skip_connect', 3)], [('skip_connect', 2), ('skip_connect', 3)], [('skip_connect', 3), ('skip_connect', 4)], [('skip_connect', 4), ('skip_connect', 5)]], DAG1_concat=[6, 7], DAG2=[[('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 1), ('skip_connect', 3)], [('skip_connect', 2), ('skip_connect', 3)], [('skip_connect', 3), ('skip_connect', 4)], [('skip_connect', 4), ('skip_connect', 5)]], DAG2_concat=[6, 7], DAG3=[[('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 0), ('skip_connect', 1)], [('skip_connect', 1), ('skip_connect', 3)], [('skip_connect', 2), ('skip_connect', 3)], [('skip_connect', 3), ('skip_connect', 4)], [('skip_connect', 4), ('skip_connect', 5)]], DAG3_concat=[6, 7])
+05/08 07:25:44PM parser.py:31 [INFO] AMP_OPT_LEVEL=O0
+05/08 07:25:44PM parser.py:31 [INFO] AMP_SYNC_BN=True
+05/08 07:25:44PM parser.py:31 [INFO] AUX_WEIGHT=0.4
+05/08 07:25:44PM parser.py:31 [INFO] BATCH_SIZE=128
+05/08 07:25:44PM parser.py:31 [INFO] CUTOUT_LENGTH=16
+05/08 07:25:44PM parser.py:31 [INFO] DATA_PATH=../data/
+05/08 07:25:44PM parser.py:31 [INFO] DATASET=cifar10
+05/08 07:25:44PM parser.py:31 [INFO] DIST=False
+05/08 07:25:44PM parser.py:31 [INFO] DROP_PATH_PROB=0.2
+05/08 07:25:44PM parser.py:31 [INFO] EPOCHS=100
+05/08 07:25:44PM parser.py:31 [INFO] EXCLUDE_BIAS_AND_BN=True
+05/08 07:25:44PM parser.py:31 [INFO] GENOTYPE=Genotype(normal=[[('sep_conv_3x3', 1), ('sep_conv_3x3', 0)], [('skip_connect', 0), ('sep_conv_3x3', 1)], [('skip_connect', 0), ('sep_conv_3x3', 1)], [('sep_conv_3x3', 0), ('skip_connect', 2)]], normal_concat=[2, 3, 4, 5], reduce=[[('max_pool_3x3', 0), ('max_pool_3x3', 1)], [('skip_connect', 2), ('max_pool_3x3', 0)], [('max_pool_3x3', 0), ('skip_connect', 2)], [('skip_connect', 2), ('avg_pool_3x3', 0)]], reduce_concat=[2, 3, 4, 5])
+05/08 07:25:44PM parser.py:31 [INFO] GPUS=[0]
+05/08 07:25:44PM parser.py:31 [INFO] GRAD_CLIP=5.0
+05/08 07:25:44PM parser.py:31 [INFO] INIT_CHANNELS=36
+05/08 07:25:44PM parser.py:31 [INFO] LAYERS=20
+05/08 07:25:44PM parser.py:31 [INFO] LOCAL_RANK=0
+05/08 07:25:44PM parser.py:31 [INFO] LOGGER=<Logger H-DAS (INFO)>
+05/08 07:25:44PM parser.py:31 [INFO] LR=0.025
+05/08 07:25:44PM parser.py:31 [INFO] MOMENTUM=0.9
+05/08 07:25:44PM parser.py:31 [INFO] NAME=STAGE_MIDDLE
+05/08 07:25:44PM parser.py:31 [INFO] PATH=results/augment_Stage/cifar/STAGE_MIDDLE/eval-20240508-192544
+05/08 07:25:44PM parser.py:31 [INFO] PRINT_FREQ=50
+05/08 07:25:44PM parser.py:31 [INFO] RESUME_PATH=None
+05/08 07:25:44PM parser.py:31 [INFO] SAVE=eval
+05/08 07:25:44PM parser.py:31 [INFO] SEED=2
+05/08 07:25:44PM parser.py:31 [INFO] TRAIN_PORTION=0.5
+05/08 07:25:44PM parser.py:31 [INFO] WEIGHT_DECAY=0.0003
+05/08 07:25:44PM parser.py:31 [INFO] WORKERS=4
+05/08 07:25:44PM parser.py:32 [INFO] 
+05/08 07:25:44PM augmentStage_main.py:41 [INFO] Logger is set - training start
+05/08 07:25:46PM augmentStage_main.py:127 [INFO] Epoch 0 LR 0.024993832004571646
+05/08 07:25:47PM augmentStage_main.py:152 [INFO] Train: [  1/100] Step 000/195 Loss 3.318 Prec@(1,5) (9.4%, 44.5%)
+05/08 07:25:54PM augmentStage_main.py:152 [INFO] Train: [  1/100] Step 050/195 Loss 2.997 Prec@(1,5) (19.5%, 70.2%)
+05/08 07:26:02PM augmentStage_main.py:152 [INFO] Train: [  1/100] Step 100/195 Loss 2.819 Prec@(1,5) (24.3%, 76.9%)
+05/08 07:26:09PM augmentStage_main.py:152 [INFO] Train: [  1/100] Step 150/195 Loss 2.689 Prec@(1,5) (28.4%, 80.3%)
+05/08 07:26:16PM augmentStage_main.py:152 [INFO] Train: [  1/100] Step 195/195 Loss 2.601 Prec@(1,5) (30.8%, 82.3%)
+05/08 07:26:16PM augmentStage_main.py:163 [INFO] Train: [  1/100] Final Prec@1 30.7800%
+05/08 07:26:16PM augmentStage_main.py:189 [INFO] Valid: [  1/100] Step 000/039 Loss 1.418 Prec@(1,5) (50.8%, 94.5%)
+05/08 07:26:18PM augmentStage_main.py:189 [INFO] Valid: [  1/100] Step 039/039 Loss 1.518 Prec@(1,5) (44.8%, 92.0%)
+05/08 07:26:18PM augmentStage_main.py:199 [INFO] Valid: [  1/100] Final Prec@1 44.8400%
+05/08 07:26:18PM augmentStage_main.py:112 [INFO] until now best Prec@1 = 44.8400%
+05/08 07:26:19午後 augmentStage_main.py:127 [INFO] Epoch 1 LR 0.024975334105353394
+05/08 07:26:19午後 augmentStage_main.py:152 [INFO] Train: [  2/100] Step 000/195 Loss 2.032 Prec@(1,5) (51.6%, 91.4%)
+05/08 07:26:27午後 augmentStage_main.py:152 [INFO] Train: [  2/100] Step 050/195 Loss 2.136 Prec@(1,5) (44.4%, 91.5%)
+05/08 07:26:34午後 augmentStage_main.py:152 [INFO] Train: [  2/100] Step 100/195 Loss 2.088 Prec@(1,5) (45.7%, 91.9%)
+05/08 07:26:42午後 augmentStage_main.py:152 [INFO] Train: [  2/100] Step 150/195 Loss 2.036 Prec@(1,5) (47.3%, 92.3%)
+05/08 07:26:49午後 augmentStage_main.py:152 [INFO] Train: [  2/100] Step 195/195 Loss 1.999 Prec@(1,5) (48.2%, 92.6%)
+05/08 07:26:49午後 augmentStage_main.py:163 [INFO] Train: [  2/100] Final Prec@1 48.2200%
+05/08 07:26:49午後 augmentStage_main.py:189 [INFO] Valid: [  2/100] Step 000/039 Loss 1.737 Prec@(1,5) (46.9%, 92.2%)
+05/08 07:26:51午後 augmentStage_main.py:189 [INFO] Valid: [  2/100] Step 039/039 Loss 1.757 Prec@(1,5) (46.5%, 92.3%)
+05/08 07:26:51午後 augmentStage_main.py:199 [INFO] Valid: [  2/100] Final Prec@1 46.4600%
+05/08 07:26:51午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 46.4600%
+05/08 07:26:51午後 augmentStage_main.py:127 [INFO] Epoch 2 LR 0.0249445245575385
+05/08 07:26:52午後 augmentStage_main.py:152 [INFO] Train: [  3/100] Step 000/195 Loss 1.852 Prec@(1,5) (57.8%, 94.5%)
+05/08 07:27:00午後 augmentStage_main.py:152 [INFO] Train: [  3/100] Step 050/195 Loss 1.809 Prec@(1,5) (54.2%, 93.8%)
+05/08 07:27:07午後 augmentStage_main.py:152 [INFO] Train: [  3/100] Step 100/195 Loss 1.785 Prec@(1,5) (54.6%, 94.1%)
+05/08 07:27:15午後 augmentStage_main.py:152 [INFO] Train: [  3/100] Step 150/195 Loss 1.762 Prec@(1,5) (55.3%, 94.3%)
+05/08 07:27:22午後 augmentStage_main.py:152 [INFO] Train: [  3/100] Step 195/195 Loss 1.727 Prec@(1,5) (56.4%, 94.5%)
+05/08 07:27:22午後 augmentStage_main.py:163 [INFO] Train: [  3/100] Final Prec@1 56.3560%
+05/08 07:27:22午後 augmentStage_main.py:189 [INFO] Valid: [  3/100] Step 000/039 Loss 0.949 Prec@(1,5) (67.2%, 96.1%)
+05/08 07:27:23午後 augmentStage_main.py:189 [INFO] Valid: [  3/100] Step 039/039 Loss 1.166 Prec@(1,5) (60.1%, 95.5%)
+05/08 07:27:23午後 augmentStage_main.py:199 [INFO] Valid: [  3/100] Final Prec@1 60.1000%
+05/08 07:27:24午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 60.1000%
+05/08 07:27:24午後 augmentStage_main.py:127 [INFO] Epoch 3 LR 0.024901433766430975
+05/08 07:27:24午後 augmentStage_main.py:152 [INFO] Train: [  4/100] Step 000/195 Loss 1.717 Prec@(1,5) (54.7%, 96.1%)
+05/08 07:27:32午後 augmentStage_main.py:152 [INFO] Train: [  4/100] Step 050/195 Loss 1.569 Prec@(1,5) (60.2%, 95.7%)
+05/08 07:27:40午後 augmentStage_main.py:152 [INFO] Train: [  4/100] Step 100/195 Loss 1.545 Prec@(1,5) (61.2%, 95.8%)
+05/08 07:27:47午後 augmentStage_main.py:152 [INFO] Train: [  4/100] Step 150/195 Loss 1.531 Prec@(1,5) (61.5%, 95.9%)
+05/08 07:27:54午後 augmentStage_main.py:152 [INFO] Train: [  4/100] Step 195/195 Loss 1.513 Prec@(1,5) (61.9%, 96.0%)
+05/08 07:27:54午後 augmentStage_main.py:163 [INFO] Train: [  4/100] Final Prec@1 61.9160%
+05/08 07:27:54午後 augmentStage_main.py:189 [INFO] Valid: [  4/100] Step 000/039 Loss 0.854 Prec@(1,5) (69.5%, 98.4%)
+05/08 07:27:56午後 augmentStage_main.py:189 [INFO] Valid: [  4/100] Step 039/039 Loss 1.015 Prec@(1,5) (64.7%, 96.8%)
+05/08 07:27:56午後 augmentStage_main.py:199 [INFO] Valid: [  4/100] Final Prec@1 64.6600%
+05/08 07:27:56午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 64.6600%
+05/08 07:27:56午後 augmentStage_main.py:127 [INFO] Epoch 4 LR 0.02484610425743922
+05/08 07:27:57午後 augmentStage_main.py:152 [INFO] Train: [  5/100] Step 000/195 Loss 1.432 Prec@(1,5) (66.4%, 94.5%)
+05/08 07:28:04午後 augmentStage_main.py:152 [INFO] Train: [  5/100] Step 050/195 Loss 1.417 Prec@(1,5) (65.0%, 96.8%)
+05/08 07:28:12午後 augmentStage_main.py:152 [INFO] Train: [  5/100] Step 100/195 Loss 1.405 Prec@(1,5) (65.2%, 96.7%)
+05/08 07:28:20午後 augmentStage_main.py:152 [INFO] Train: [  5/100] Step 150/195 Loss 1.382 Prec@(1,5) (65.7%, 96.8%)
+05/08 07:28:27午後 augmentStage_main.py:152 [INFO] Train: [  5/100] Step 195/195 Loss 1.369 Prec@(1,5) (66.0%, 96.9%)
+05/08 07:28:27午後 augmentStage_main.py:163 [INFO] Train: [  5/100] Final Prec@1 66.0240%
+05/08 07:28:27午後 augmentStage_main.py:189 [INFO] Valid: [  5/100] Step 000/039 Loss 0.651 Prec@(1,5) (82.0%, 98.4%)
+05/08 07:28:29午後 augmentStage_main.py:189 [INFO] Valid: [  5/100] Step 039/039 Loss 0.852 Prec@(1,5) (71.1%, 97.6%)
+05/08 07:28:29午後 augmentStage_main.py:199 [INFO] Valid: [  5/100] Final Prec@1 71.1400%
+05/08 07:28:29午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 71.1400%
+05/08 07:28:29午後 augmentStage_main.py:127 [INFO] Epoch 5 LR 0.02477859063410861
+05/08 07:28:29午後 augmentStage_main.py:152 [INFO] Train: [  6/100] Step 000/195 Loss 1.229 Prec@(1,5) (70.3%, 95.3%)
+05/08 07:28:37午後 augmentStage_main.py:152 [INFO] Train: [  6/100] Step 050/195 Loss 1.296 Prec@(1,5) (68.2%, 97.4%)
+05/08 07:28:45午後 augmentStage_main.py:152 [INFO] Train: [  6/100] Step 100/195 Loss 1.271 Prec@(1,5) (68.8%, 97.4%)
+05/08 07:28:52午後 augmentStage_main.py:152 [INFO] Train: [  6/100] Step 150/195 Loss 1.262 Prec@(1,5) (68.8%, 97.4%)
+05/08 07:28:59午後 augmentStage_main.py:152 [INFO] Train: [  6/100] Step 195/195 Loss 1.247 Prec@(1,5) (69.3%, 97.5%)
+05/08 07:28:59午後 augmentStage_main.py:163 [INFO] Train: [  6/100] Final Prec@1 69.2920%
+05/08 07:29:00午後 augmentStage_main.py:189 [INFO] Valid: [  6/100] Step 000/039 Loss 0.807 Prec@(1,5) (71.9%, 97.7%)
+05/08 07:29:01午後 augmentStage_main.py:189 [INFO] Valid: [  6/100] Step 039/039 Loss 0.824 Prec@(1,5) (72.0%, 97.8%)
+05/08 07:29:01午後 augmentStage_main.py:199 [INFO] Valid: [  6/100] Final Prec@1 71.9800%
+05/08 07:29:01午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 71.9800%
+05/08 07:29:02午後 augmentStage_main.py:127 [INFO] Epoch 6 LR 0.024698959524234343
+05/08 07:29:02午後 augmentStage_main.py:152 [INFO] Train: [  7/100] Step 000/195 Loss 1.144 Prec@(1,5) (72.7%, 96.1%)
+05/08 07:29:10午後 augmentStage_main.py:152 [INFO] Train: [  7/100] Step 050/195 Loss 1.148 Prec@(1,5) (71.8%, 98.1%)
+05/08 07:29:17午後 augmentStage_main.py:152 [INFO] Train: [  7/100] Step 100/195 Loss 1.152 Prec@(1,5) (71.6%, 98.2%)
+05/08 07:29:25午後 augmentStage_main.py:152 [INFO] Train: [  7/100] Step 150/195 Loss 1.154 Prec@(1,5) (71.6%, 98.1%)
+05/08 07:29:32午後 augmentStage_main.py:152 [INFO] Train: [  7/100] Step 195/195 Loss 1.151 Prec@(1,5) (71.8%, 98.1%)
+05/08 07:29:32午後 augmentStage_main.py:163 [INFO] Train: [  7/100] Final Prec@1 71.7640%
+05/08 07:29:32午後 augmentStage_main.py:189 [INFO] Valid: [  7/100] Step 000/039 Loss 0.839 Prec@(1,5) (73.4%, 97.7%)
+05/08 07:29:34午後 augmentStage_main.py:189 [INFO] Valid: [  7/100] Step 039/039 Loss 0.748 Prec@(1,5) (74.4%, 98.5%)
+05/08 07:29:34午後 augmentStage_main.py:199 [INFO] Valid: [  7/100] Final Prec@1 74.4200%
+05/08 07:29:34午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 74.4200%
+05/08 07:29:34午後 augmentStage_main.py:127 [INFO] Epoch 7 LR 0.02460728951410789
+05/08 07:29:35午後 augmentStage_main.py:152 [INFO] Train: [  8/100] Step 000/195 Loss 1.071 Prec@(1,5) (73.4%, 98.4%)
+05/08 07:29:42午後 augmentStage_main.py:152 [INFO] Train: [  8/100] Step 050/195 Loss 1.099 Prec@(1,5) (73.0%, 98.0%)
+05/08 07:29:50午後 augmentStage_main.py:152 [INFO] Train: [  8/100] Step 100/195 Loss 1.081 Prec@(1,5) (73.8%, 98.1%)
+05/08 07:29:57午後 augmentStage_main.py:152 [INFO] Train: [  8/100] Step 150/195 Loss 1.069 Prec@(1,5) (74.0%, 98.2%)
+05/08 07:30:04午後 augmentStage_main.py:152 [INFO] Train: [  8/100] Step 195/195 Loss 1.074 Prec@(1,5) (74.1%, 98.1%)
+05/08 07:30:04午後 augmentStage_main.py:163 [INFO] Train: [  8/100] Final Prec@1 74.0680%
+05/08 07:30:05午後 augmentStage_main.py:189 [INFO] Valid: [  8/100] Step 000/039 Loss 0.725 Prec@(1,5) (75.8%, 99.2%)
+05/08 07:30:06午後 augmentStage_main.py:189 [INFO] Valid: [  8/100] Step 039/039 Loss 0.761 Prec@(1,5) (75.0%, 98.3%)
+05/08 07:30:06午後 augmentStage_main.py:199 [INFO] Valid: [  8/100] Final Prec@1 75.0000%
+05/08 07:30:07午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 75.0000%
+05/08 07:30:07午後 augmentStage_main.py:127 [INFO] Epoch 8 LR 0.02450367107096179
+05/08 07:30:07午後 augmentStage_main.py:152 [INFO] Train: [  9/100] Step 000/195 Loss 0.988 Prec@(1,5) (75.8%, 98.4%)
+05/08 07:30:15午後 augmentStage_main.py:152 [INFO] Train: [  9/100] Step 050/195 Loss 1.035 Prec@(1,5) (74.6%, 98.6%)
+05/08 07:30:22午後 augmentStage_main.py:152 [INFO] Train: [  9/100] Step 100/195 Loss 1.028 Prec@(1,5) (74.5%, 98.5%)
+05/08 07:30:30午後 augmentStage_main.py:152 [INFO] Train: [  9/100] Step 150/195 Loss 1.031 Prec@(1,5) (74.7%, 98.4%)
+05/08 07:30:37午後 augmentStage_main.py:152 [INFO] Train: [  9/100] Step 195/195 Loss 1.029 Prec@(1,5) (74.9%, 98.4%)
+05/08 07:30:37午後 augmentStage_main.py:163 [INFO] Train: [  9/100] Final Prec@1 74.9360%
+05/08 07:30:37午後 augmentStage_main.py:189 [INFO] Valid: [  9/100] Step 000/039 Loss 0.606 Prec@(1,5) (78.9%, 99.2%)
+05/08 07:30:39午後 augmentStage_main.py:189 [INFO] Valid: [  9/100] Step 039/039 Loss 0.648 Prec@(1,5) (77.8%, 98.8%)
+05/08 07:30:39午後 augmentStage_main.py:199 [INFO] Valid: [  9/100] Final Prec@1 77.7600%
+05/08 07:30:39午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 77.7600%
+05/08 07:30:39午後 augmentStage_main.py:127 [INFO] Epoch 9 LR 0.024388206453689422
+05/08 07:30:40午後 augmentStage_main.py:152 [INFO] Train: [ 10/100] Step 000/195 Loss 0.991 Prec@(1,5) (71.9%, 100.0%)
+05/08 07:30:47午後 augmentStage_main.py:152 [INFO] Train: [ 10/100] Step 050/195 Loss 0.983 Prec@(1,5) (76.4%, 98.7%)
+05/08 07:30:55午後 augmentStage_main.py:152 [INFO] Train: [ 10/100] Step 100/195 Loss 0.984 Prec@(1,5) (76.4%, 98.6%)
+05/08 07:31:03午後 augmentStage_main.py:152 [INFO] Train: [ 10/100] Step 150/195 Loss 0.977 Prec@(1,5) (76.4%, 98.6%)
+05/08 07:31:09午後 augmentStage_main.py:152 [INFO] Train: [ 10/100] Step 195/195 Loss 0.966 Prec@(1,5) (76.6%, 98.7%)
+05/08 07:31:09午後 augmentStage_main.py:163 [INFO] Train: [ 10/100] Final Prec@1 76.6280%
+05/08 07:31:10午後 augmentStage_main.py:189 [INFO] Valid: [ 10/100] Step 000/039 Loss 0.796 Prec@(1,5) (77.3%, 95.3%)
+05/08 07:31:11午後 augmentStage_main.py:189 [INFO] Valid: [ 10/100] Step 039/039 Loss 0.738 Prec@(1,5) (76.6%, 97.9%)
+05/08 07:31:11午後 augmentStage_main.py:199 [INFO] Valid: [ 10/100] Final Prec@1 76.6400%
+05/08 07:31:11午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 77.7600%
+05/08 07:31:12午後 augmentStage_main.py:127 [INFO] Epoch 10 LR 0.02426100961192782
+05/08 07:31:12午後 augmentStage_main.py:152 [INFO] Train: [ 11/100] Step 000/195 Loss 0.891 Prec@(1,5) (74.2%, 99.2%)
+05/08 07:31:20午後 augmentStage_main.py:152 [INFO] Train: [ 11/100] Step 050/195 Loss 0.947 Prec@(1,5) (76.6%, 98.5%)
+05/08 07:31:27午後 augmentStage_main.py:152 [INFO] Train: [ 11/100] Step 100/195 Loss 0.928 Prec@(1,5) (77.6%, 98.6%)
+05/08 07:31:35午後 augmentStage_main.py:152 [INFO] Train: [ 11/100] Step 150/195 Loss 0.923 Prec@(1,5) (77.7%, 98.7%)
+05/08 07:31:42午後 augmentStage_main.py:152 [INFO] Train: [ 11/100] Step 195/195 Loss 0.925 Prec@(1,5) (77.8%, 98.7%)
+05/08 07:31:42午後 augmentStage_main.py:163 [INFO] Train: [ 11/100] Final Prec@1 77.7720%
+05/08 07:31:42午後 augmentStage_main.py:189 [INFO] Valid: [ 11/100] Step 000/039 Loss 0.685 Prec@(1,5) (83.6%, 98.4%)
+05/08 07:31:44午後 augmentStage_main.py:189 [INFO] Valid: [ 11/100] Step 039/039 Loss 0.642 Prec@(1,5) (78.8%, 98.8%)
+05/08 07:31:44午後 augmentStage_main.py:199 [INFO] Valid: [ 11/100] Final Prec@1 78.8400%
+05/08 07:31:44午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 78.8400%
+05/08 07:31:44午後 augmentStage_main.py:127 [INFO] Epoch 11 LR 0.024122206073603145
+05/08 07:31:45午後 augmentStage_main.py:152 [INFO] Train: [ 12/100] Step 000/195 Loss 0.948 Prec@(1,5) (78.1%, 97.7%)
+05/08 07:31:53午後 augmentStage_main.py:152 [INFO] Train: [ 12/100] Step 050/195 Loss 0.897 Prec@(1,5) (78.2%, 98.7%)
+05/08 07:32:00午後 augmentStage_main.py:152 [INFO] Train: [ 12/100] Step 100/195 Loss 0.878 Prec@(1,5) (79.0%, 98.9%)
+05/08 07:32:08午後 augmentStage_main.py:152 [INFO] Train: [ 12/100] Step 150/195 Loss 0.881 Prec@(1,5) (78.9%, 98.8%)
+05/08 07:32:15午後 augmentStage_main.py:152 [INFO] Train: [ 12/100] Step 195/195 Loss 0.881 Prec@(1,5) (78.9%, 98.8%)
+05/08 07:32:15午後 augmentStage_main.py:163 [INFO] Train: [ 12/100] Final Prec@1 78.9480%
+05/08 07:32:15午後 augmentStage_main.py:189 [INFO] Valid: [ 12/100] Step 000/039 Loss 0.466 Prec@(1,5) (84.4%, 100.0%)
+05/08 07:32:17午後 augmentStage_main.py:189 [INFO] Valid: [ 12/100] Step 039/039 Loss 0.595 Prec@(1,5) (80.6%, 98.9%)
+05/08 07:32:17午後 augmentStage_main.py:199 [INFO] Valid: [ 12/100] Final Prec@1 80.6200%
+05/08 07:32:17午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 80.6200%
+05/08 07:32:17午後 augmentStage_main.py:127 [INFO] Epoch 12 LR 0.023971932821049764
+05/08 07:32:18午後 augmentStage_main.py:152 [INFO] Train: [ 13/100] Step 000/195 Loss 0.850 Prec@(1,5) (82.0%, 98.4%)
+05/08 07:32:25午後 augmentStage_main.py:152 [INFO] Train: [ 13/100] Step 050/195 Loss 0.852 Prec@(1,5) (79.2%, 98.9%)
+05/08 07:32:33午後 augmentStage_main.py:152 [INFO] Train: [ 13/100] Step 100/195 Loss 0.840 Prec@(1,5) (79.7%, 98.9%)
+05/08 07:32:41午後 augmentStage_main.py:152 [INFO] Train: [ 13/100] Step 150/195 Loss 0.848 Prec@(1,5) (79.3%, 98.9%)
+05/08 07:32:47午後 augmentStage_main.py:152 [INFO] Train: [ 13/100] Step 195/195 Loss 0.851 Prec@(1,5) (79.4%, 99.0%)
+05/08 07:32:47午後 augmentStage_main.py:163 [INFO] Train: [ 13/100] Final Prec@1 79.4040%
+05/08 07:32:48午後 augmentStage_main.py:189 [INFO] Valid: [ 13/100] Step 000/039 Loss 0.622 Prec@(1,5) (79.7%, 99.2%)
+05/08 07:32:49午後 augmentStage_main.py:189 [INFO] Valid: [ 13/100] Step 039/039 Loss 0.604 Prec@(1,5) (79.7%, 99.1%)
+05/08 07:32:49午後 augmentStage_main.py:199 [INFO] Valid: [ 13/100] Final Prec@1 79.6600%
+05/08 07:32:50午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 80.6200%
+05/08 07:32:50午後 augmentStage_main.py:127 [INFO] Epoch 13 LR 0.023810338155825245
+05/08 07:32:50午後 augmentStage_main.py:152 [INFO] Train: [ 14/100] Step 000/195 Loss 0.709 Prec@(1,5) (86.7%, 99.2%)
+05/08 07:32:58午後 augmentStage_main.py:152 [INFO] Train: [ 14/100] Step 050/195 Loss 0.817 Prec@(1,5) (80.7%, 99.0%)
+05/08 07:33:05午後 augmentStage_main.py:152 [INFO] Train: [ 14/100] Step 100/195 Loss 0.837 Prec@(1,5) (79.8%, 99.0%)
+05/08 07:33:13午後 augmentStage_main.py:152 [INFO] Train: [ 14/100] Step 150/195 Loss 0.835 Prec@(1,5) (79.7%, 99.0%)
+05/08 07:33:20午後 augmentStage_main.py:152 [INFO] Train: [ 14/100] Step 195/195 Loss 0.833 Prec@(1,5) (79.8%, 99.0%)
+05/08 07:33:20午後 augmentStage_main.py:163 [INFO] Train: [ 14/100] Final Prec@1 79.8480%
+05/08 07:33:20午後 augmentStage_main.py:189 [INFO] Valid: [ 14/100] Step 000/039 Loss 0.431 Prec@(1,5) (85.2%, 99.2%)
+05/08 07:33:22午後 augmentStage_main.py:189 [INFO] Valid: [ 14/100] Step 039/039 Loss 0.501 Prec@(1,5) (83.7%, 99.1%)
+05/08 07:33:22午後 augmentStage_main.py:199 [INFO] Valid: [ 14/100] Final Prec@1 83.7400%
+05/08 07:33:22午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 83.7400%
+05/08 07:33:22午後 augmentStage_main.py:127 [INFO] Epoch 14 LR 0.0236375815523546
+05/08 07:33:23午後 augmentStage_main.py:152 [INFO] Train: [ 15/100] Step 000/195 Loss 0.651 Prec@(1,5) (82.0%, 99.2%)
+05/08 07:33:30午後 augmentStage_main.py:152 [INFO] Train: [ 15/100] Step 050/195 Loss 0.802 Prec@(1,5) (80.6%, 99.1%)
+05/08 07:33:38午後 augmentStage_main.py:152 [INFO] Train: [ 15/100] Step 100/195 Loss 0.801 Prec@(1,5) (80.5%, 99.1%)
+05/08 07:33:46午後 augmentStage_main.py:152 [INFO] Train: [ 15/100] Step 150/195 Loss 0.787 Prec@(1,5) (80.9%, 99.2%)
+05/08 07:33:53午後 augmentStage_main.py:152 [INFO] Train: [ 15/100] Step 195/195 Loss 0.790 Prec@(1,5) (80.8%, 99.2%)
+05/08 07:33:53午後 augmentStage_main.py:163 [INFO] Train: [ 15/100] Final Prec@1 80.8160%
+05/08 07:33:53午後 augmentStage_main.py:189 [INFO] Valid: [ 15/100] Step 000/039 Loss 0.320 Prec@(1,5) (85.2%, 100.0%)
+05/08 07:33:55午後 augmentStage_main.py:189 [INFO] Valid: [ 15/100] Step 039/039 Loss 0.556 Prec@(1,5) (82.4%, 99.1%)
+05/08 07:33:55午後 augmentStage_main.py:199 [INFO] Valid: [ 15/100] Final Prec@1 82.3600%
+05/08 07:33:55午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 83.7400%
+05/08 07:33:55午後 augmentStage_main.py:127 [INFO] Epoch 15 LR 0.023453833500548298
+05/08 07:33:55午後 augmentStage_main.py:152 [INFO] Train: [ 16/100] Step 000/195 Loss 0.803 Prec@(1,5) (79.7%, 99.2%)
+05/08 07:34:03午後 augmentStage_main.py:152 [INFO] Train: [ 16/100] Step 050/195 Loss 0.758 Prec@(1,5) (81.3%, 99.5%)
+05/08 07:34:11午後 augmentStage_main.py:152 [INFO] Train: [ 16/100] Step 100/195 Loss 0.769 Prec@(1,5) (81.4%, 99.3%)
+05/08 07:34:19午後 augmentStage_main.py:152 [INFO] Train: [ 16/100] Step 150/195 Loss 0.764 Prec@(1,5) (81.7%, 99.3%)
+05/08 07:34:26午後 augmentStage_main.py:152 [INFO] Train: [ 16/100] Step 195/195 Loss 0.768 Prec@(1,5) (81.6%, 99.3%)
+05/08 07:34:26午後 augmentStage_main.py:163 [INFO] Train: [ 16/100] Final Prec@1 81.5520%
+05/08 07:34:26午後 augmentStage_main.py:189 [INFO] Valid: [ 16/100] Step 000/039 Loss 0.387 Prec@(1,5) (88.3%, 99.2%)
+05/08 07:34:28午後 augmentStage_main.py:189 [INFO] Valid: [ 16/100] Step 039/039 Loss 0.492 Prec@(1,5) (84.5%, 99.1%)
+05/08 07:34:28午後 augmentStage_main.py:199 [INFO] Valid: [ 16/100] Final Prec@1 84.5000%
+05/08 07:34:28午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 84.5000%
+05/08 07:34:28午後 augmentStage_main.py:127 [INFO] Epoch 16 LR 0.0232592753375493
+05/08 07:34:29午後 augmentStage_main.py:152 [INFO] Train: [ 17/100] Step 000/195 Loss 0.523 Prec@(1,5) (89.1%, 100.0%)
+05/08 07:34:36午後 augmentStage_main.py:152 [INFO] Train: [ 17/100] Step 050/195 Loss 0.744 Prec@(1,5) (82.2%, 99.4%)
+05/08 07:34:44午後 augmentStage_main.py:152 [INFO] Train: [ 17/100] Step 100/195 Loss 0.749 Prec@(1,5) (82.1%, 99.1%)
+05/08 07:34:52午後 augmentStage_main.py:152 [INFO] Train: [ 17/100] Step 150/195 Loss 0.739 Prec@(1,5) (82.3%, 99.2%)
+05/08 07:34:59午後 augmentStage_main.py:152 [INFO] Train: [ 17/100] Step 195/195 Loss 0.743 Prec@(1,5) (82.3%, 99.2%)
+05/08 07:34:59午後 augmentStage_main.py:163 [INFO] Train: [ 17/100] Final Prec@1 82.3080%
+05/08 07:34:59午後 augmentStage_main.py:189 [INFO] Valid: [ 17/100] Step 000/039 Loss 0.477 Prec@(1,5) (82.8%, 98.4%)
+05/08 07:35:00午後 augmentStage_main.py:189 [INFO] Valid: [ 17/100] Step 039/039 Loss 0.501 Prec@(1,5) (83.3%, 99.1%)
+05/08 07:35:01午後 augmentStage_main.py:199 [INFO] Valid: [ 17/100] Final Prec@1 83.3400%
+05/08 07:35:01午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 84.5000%
+05/08 07:35:01午後 augmentStage_main.py:127 [INFO] Epoch 17 LR 0.023054099068775195
+05/08 07:35:01午後 augmentStage_main.py:152 [INFO] Train: [ 18/100] Step 000/195 Loss 0.581 Prec@(1,5) (85.2%, 100.0%)
+05/08 07:35:09午後 augmentStage_main.py:152 [INFO] Train: [ 18/100] Step 050/195 Loss 0.716 Prec@(1,5) (82.8%, 99.5%)
+05/08 07:35:17午後 augmentStage_main.py:152 [INFO] Train: [ 18/100] Step 100/195 Loss 0.724 Prec@(1,5) (82.8%, 99.4%)
+05/08 07:35:25午後 augmentStage_main.py:152 [INFO] Train: [ 18/100] Step 150/195 Loss 0.719 Prec@(1,5) (83.0%, 99.3%)
+05/08 07:35:31午後 augmentStage_main.py:152 [INFO] Train: [ 18/100] Step 195/195 Loss 0.711 Prec@(1,5) (83.1%, 99.3%)
+05/08 07:35:32午後 augmentStage_main.py:163 [INFO] Train: [ 18/100] Final Prec@1 83.1160%
+05/08 07:35:32午後 augmentStage_main.py:189 [INFO] Valid: [ 18/100] Step 000/039 Loss 0.474 Prec@(1,5) (85.2%, 99.2%)
+05/08 07:35:33午後 augmentStage_main.py:189 [INFO] Valid: [ 18/100] Step 039/039 Loss 0.587 Prec@(1,5) (81.5%, 99.1%)
+05/08 07:35:33午後 augmentStage_main.py:199 [INFO] Valid: [ 18/100] Final Prec@1 81.4600%
+05/08 07:35:34午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 84.5000%
+05/08 07:35:34午後 augmentStage_main.py:127 [INFO] Epoch 18 LR 0.02283850717843203
+05/08 07:35:34午後 augmentStage_main.py:152 [INFO] Train: [ 19/100] Step 000/195 Loss 0.790 Prec@(1,5) (79.7%, 99.2%)
+05/08 07:35:42午後 augmentStage_main.py:152 [INFO] Train: [ 19/100] Step 050/195 Loss 0.708 Prec@(1,5) (83.5%, 99.3%)
+05/08 07:35:50午後 augmentStage_main.py:152 [INFO] Train: [ 19/100] Step 100/195 Loss 0.696 Prec@(1,5) (83.5%, 99.4%)
+05/08 07:35:57午後 augmentStage_main.py:152 [INFO] Train: [ 19/100] Step 150/195 Loss 0.704 Prec@(1,5) (83.3%, 99.3%)
+05/08 07:36:04午後 augmentStage_main.py:152 [INFO] Train: [ 19/100] Step 195/195 Loss 0.697 Prec@(1,5) (83.4%, 99.4%)
+05/08 07:36:04午後 augmentStage_main.py:163 [INFO] Train: [ 19/100] Final Prec@1 83.3960%
+05/08 07:36:05午後 augmentStage_main.py:189 [INFO] Valid: [ 19/100] Step 000/039 Loss 0.515 Prec@(1,5) (83.6%, 96.9%)
+05/08 07:36:06午後 augmentStage_main.py:189 [INFO] Valid: [ 19/100] Step 039/039 Loss 0.509 Prec@(1,5) (84.7%, 99.1%)
+05/08 07:36:06午後 augmentStage_main.py:199 [INFO] Valid: [ 19/100] Final Prec@1 84.7200%
+05/08 07:36:07午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 84.7200%
+05/08 07:36:07午後 augmentStage_main.py:127 [INFO] Epoch 19 LR 0.022612712429686852
+05/08 07:36:07午後 augmentStage_main.py:152 [INFO] Train: [ 20/100] Step 000/195 Loss 0.660 Prec@(1,5) (85.2%, 100.0%)
+05/08 07:36:15午後 augmentStage_main.py:152 [INFO] Train: [ 20/100] Step 050/195 Loss 0.687 Prec@(1,5) (83.8%, 99.3%)
+05/08 07:36:23午後 augmentStage_main.py:152 [INFO] Train: [ 20/100] Step 100/195 Loss 0.698 Prec@(1,5) (83.5%, 99.3%)
+05/08 07:36:30午後 augmentStage_main.py:152 [INFO] Train: [ 20/100] Step 150/195 Loss 0.697 Prec@(1,5) (83.3%, 99.4%)
+05/08 07:36:37午後 augmentStage_main.py:152 [INFO] Train: [ 20/100] Step 195/195 Loss 0.693 Prec@(1,5) (83.4%, 99.4%)
+05/08 07:36:37午後 augmentStage_main.py:163 [INFO] Train: [ 20/100] Final Prec@1 83.4480%
+05/08 07:36:37午後 augmentStage_main.py:189 [INFO] Valid: [ 20/100] Step 000/039 Loss 0.509 Prec@(1,5) (84.4%, 100.0%)
+05/08 07:36:39午後 augmentStage_main.py:189 [INFO] Valid: [ 20/100] Step 039/039 Loss 0.480 Prec@(1,5) (84.8%, 99.2%)
+05/08 07:36:39午後 augmentStage_main.py:199 [INFO] Valid: [ 20/100] Final Prec@1 84.7800%
+05/08 07:36:39午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 84.7800%
+05/08 07:36:39午後 augmentStage_main.py:127 [INFO] Epoch 20 LR 0.022376937654696137
+05/08 07:36:40午後 augmentStage_main.py:152 [INFO] Train: [ 21/100] Step 000/195 Loss 0.793 Prec@(1,5) (80.5%, 99.2%)
+05/08 07:36:48午後 augmentStage_main.py:152 [INFO] Train: [ 21/100] Step 050/195 Loss 0.660 Prec@(1,5) (83.9%, 99.5%)
+05/08 07:36:55午後 augmentStage_main.py:152 [INFO] Train: [ 21/100] Step 100/195 Loss 0.661 Prec@(1,5) (84.1%, 99.4%)
+05/08 07:37:03午後 augmentStage_main.py:152 [INFO] Train: [ 21/100] Step 150/195 Loss 0.670 Prec@(1,5) (83.8%, 99.4%)
+05/08 07:37:10午後 augmentStage_main.py:152 [INFO] Train: [ 21/100] Step 195/195 Loss 0.673 Prec@(1,5) (83.8%, 99.4%)
+05/08 07:37:10午後 augmentStage_main.py:163 [INFO] Train: [ 21/100] Final Prec@1 83.7680%
+05/08 07:37:11午後 augmentStage_main.py:189 [INFO] Valid: [ 21/100] Step 000/039 Loss 0.405 Prec@(1,5) (85.9%, 98.4%)
+05/08 07:37:12午後 augmentStage_main.py:189 [INFO] Valid: [ 21/100] Step 039/039 Loss 0.499 Prec@(1,5) (84.4%, 99.3%)
+05/08 07:37:12午後 augmentStage_main.py:199 [INFO] Valid: [ 21/100] Final Prec@1 84.4000%
+05/08 07:37:12午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 84.7800%
+05/08 07:37:12午後 augmentStage_main.py:127 [INFO] Epoch 21 LR 0.022131415534697375
+05/08 07:37:13午後 augmentStage_main.py:152 [INFO] Train: [ 22/100] Step 000/195 Loss 0.600 Prec@(1,5) (84.4%, 100.0%)
+05/08 07:37:21午後 augmentStage_main.py:152 [INFO] Train: [ 22/100] Step 050/195 Loss 0.628 Prec@(1,5) (85.2%, 99.4%)
+05/08 07:37:28午後 augmentStage_main.py:152 [INFO] Train: [ 22/100] Step 100/195 Loss 0.629 Prec@(1,5) (85.1%, 99.4%)
+05/08 07:37:36午後 augmentStage_main.py:152 [INFO] Train: [ 22/100] Step 150/195 Loss 0.642 Prec@(1,5) (84.8%, 99.4%)
+05/08 07:37:43午後 augmentStage_main.py:152 [INFO] Train: [ 22/100] Step 195/195 Loss 0.642 Prec@(1,5) (84.7%, 99.4%)
+05/08 07:37:43午後 augmentStage_main.py:163 [INFO] Train: [ 22/100] Final Prec@1 84.6840%
+05/08 07:37:43午後 augmentStage_main.py:189 [INFO] Valid: [ 22/100] Step 000/039 Loss 0.341 Prec@(1,5) (86.7%, 99.2%)
+05/08 07:37:45午後 augmentStage_main.py:189 [INFO] Valid: [ 22/100] Step 039/039 Loss 0.461 Prec@(1,5) (85.6%, 99.2%)
+05/08 07:37:45午後 augmentStage_main.py:199 [INFO] Valid: [ 22/100] Final Prec@1 85.5800%
+05/08 07:37:45午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 85.5800%
+05/08 07:37:45午後 augmentStage_main.py:127 [INFO] Epoch 22 LR 0.021876388370380754
+05/08 07:37:46午後 augmentStage_main.py:152 [INFO] Train: [ 23/100] Step 000/195 Loss 0.522 Prec@(1,5) (88.3%, 100.0%)
+05/08 07:37:54午後 augmentStage_main.py:152 [INFO] Train: [ 23/100] Step 050/195 Loss 0.611 Prec@(1,5) (85.8%, 99.5%)
+05/08 07:38:01午後 augmentStage_main.py:152 [INFO] Train: [ 23/100] Step 100/195 Loss 0.609 Prec@(1,5) (85.8%, 99.6%)
+05/08 07:38:09午後 augmentStage_main.py:152 [INFO] Train: [ 23/100] Step 150/195 Loss 0.622 Prec@(1,5) (85.3%, 99.5%)
+05/08 07:38:16午後 augmentStage_main.py:152 [INFO] Train: [ 23/100] Step 195/195 Loss 0.628 Prec@(1,5) (85.0%, 99.4%)
+05/08 07:38:16午後 augmentStage_main.py:163 [INFO] Train: [ 23/100] Final Prec@1 85.0240%
+05/08 07:38:16午後 augmentStage_main.py:189 [INFO] Valid: [ 23/100] Step 000/039 Loss 0.552 Prec@(1,5) (83.6%, 99.2%)
+05/08 07:38:18午後 augmentStage_main.py:189 [INFO] Valid: [ 23/100] Step 039/039 Loss 0.589 Prec@(1,5) (82.8%, 98.9%)
+05/08 07:38:18午後 augmentStage_main.py:199 [INFO] Valid: [ 23/100] Final Prec@1 82.7600%
+05/08 07:38:18午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 85.5800%
+05/08 07:38:18午後 augmentStage_main.py:127 [INFO] Epoch 23 LR 0.021612107842767653
+05/08 07:38:19午後 augmentStage_main.py:152 [INFO] Train: [ 24/100] Step 000/195 Loss 0.759 Prec@(1,5) (81.2%, 100.0%)
+05/08 07:38:27午後 augmentStage_main.py:152 [INFO] Train: [ 24/100] Step 050/195 Loss 0.635 Prec@(1,5) (84.8%, 99.5%)
+05/08 07:38:34午後 augmentStage_main.py:152 [INFO] Train: [ 24/100] Step 100/195 Loss 0.622 Prec@(1,5) (85.3%, 99.6%)
+05/08 07:38:42午後 augmentStage_main.py:152 [INFO] Train: [ 24/100] Step 150/195 Loss 0.624 Prec@(1,5) (85.2%, 99.6%)
+05/08 07:38:49午後 augmentStage_main.py:152 [INFO] Train: [ 24/100] Step 195/195 Loss 0.626 Prec@(1,5) (85.2%, 99.6%)
+05/08 07:38:49午後 augmentStage_main.py:163 [INFO] Train: [ 24/100] Final Prec@1 85.1720%
+05/08 07:38:49午後 augmentStage_main.py:189 [INFO] Valid: [ 24/100] Step 000/039 Loss 0.398 Prec@(1,5) (88.3%, 99.2%)
+05/08 07:38:51午後 augmentStage_main.py:189 [INFO] Valid: [ 24/100] Step 039/039 Loss 0.463 Prec@(1,5) (85.2%, 99.2%)
+05/08 07:38:51午後 augmentStage_main.py:199 [INFO] Valid: [ 24/100] Final Prec@1 85.1800%
+05/08 07:38:51午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 85.5800%
+05/08 07:38:51午後 augmentStage_main.py:127 [INFO] Epoch 24 LR 0.02133883476483185
+05/08 07:38:52午後 augmentStage_main.py:152 [INFO] Train: [ 25/100] Step 000/195 Loss 0.569 Prec@(1,5) (86.7%, 100.0%)
+05/08 07:39:00午後 augmentStage_main.py:152 [INFO] Train: [ 25/100] Step 050/195 Loss 0.585 Prec@(1,5) (86.2%, 99.5%)
+05/08 07:39:07午後 augmentStage_main.py:152 [INFO] Train: [ 25/100] Step 100/195 Loss 0.602 Prec@(1,5) (85.9%, 99.5%)
+05/08 07:39:15午後 augmentStage_main.py:152 [INFO] Train: [ 25/100] Step 150/195 Loss 0.614 Prec@(1,5) (85.7%, 99.5%)
+05/08 07:39:22午後 augmentStage_main.py:152 [INFO] Train: [ 25/100] Step 195/195 Loss 0.622 Prec@(1,5) (85.4%, 99.5%)
+05/08 07:39:22午後 augmentStage_main.py:163 [INFO] Train: [ 25/100] Final Prec@1 85.3960%
+05/08 07:39:22午後 augmentStage_main.py:189 [INFO] Valid: [ 25/100] Step 000/039 Loss 0.669 Prec@(1,5) (82.0%, 97.7%)
+05/08 07:39:24午後 augmentStage_main.py:189 [INFO] Valid: [ 25/100] Step 039/039 Loss 0.535 Prec@(1,5) (83.9%, 99.0%)
+05/08 07:39:24午後 augmentStage_main.py:199 [INFO] Valid: [ 25/100] Final Prec@1 83.8800%
+05/08 07:39:24午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 85.5800%
+05/08 07:39:25午後 augmentStage_main.py:127 [INFO] Epoch 25 LR 0.021056838824108616
+05/08 07:39:25午後 augmentStage_main.py:152 [INFO] Train: [ 26/100] Step 000/195 Loss 0.431 Prec@(1,5) (88.3%, 100.0%)
+05/08 07:39:33午後 augmentStage_main.py:152 [INFO] Train: [ 26/100] Step 050/195 Loss 0.568 Prec@(1,5) (86.6%, 99.7%)
+05/08 07:39:40午後 augmentStage_main.py:152 [INFO] Train: [ 26/100] Step 100/195 Loss 0.594 Prec@(1,5) (85.9%, 99.7%)
+05/08 07:39:48午後 augmentStage_main.py:152 [INFO] Train: [ 26/100] Step 150/195 Loss 0.595 Prec@(1,5) (85.8%, 99.6%)
+05/08 07:39:55午後 augmentStage_main.py:152 [INFO] Train: [ 26/100] Step 195/195 Loss 0.600 Prec@(1,5) (85.8%, 99.6%)
+05/08 07:39:55午後 augmentStage_main.py:163 [INFO] Train: [ 26/100] Final Prec@1 85.7520%
+05/08 07:39:56午後 augmentStage_main.py:189 [INFO] Valid: [ 26/100] Step 000/039 Loss 0.538 Prec@(1,5) (82.8%, 100.0%)
+05/08 07:39:57午後 augmentStage_main.py:189 [INFO] Valid: [ 26/100] Step 039/039 Loss 0.511 Prec@(1,5) (84.4%, 99.3%)
+05/08 07:39:57午後 augmentStage_main.py:199 [INFO] Valid: [ 26/100] Final Prec@1 84.4200%
+05/08 07:39:57午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 85.5800%
+05/08 07:39:58午後 augmentStage_main.py:127 [INFO] Epoch 26 LR 0.020766398316545656
+05/08 07:39:58午後 augmentStage_main.py:152 [INFO] Train: [ 27/100] Step 000/195 Loss 0.662 Prec@(1,5) (88.3%, 98.4%)
+05/08 07:40:06午後 augmentStage_main.py:152 [INFO] Train: [ 27/100] Step 050/195 Loss 0.559 Prec@(1,5) (86.7%, 99.6%)
+05/08 07:40:14午後 augmentStage_main.py:152 [INFO] Train: [ 27/100] Step 100/195 Loss 0.569 Prec@(1,5) (86.5%, 99.5%)
+05/08 07:40:21午後 augmentStage_main.py:152 [INFO] Train: [ 27/100] Step 150/195 Loss 0.574 Prec@(1,5) (86.3%, 99.5%)
+05/08 07:40:28午後 augmentStage_main.py:152 [INFO] Train: [ 27/100] Step 195/195 Loss 0.576 Prec@(1,5) (86.3%, 99.5%)
+05/08 07:40:28午後 augmentStage_main.py:163 [INFO] Train: [ 27/100] Final Prec@1 86.3440%
+05/08 07:40:29午後 augmentStage_main.py:189 [INFO] Valid: [ 27/100] Step 000/039 Loss 0.435 Prec@(1,5) (85.2%, 98.4%)
+05/08 07:40:30午後 augmentStage_main.py:189 [INFO] Valid: [ 27/100] Step 039/039 Loss 0.456 Prec@(1,5) (85.9%, 99.4%)
+05/08 07:40:30午後 augmentStage_main.py:199 [INFO] Valid: [ 27/100] Final Prec@1 85.9200%
+05/08 07:40:30午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 85.9200%
+05/08 07:40:31午後 augmentStage_main.py:127 [INFO] Epoch 27 LR 0.02046779987185863
+05/08 07:40:31午後 augmentStage_main.py:152 [INFO] Train: [ 28/100] Step 000/195 Loss 0.733 Prec@(1,5) (82.0%, 100.0%)
+05/08 07:40:39午後 augmentStage_main.py:152 [INFO] Train: [ 28/100] Step 050/195 Loss 0.590 Prec@(1,5) (86.1%, 99.7%)
+05/08 07:40:47午後 augmentStage_main.py:152 [INFO] Train: [ 28/100] Step 100/195 Loss 0.586 Prec@(1,5) (86.4%, 99.6%)
+05/08 07:40:54午後 augmentStage_main.py:152 [INFO] Train: [ 28/100] Step 150/195 Loss 0.578 Prec@(1,5) (86.6%, 99.6%)
+05/08 07:41:01午後 augmentStage_main.py:152 [INFO] Train: [ 28/100] Step 195/195 Loss 0.573 Prec@(1,5) (86.7%, 99.6%)
+05/08 07:41:01午後 augmentStage_main.py:163 [INFO] Train: [ 28/100] Final Prec@1 86.6960%
+05/08 07:41:01午後 augmentStage_main.py:189 [INFO] Valid: [ 28/100] Step 000/039 Loss 0.373 Prec@(1,5) (90.6%, 99.2%)
+05/08 07:41:03午後 augmentStage_main.py:189 [INFO] Valid: [ 28/100] Step 039/039 Loss 0.479 Prec@(1,5) (85.7%, 99.2%)
+05/08 07:41:03午後 augmentStage_main.py:199 [INFO] Valid: [ 28/100] Final Prec@1 85.7200%
+05/08 07:41:03午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 85.9200%
+05/08 07:41:04午後 augmentStage_main.py:127 [INFO] Epoch 28 LR 0.020161338170662214
+05/08 07:41:04午後 augmentStage_main.py:152 [INFO] Train: [ 29/100] Step 000/195 Loss 0.441 Prec@(1,5) (85.9%, 99.2%)
+05/08 07:41:12午後 augmentStage_main.py:152 [INFO] Train: [ 29/100] Step 050/195 Loss 0.533 Prec@(1,5) (87.1%, 99.6%)
+05/08 07:41:19午後 augmentStage_main.py:152 [INFO] Train: [ 29/100] Step 100/195 Loss 0.546 Prec@(1,5) (87.1%, 99.6%)
+05/08 07:41:27午後 augmentStage_main.py:152 [INFO] Train: [ 29/100] Step 150/195 Loss 0.554 Prec@(1,5) (86.9%, 99.6%)
+05/08 07:41:34午後 augmentStage_main.py:152 [INFO] Train: [ 29/100] Step 195/195 Loss 0.559 Prec@(1,5) (86.7%, 99.6%)
+05/08 07:41:34午後 augmentStage_main.py:163 [INFO] Train: [ 29/100] Final Prec@1 86.7200%
+05/08 07:41:35午後 augmentStage_main.py:189 [INFO] Valid: [ 29/100] Step 000/039 Loss 0.347 Prec@(1,5) (89.1%, 99.2%)
+05/08 07:41:36午後 augmentStage_main.py:189 [INFO] Valid: [ 29/100] Step 039/039 Loss 0.409 Prec@(1,5) (87.5%, 99.5%)
+05/08 07:41:36午後 augmentStage_main.py:199 [INFO] Valid: [ 29/100] Final Prec@1 87.4600%
+05/08 07:41:36午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 87.4600%
+05/08 07:41:36午後 augmentStage_main.py:127 [INFO] Epoch 29 LR 0.019847315653655925
+05/08 07:41:37午後 augmentStage_main.py:152 [INFO] Train: [ 30/100] Step 000/195 Loss 0.444 Prec@(1,5) (90.6%, 100.0%)
+05/08 07:41:45午後 augmentStage_main.py:152 [INFO] Train: [ 30/100] Step 050/195 Loss 0.549 Prec@(1,5) (87.0%, 99.7%)
+05/08 07:41:53午後 augmentStage_main.py:152 [INFO] Train: [ 30/100] Step 100/195 Loss 0.548 Prec@(1,5) (87.0%, 99.6%)
+05/08 07:42:00午後 augmentStage_main.py:152 [INFO] Train: [ 30/100] Step 150/195 Loss 0.547 Prec@(1,5) (87.1%, 99.6%)
+05/08 07:42:07午後 augmentStage_main.py:152 [INFO] Train: [ 30/100] Step 195/195 Loss 0.551 Prec@(1,5) (87.0%, 99.6%)
+05/08 07:42:07午後 augmentStage_main.py:163 [INFO] Train: [ 30/100] Final Prec@1 86.9640%
+05/08 07:42:08午後 augmentStage_main.py:189 [INFO] Valid: [ 30/100] Step 000/039 Loss 0.521 Prec@(1,5) (84.4%, 99.2%)
+05/08 07:42:09午後 augmentStage_main.py:189 [INFO] Valid: [ 30/100] Step 039/039 Loss 0.383 Prec@(1,5) (88.4%, 99.5%)
+05/08 07:42:09午後 augmentStage_main.py:199 [INFO] Valid: [ 30/100] Final Prec@1 88.4200%
+05/08 07:42:09午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 88.4200%
+05/08 07:42:10午後 augmentStage_main.py:127 [INFO] Epoch 30 LR 0.019526042223151643
+05/08 07:42:10午後 augmentStage_main.py:152 [INFO] Train: [ 31/100] Step 000/195 Loss 0.465 Prec@(1,5) (89.1%, 100.0%)
+05/08 07:42:18午後 augmentStage_main.py:152 [INFO] Train: [ 31/100] Step 050/195 Loss 0.520 Prec@(1,5) (87.5%, 99.6%)
+05/08 07:42:26午後 augmentStage_main.py:152 [INFO] Train: [ 31/100] Step 100/195 Loss 0.525 Prec@(1,5) (87.2%, 99.6%)
+05/08 07:42:33午後 augmentStage_main.py:152 [INFO] Train: [ 31/100] Step 150/195 Loss 0.535 Prec@(1,5) (87.1%, 99.6%)
+05/08 07:42:40午後 augmentStage_main.py:152 [INFO] Train: [ 31/100] Step 195/195 Loss 0.544 Prec@(1,5) (86.9%, 99.6%)
+05/08 07:42:40午後 augmentStage_main.py:163 [INFO] Train: [ 31/100] Final Prec@1 86.8960%
+05/08 07:42:41午後 augmentStage_main.py:189 [INFO] Valid: [ 31/100] Step 000/039 Loss 0.499 Prec@(1,5) (85.9%, 99.2%)
+05/08 07:42:42午後 augmentStage_main.py:189 [INFO] Valid: [ 31/100] Step 039/039 Loss 0.434 Prec@(1,5) (86.8%, 99.4%)
+05/08 07:42:42午後 augmentStage_main.py:199 [INFO] Valid: [ 31/100] Final Prec@1 86.8400%
+05/08 07:42:42午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 88.4200%
+05/08 07:42:43午後 augmentStage_main.py:127 [INFO] Epoch 31 LR 0.019197834937237465
+05/08 07:42:43午後 augmentStage_main.py:152 [INFO] Train: [ 32/100] Step 000/195 Loss 0.543 Prec@(1,5) (89.1%, 99.2%)
+05/08 07:42:51午後 augmentStage_main.py:152 [INFO] Train: [ 32/100] Step 050/195 Loss 0.506 Prec@(1,5) (87.7%, 99.7%)
+05/08 07:42:59午後 augmentStage_main.py:152 [INFO] Train: [ 32/100] Step 100/195 Loss 0.513 Prec@(1,5) (87.7%, 99.7%)
+05/08 07:43:06午後 augmentStage_main.py:152 [INFO] Train: [ 32/100] Step 150/195 Loss 0.523 Prec@(1,5) (87.6%, 99.6%)
+05/08 07:43:13午後 augmentStage_main.py:152 [INFO] Train: [ 32/100] Step 195/195 Loss 0.527 Prec@(1,5) (87.7%, 99.6%)
+05/08 07:43:13午後 augmentStage_main.py:163 [INFO] Train: [ 32/100] Final Prec@1 87.6560%
+05/08 07:43:14午後 augmentStage_main.py:189 [INFO] Valid: [ 32/100] Step 000/039 Loss 0.497 Prec@(1,5) (87.5%, 100.0%)
+05/08 07:43:15午後 augmentStage_main.py:189 [INFO] Valid: [ 32/100] Step 039/039 Loss 0.459 Prec@(1,5) (86.8%, 99.3%)
+05/08 07:43:15午後 augmentStage_main.py:199 [INFO] Valid: [ 32/100] Final Prec@1 86.8200%
+05/08 07:43:16午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 88.4200%
+05/08 07:43:16午後 augmentStage_main.py:127 [INFO] Epoch 32 LR 0.01886301769687965
+05/08 07:43:16午後 augmentStage_main.py:152 [INFO] Train: [ 33/100] Step 000/195 Loss 0.435 Prec@(1,5) (89.8%, 100.0%)
+05/08 07:43:24午後 augmentStage_main.py:152 [INFO] Train: [ 33/100] Step 050/195 Loss 0.515 Prec@(1,5) (87.9%, 99.7%)
+05/08 07:43:31午後 augmentStage_main.py:152 [INFO] Train: [ 33/100] Step 100/195 Loss 0.521 Prec@(1,5) (87.8%, 99.6%)
+05/08 07:43:39午後 augmentStage_main.py:152 [INFO] Train: [ 33/100] Step 150/195 Loss 0.527 Prec@(1,5) (87.7%, 99.6%)
+05/08 07:43:46午後 augmentStage_main.py:152 [INFO] Train: [ 33/100] Step 195/195 Loss 0.523 Prec@(1,5) (87.8%, 99.6%)
+05/08 07:43:46午後 augmentStage_main.py:163 [INFO] Train: [ 33/100] Final Prec@1 87.7600%
+05/08 07:43:47午後 augmentStage_main.py:189 [INFO] Valid: [ 33/100] Step 000/039 Loss 0.417 Prec@(1,5) (87.5%, 100.0%)
+05/08 07:43:48午後 augmentStage_main.py:189 [INFO] Valid: [ 33/100] Step 039/039 Loss 0.418 Prec@(1,5) (87.3%, 99.5%)
+05/08 07:43:48午後 augmentStage_main.py:199 [INFO] Valid: [ 33/100] Final Prec@1 87.2800%
+05/08 07:43:48午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 88.4200%
+05/08 07:43:49午後 augmentStage_main.py:127 [INFO] Epoch 33 LR 0.01852192092627145
+05/08 07:43:49午後 augmentStage_main.py:152 [INFO] Train: [ 34/100] Step 000/195 Loss 0.483 Prec@(1,5) (86.7%, 99.2%)
+05/08 07:43:57午後 augmentStage_main.py:152 [INFO] Train: [ 34/100] Step 050/195 Loss 0.495 Prec@(1,5) (88.4%, 99.6%)
+05/08 07:44:05午後 augmentStage_main.py:152 [INFO] Train: [ 34/100] Step 100/195 Loss 0.512 Prec@(1,5) (87.9%, 99.7%)
+05/08 07:44:12午後 augmentStage_main.py:152 [INFO] Train: [ 34/100] Step 150/195 Loss 0.510 Prec@(1,5) (88.0%, 99.7%)
+05/08 07:44:19午後 augmentStage_main.py:152 [INFO] Train: [ 34/100] Step 195/195 Loss 0.514 Prec@(1,5) (87.9%, 99.7%)
+05/08 07:44:19午後 augmentStage_main.py:163 [INFO] Train: [ 34/100] Final Prec@1 87.9000%
+05/08 07:44:20午後 augmentStage_main.py:189 [INFO] Valid: [ 34/100] Step 000/039 Loss 0.574 Prec@(1,5) (88.3%, 99.2%)
+05/08 07:44:21午後 augmentStage_main.py:189 [INFO] Valid: [ 34/100] Step 039/039 Loss 0.463 Prec@(1,5) (86.7%, 99.5%)
+05/08 07:44:21午後 augmentStage_main.py:199 [INFO] Valid: [ 34/100] Final Prec@1 86.6800%
+05/08 07:44:21午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 88.4200%
+05/08 07:44:22午後 augmentStage_main.py:127 [INFO] Epoch 34 LR 0.018174881246744344
+05/08 07:44:22午後 augmentStage_main.py:152 [INFO] Train: [ 35/100] Step 000/195 Loss 0.542 Prec@(1,5) (85.2%, 99.2%)
+05/08 07:44:30午後 augmentStage_main.py:152 [INFO] Train: [ 35/100] Step 050/195 Loss 0.496 Prec@(1,5) (88.2%, 99.6%)
+05/08 07:44:38午後 augmentStage_main.py:152 [INFO] Train: [ 35/100] Step 100/195 Loss 0.498 Prec@(1,5) (88.4%, 99.6%)
+05/08 07:44:45午後 augmentStage_main.py:152 [INFO] Train: [ 35/100] Step 150/195 Loss 0.503 Prec@(1,5) (88.4%, 99.7%)
+05/08 07:44:52午後 augmentStage_main.py:152 [INFO] Train: [ 35/100] Step 195/195 Loss 0.505 Prec@(1,5) (88.4%, 99.6%)
+05/08 07:44:52午後 augmentStage_main.py:163 [INFO] Train: [ 35/100] Final Prec@1 88.3560%
+05/08 07:44:53午後 augmentStage_main.py:189 [INFO] Valid: [ 35/100] Step 000/039 Loss 0.560 Prec@(1,5) (85.9%, 97.7%)
+05/08 07:44:54午後 augmentStage_main.py:189 [INFO] Valid: [ 35/100] Step 039/039 Loss 0.365 Prec@(1,5) (89.2%, 99.4%)
+05/08 07:44:54午後 augmentStage_main.py:199 [INFO] Valid: [ 35/100] Final Prec@1 89.2200%
+05/08 07:44:54午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2200%
+05/08 07:44:55午後 augmentStage_main.py:127 [INFO] Epoch 35 LR 0.017822241144563416
+05/08 07:44:55午後 augmentStage_main.py:152 [INFO] Train: [ 36/100] Step 000/195 Loss 0.558 Prec@(1,5) (87.5%, 99.2%)
+05/08 07:45:03午後 augmentStage_main.py:152 [INFO] Train: [ 36/100] Step 050/195 Loss 0.477 Prec@(1,5) (89.0%, 99.7%)
+05/08 07:45:11午後 augmentStage_main.py:152 [INFO] Train: [ 36/100] Step 100/195 Loss 0.488 Prec@(1,5) (88.9%, 99.7%)
+05/08 07:45:18午後 augmentStage_main.py:152 [INFO] Train: [ 36/100] Step 150/195 Loss 0.485 Prec@(1,5) (89.0%, 99.7%)
+05/08 07:45:25午後 augmentStage_main.py:152 [INFO] Train: [ 36/100] Step 195/195 Loss 0.487 Prec@(1,5) (88.7%, 99.7%)
+05/08 07:45:25午後 augmentStage_main.py:163 [INFO] Train: [ 36/100] Final Prec@1 88.7160%
+05/08 07:45:26午後 augmentStage_main.py:189 [INFO] Valid: [ 36/100] Step 000/039 Loss 0.579 Prec@(1,5) (82.0%, 100.0%)
+05/08 07:45:27午後 augmentStage_main.py:189 [INFO] Valid: [ 36/100] Step 039/039 Loss 0.426 Prec@(1,5) (87.6%, 99.4%)
+05/08 07:45:27午後 augmentStage_main.py:199 [INFO] Valid: [ 36/100] Final Prec@1 87.6200%
+05/08 07:45:27午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2200%
+05/08 07:45:28午後 augmentStage_main.py:127 [INFO] Epoch 36 LR 0.017464348632934765
+05/08 07:45:28午後 augmentStage_main.py:152 [INFO] Train: [ 37/100] Step 000/195 Loss 0.375 Prec@(1,5) (92.2%, 100.0%)
+05/08 07:45:36午後 augmentStage_main.py:152 [INFO] Train: [ 37/100] Step 050/195 Loss 0.456 Prec@(1,5) (89.3%, 99.8%)
+05/08 07:45:43午後 augmentStage_main.py:152 [INFO] Train: [ 37/100] Step 100/195 Loss 0.475 Prec@(1,5) (88.8%, 99.7%)
+05/08 07:45:51午後 augmentStage_main.py:152 [INFO] Train: [ 37/100] Step 150/195 Loss 0.475 Prec@(1,5) (88.7%, 99.7%)
+05/08 07:45:58午後 augmentStage_main.py:152 [INFO] Train: [ 37/100] Step 195/195 Loss 0.480 Prec@(1,5) (88.7%, 99.7%)
+05/08 07:45:58午後 augmentStage_main.py:163 [INFO] Train: [ 37/100] Final Prec@1 88.6720%
+05/08 07:45:58午後 augmentStage_main.py:189 [INFO] Valid: [ 37/100] Step 000/039 Loss 0.556 Prec@(1,5) (85.9%, 99.2%)
+05/08 07:46:00午後 augmentStage_main.py:189 [INFO] Valid: [ 37/100] Step 039/039 Loss 0.447 Prec@(1,5) (87.0%, 99.4%)
+05/08 07:46:00午後 augmentStage_main.py:199 [INFO] Valid: [ 37/100] Final Prec@1 87.0000%
+05/08 07:46:00午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2200%
+05/08 07:46:00午後 augmentStage_main.py:127 [INFO] Epoch 37 LR 0.017101556908558486
+05/08 07:46:01午後 augmentStage_main.py:152 [INFO] Train: [ 38/100] Step 000/195 Loss 0.501 Prec@(1,5) (92.2%, 100.0%)
+05/08 07:46:08午後 augmentStage_main.py:152 [INFO] Train: [ 38/100] Step 050/195 Loss 0.464 Prec@(1,5) (89.1%, 99.7%)
+05/08 07:46:16午後 augmentStage_main.py:152 [INFO] Train: [ 38/100] Step 100/195 Loss 0.474 Prec@(1,5) (88.7%, 99.7%)
+05/08 07:46:24午後 augmentStage_main.py:152 [INFO] Train: [ 38/100] Step 150/195 Loss 0.478 Prec@(1,5) (88.7%, 99.7%)
+05/08 07:46:30午後 augmentStage_main.py:152 [INFO] Train: [ 38/100] Step 195/195 Loss 0.478 Prec@(1,5) (88.8%, 99.7%)
+05/08 07:46:30午後 augmentStage_main.py:163 [INFO] Train: [ 38/100] Final Prec@1 88.7640%
+05/08 07:46:31午後 augmentStage_main.py:189 [INFO] Valid: [ 38/100] Step 000/039 Loss 0.458 Prec@(1,5) (86.7%, 99.2%)
+05/08 07:46:32午後 augmentStage_main.py:189 [INFO] Valid: [ 38/100] Step 039/039 Loss 0.377 Prec@(1,5) (88.6%, 99.5%)
+05/08 07:46:32午後 augmentStage_main.py:199 [INFO] Valid: [ 38/100] Final Prec@1 88.5600%
+05/08 07:46:33午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2200%
+05/08 07:46:33午後 augmentStage_main.py:127 [INFO] Epoch 38 LR 0.016734224003066154
+05/08 07:46:33午後 augmentStage_main.py:152 [INFO] Train: [ 39/100] Step 000/195 Loss 0.488 Prec@(1,5) (87.5%, 99.2%)
+05/08 07:46:41午後 augmentStage_main.py:152 [INFO] Train: [ 39/100] Step 050/195 Loss 0.475 Prec@(1,5) (88.4%, 99.7%)
+05/08 07:46:49午後 augmentStage_main.py:152 [INFO] Train: [ 39/100] Step 100/195 Loss 0.463 Prec@(1,5) (88.9%, 99.7%)
+05/08 07:46:56午後 augmentStage_main.py:152 [INFO] Train: [ 39/100] Step 150/195 Loss 0.466 Prec@(1,5) (89.0%, 99.7%)
+05/08 07:47:03午後 augmentStage_main.py:152 [INFO] Train: [ 39/100] Step 195/195 Loss 0.471 Prec@(1,5) (89.0%, 99.7%)
+05/08 07:47:03午後 augmentStage_main.py:163 [INFO] Train: [ 39/100] Final Prec@1 88.9600%
+05/08 07:47:04午後 augmentStage_main.py:189 [INFO] Valid: [ 39/100] Step 000/039 Loss 0.544 Prec@(1,5) (87.5%, 98.4%)
+05/08 07:47:05午後 augmentStage_main.py:189 [INFO] Valid: [ 39/100] Step 039/039 Loss 0.430 Prec@(1,5) (87.8%, 99.5%)
+05/08 07:47:05午後 augmentStage_main.py:199 [INFO] Valid: [ 39/100] Final Prec@1 87.8400%
+05/08 07:47:05午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2200%
+05/08 07:47:06午後 augmentStage_main.py:127 [INFO] Epoch 39 LR 0.016362712429686854
+05/08 07:47:06午後 augmentStage_main.py:152 [INFO] Train: [ 40/100] Step 000/195 Loss 0.457 Prec@(1,5) (89.8%, 100.0%)
+05/08 07:47:14午後 augmentStage_main.py:152 [INFO] Train: [ 40/100] Step 050/195 Loss 0.460 Prec@(1,5) (89.0%, 99.7%)
+05/08 07:47:22午後 augmentStage_main.py:152 [INFO] Train: [ 40/100] Step 100/195 Loss 0.464 Prec@(1,5) (89.1%, 99.7%)
+05/08 07:47:29午後 augmentStage_main.py:152 [INFO] Train: [ 40/100] Step 150/195 Loss 0.459 Prec@(1,5) (89.1%, 99.7%)
+05/08 07:47:36午後 augmentStage_main.py:152 [INFO] Train: [ 40/100] Step 195/195 Loss 0.458 Prec@(1,5) (89.2%, 99.7%)
+05/08 07:47:36午後 augmentStage_main.py:163 [INFO] Train: [ 40/100] Final Prec@1 89.2400%
+05/08 07:47:37午後 augmentStage_main.py:189 [INFO] Valid: [ 40/100] Step 000/039 Loss 0.794 Prec@(1,5) (75.0%, 100.0%)
+05/08 07:47:38午後 augmentStage_main.py:189 [INFO] Valid: [ 40/100] Step 039/039 Loss 0.506 Prec@(1,5) (86.0%, 99.4%)
+05/08 07:47:38午後 augmentStage_main.py:199 [INFO] Valid: [ 40/100] Final Prec@1 85.9600%
+05/08 07:47:38午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2200%
+05/08 07:47:38午後 augmentStage_main.py:127 [INFO] Epoch 40 LR 0.01598738882549038
+05/08 07:47:39午後 augmentStage_main.py:152 [INFO] Train: [ 41/100] Step 000/195 Loss 0.424 Prec@(1,5) (91.4%, 99.2%)
+05/08 07:47:47午後 augmentStage_main.py:152 [INFO] Train: [ 41/100] Step 050/195 Loss 0.445 Prec@(1,5) (89.8%, 99.7%)
+05/08 07:47:55午後 augmentStage_main.py:152 [INFO] Train: [ 41/100] Step 100/195 Loss 0.444 Prec@(1,5) (90.0%, 99.7%)
+05/08 07:48:02午後 augmentStage_main.py:152 [INFO] Train: [ 41/100] Step 150/195 Loss 0.454 Prec@(1,5) (89.8%, 99.7%)
+05/08 07:48:09午後 augmentStage_main.py:152 [INFO] Train: [ 41/100] Step 195/195 Loss 0.456 Prec@(1,5) (89.7%, 99.7%)
+05/08 07:48:09午後 augmentStage_main.py:163 [INFO] Train: [ 41/100] Final Prec@1 89.7400%
+05/08 07:48:09午後 augmentStage_main.py:189 [INFO] Valid: [ 41/100] Step 000/039 Loss 0.499 Prec@(1,5) (86.7%, 98.4%)
+05/08 07:48:11午後 augmentStage_main.py:189 [INFO] Valid: [ 41/100] Step 039/039 Loss 0.353 Prec@(1,5) (89.1%, 99.7%)
+05/08 07:48:11午後 augmentStage_main.py:199 [INFO] Valid: [ 41/100] Final Prec@1 89.1000%
+05/08 07:48:11午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2200%
+05/08 07:48:11午後 augmentStage_main.py:127 [INFO] Epoch 41 LR 0.015608623589560694
+05/08 07:48:12午後 augmentStage_main.py:152 [INFO] Train: [ 42/100] Step 000/195 Loss 0.541 Prec@(1,5) (84.4%, 100.0%)
+05/08 07:48:20午後 augmentStage_main.py:152 [INFO] Train: [ 42/100] Step 050/195 Loss 0.401 Prec@(1,5) (90.7%, 99.8%)
+05/08 07:48:27午後 augmentStage_main.py:152 [INFO] Train: [ 42/100] Step 100/195 Loss 0.419 Prec@(1,5) (90.3%, 99.8%)
+05/08 07:48:35午後 augmentStage_main.py:152 [INFO] Train: [ 42/100] Step 150/195 Loss 0.429 Prec@(1,5) (89.9%, 99.8%)
+05/08 07:48:42午後 augmentStage_main.py:152 [INFO] Train: [ 42/100] Step 195/195 Loss 0.439 Prec@(1,5) (89.7%, 99.8%)
+05/08 07:48:42午後 augmentStage_main.py:163 [INFO] Train: [ 42/100] Final Prec@1 89.7200%
+05/08 07:48:42午後 augmentStage_main.py:189 [INFO] Valid: [ 42/100] Step 000/039 Loss 0.285 Prec@(1,5) (92.2%, 100.0%)
+05/08 07:48:44午後 augmentStage_main.py:189 [INFO] Valid: [ 42/100] Step 039/039 Loss 0.371 Prec@(1,5) (89.3%, 99.6%)
+05/08 07:48:44午後 augmentStage_main.py:199 [INFO] Valid: [ 42/100] Final Prec@1 89.2800%
+05/08 07:48:44午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2800%
+05/08 07:48:44午後 augmentStage_main.py:127 [INFO] Epoch 42 LR 0.015226790517456795
+05/08 07:48:45午後 augmentStage_main.py:152 [INFO] Train: [ 43/100] Step 000/195 Loss 0.376 Prec@(1,5) (93.0%, 100.0%)
+05/08 07:48:53午後 augmentStage_main.py:152 [INFO] Train: [ 43/100] Step 050/195 Loss 0.436 Prec@(1,5) (90.0%, 99.8%)
+05/08 07:49:00午後 augmentStage_main.py:152 [INFO] Train: [ 43/100] Step 100/195 Loss 0.445 Prec@(1,5) (89.9%, 99.8%)
+05/08 07:49:08午後 augmentStage_main.py:152 [INFO] Train: [ 43/100] Step 150/195 Loss 0.441 Prec@(1,5) (90.0%, 99.8%)
+05/08 07:49:15午後 augmentStage_main.py:152 [INFO] Train: [ 43/100] Step 195/195 Loss 0.444 Prec@(1,5) (89.9%, 99.8%)
+05/08 07:49:15午後 augmentStage_main.py:163 [INFO] Train: [ 43/100] Final Prec@1 89.8520%
+05/08 07:49:16午後 augmentStage_main.py:189 [INFO] Valid: [ 43/100] Step 000/039 Loss 0.611 Prec@(1,5) (85.2%, 97.7%)
+05/08 07:49:17午後 augmentStage_main.py:189 [INFO] Valid: [ 43/100] Step 039/039 Loss 0.404 Prec@(1,5) (88.8%, 99.5%)
+05/08 07:49:17午後 augmentStage_main.py:199 [INFO] Valid: [ 43/100] Final Prec@1 88.7800%
+05/08 07:49:17午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2800%
+05/08 07:49:18午後 augmentStage_main.py:127 [INFO] Epoch 43 LR 0.01484226643232157
+05/08 07:49:18午後 augmentStage_main.py:152 [INFO] Train: [ 44/100] Step 000/195 Loss 0.432 Prec@(1,5) (89.8%, 99.2%)
+05/08 07:49:26午後 augmentStage_main.py:152 [INFO] Train: [ 44/100] Step 050/195 Loss 0.430 Prec@(1,5) (90.2%, 99.7%)
+05/08 07:49:33午後 augmentStage_main.py:152 [INFO] Train: [ 44/100] Step 100/195 Loss 0.429 Prec@(1,5) (90.3%, 99.7%)
+05/08 07:49:41午後 augmentStage_main.py:152 [INFO] Train: [ 44/100] Step 150/195 Loss 0.428 Prec@(1,5) (90.2%, 99.7%)
+05/08 07:49:48午後 augmentStage_main.py:152 [INFO] Train: [ 44/100] Step 195/195 Loss 0.431 Prec@(1,5) (90.2%, 99.7%)
+05/08 07:49:48午後 augmentStage_main.py:163 [INFO] Train: [ 44/100] Final Prec@1 90.1720%
+05/08 07:49:49午後 augmentStage_main.py:189 [INFO] Valid: [ 44/100] Step 000/039 Loss 0.361 Prec@(1,5) (89.8%, 98.4%)
+05/08 07:49:50午後 augmentStage_main.py:189 [INFO] Valid: [ 44/100] Step 039/039 Loss 0.427 Prec@(1,5) (87.9%, 99.5%)
+05/08 07:49:50午後 augmentStage_main.py:199 [INFO] Valid: [ 44/100] Final Prec@1 87.9000%
+05/08 07:49:50午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2800%
+05/08 07:49:51午後 augmentStage_main.py:127 [INFO] Epoch 44 LR 0.014455430813002898
+05/08 07:49:51午後 augmentStage_main.py:152 [INFO] Train: [ 45/100] Step 000/195 Loss 0.421 Prec@(1,5) (90.6%, 99.2%)
+05/08 07:49:59午後 augmentStage_main.py:152 [INFO] Train: [ 45/100] Step 050/195 Loss 0.447 Prec@(1,5) (89.9%, 99.8%)
+05/08 07:50:06午後 augmentStage_main.py:152 [INFO] Train: [ 45/100] Step 100/195 Loss 0.445 Prec@(1,5) (89.9%, 99.8%)
+05/08 07:50:14午後 augmentStage_main.py:152 [INFO] Train: [ 45/100] Step 150/195 Loss 0.437 Prec@(1,5) (90.1%, 99.8%)
+05/08 07:50:21午後 augmentStage_main.py:152 [INFO] Train: [ 45/100] Step 195/195 Loss 0.434 Prec@(1,5) (90.1%, 99.8%)
+05/08 07:50:21午後 augmentStage_main.py:163 [INFO] Train: [ 45/100] Final Prec@1 90.1120%
+05/08 07:50:21午後 augmentStage_main.py:189 [INFO] Valid: [ 45/100] Step 000/039 Loss 0.347 Prec@(1,5) (89.1%, 100.0%)
+05/08 07:50:23午後 augmentStage_main.py:189 [INFO] Valid: [ 45/100] Step 039/039 Loss 0.370 Prec@(1,5) (89.1%, 99.6%)
+05/08 07:50:23午後 augmentStage_main.py:199 [INFO] Valid: [ 45/100] Final Prec@1 89.1200%
+05/08 07:50:23午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2800%
+05/08 07:50:23午後 augmentStage_main.py:127 [INFO] Epoch 45 LR 0.014066665419553816
+05/08 07:50:24午後 augmentStage_main.py:152 [INFO] Train: [ 46/100] Step 000/195 Loss 0.443 Prec@(1,5) (91.4%, 98.4%)
+05/08 07:50:32午後 augmentStage_main.py:152 [INFO] Train: [ 46/100] Step 050/195 Loss 0.396 Prec@(1,5) (90.7%, 99.8%)
+05/08 07:50:39午後 augmentStage_main.py:152 [INFO] Train: [ 46/100] Step 100/195 Loss 0.412 Prec@(1,5) (90.2%, 99.8%)
+05/08 07:50:47午後 augmentStage_main.py:152 [INFO] Train: [ 46/100] Step 150/195 Loss 0.417 Prec@(1,5) (90.2%, 99.8%)
+05/08 07:50:54午後 augmentStage_main.py:152 [INFO] Train: [ 46/100] Step 195/195 Loss 0.414 Prec@(1,5) (90.3%, 99.8%)
+05/08 07:50:54午後 augmentStage_main.py:163 [INFO] Train: [ 46/100] Final Prec@1 90.3120%
+05/08 07:50:54午後 augmentStage_main.py:189 [INFO] Valid: [ 46/100] Step 000/039 Loss 0.299 Prec@(1,5) (94.5%, 100.0%)
+05/08 07:50:56午後 augmentStage_main.py:189 [INFO] Valid: [ 46/100] Step 039/039 Loss 0.378 Prec@(1,5) (88.8%, 99.7%)
+05/08 07:50:56午後 augmentStage_main.py:199 [INFO] Valid: [ 46/100] Final Prec@1 88.8200%
+05/08 07:50:56午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2800%
+05/08 07:50:56午後 augmentStage_main.py:127 [INFO] Epoch 46 LR 0.013676353916481438
+05/08 07:50:57午後 augmentStage_main.py:152 [INFO] Train: [ 47/100] Step 000/195 Loss 0.404 Prec@(1,5) (89.8%, 100.0%)
+05/08 07:51:04午後 augmentStage_main.py:152 [INFO] Train: [ 47/100] Step 050/195 Loss 0.418 Prec@(1,5) (90.4%, 99.8%)
+05/08 07:51:12午後 augmentStage_main.py:152 [INFO] Train: [ 47/100] Step 100/195 Loss 0.416 Prec@(1,5) (90.5%, 99.9%)
+05/08 07:51:20午後 augmentStage_main.py:152 [INFO] Train: [ 47/100] Step 150/195 Loss 0.414 Prec@(1,5) (90.5%, 99.8%)
+05/08 07:51:27午後 augmentStage_main.py:152 [INFO] Train: [ 47/100] Step 195/195 Loss 0.409 Prec@(1,5) (90.7%, 99.8%)
+05/08 07:51:27午後 augmentStage_main.py:163 [INFO] Train: [ 47/100] Final Prec@1 90.6640%
+05/08 07:51:27午後 augmentStage_main.py:189 [INFO] Valid: [ 47/100] Step 000/039 Loss 0.341 Prec@(1,5) (89.1%, 98.4%)
+05/08 07:51:28午後 augmentStage_main.py:189 [INFO] Valid: [ 47/100] Step 039/039 Loss 0.387 Prec@(1,5) (88.8%, 99.6%)
+05/08 07:51:29午後 augmentStage_main.py:199 [INFO] Valid: [ 47/100] Final Prec@1 88.8000%
+05/08 07:51:29午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2800%
+05/08 07:51:29午後 augmentStage_main.py:127 [INFO] Epoch 47 LR 0.013284881494116428
+05/08 07:51:29午後 augmentStage_main.py:152 [INFO] Train: [ 48/100] Step 000/195 Loss 0.352 Prec@(1,5) (92.2%, 99.2%)
+05/08 07:51:37午後 augmentStage_main.py:152 [INFO] Train: [ 48/100] Step 050/195 Loss 0.413 Prec@(1,5) (90.4%, 99.9%)
+05/08 07:51:45午後 augmentStage_main.py:152 [INFO] Train: [ 48/100] Step 100/195 Loss 0.411 Prec@(1,5) (90.6%, 99.8%)
+05/08 07:51:52午後 augmentStage_main.py:152 [INFO] Train: [ 48/100] Step 150/195 Loss 0.408 Prec@(1,5) (90.7%, 99.8%)
+05/08 07:51:59午後 augmentStage_main.py:152 [INFO] Train: [ 48/100] Step 195/195 Loss 0.405 Prec@(1,5) (90.8%, 99.8%)
+05/08 07:51:59午後 augmentStage_main.py:163 [INFO] Train: [ 48/100] Final Prec@1 90.7520%
+05/08 07:51:59午後 augmentStage_main.py:189 [INFO] Valid: [ 48/100] Step 000/039 Loss 0.426 Prec@(1,5) (88.3%, 100.0%)
+05/08 07:52:01午後 augmentStage_main.py:189 [INFO] Valid: [ 48/100] Step 039/039 Loss 0.418 Prec@(1,5) (88.3%, 99.5%)
+05/08 07:52:01午後 augmentStage_main.py:199 [INFO] Valid: [ 48/100] Final Prec@1 88.2600%
+05/08 07:52:01午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2800%
+05/08 07:52:01午後 augmentStage_main.py:127 [INFO] Epoch 48 LR 0.012892634488476613
+05/08 07:52:02午後 augmentStage_main.py:152 [INFO] Train: [ 49/100] Step 000/195 Loss 0.491 Prec@(1,5) (86.7%, 100.0%)
+05/08 07:52:09午後 augmentStage_main.py:152 [INFO] Train: [ 49/100] Step 050/195 Loss 0.388 Prec@(1,5) (91.4%, 99.9%)
+05/08 07:52:17午後 augmentStage_main.py:152 [INFO] Train: [ 49/100] Step 100/195 Loss 0.384 Prec@(1,5) (91.4%, 99.9%)
+05/08 07:52:25午後 augmentStage_main.py:152 [INFO] Train: [ 49/100] Step 150/195 Loss 0.387 Prec@(1,5) (91.3%, 99.8%)
+05/08 07:52:32午後 augmentStage_main.py:152 [INFO] Train: [ 49/100] Step 195/195 Loss 0.391 Prec@(1,5) (91.3%, 99.8%)
+05/08 07:52:32午後 augmentStage_main.py:163 [INFO] Train: [ 49/100] Final Prec@1 91.2920%
+05/08 07:52:32午後 augmentStage_main.py:189 [INFO] Valid: [ 49/100] Step 000/039 Loss 0.588 Prec@(1,5) (87.5%, 99.2%)
+05/08 07:52:34午後 augmentStage_main.py:189 [INFO] Valid: [ 49/100] Step 039/039 Loss 0.465 Prec@(1,5) (88.0%, 99.5%)
+05/08 07:52:34午後 augmentStage_main.py:199 [INFO] Valid: [ 49/100] Final Prec@1 88.0200%
+05/08 07:52:34午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2800%
+05/08 07:52:34午後 augmentStage_main.py:127 [INFO] Epoch 49 LR 0.01250000000000001
+05/08 07:52:34午後 augmentStage_main.py:152 [INFO] Train: [ 50/100] Step 000/195 Loss 0.298 Prec@(1,5) (93.7%, 100.0%)
+05/08 07:52:42午後 augmentStage_main.py:152 [INFO] Train: [ 50/100] Step 050/195 Loss 0.384 Prec@(1,5) (91.5%, 99.8%)
+05/08 07:52:50午後 augmentStage_main.py:152 [INFO] Train: [ 50/100] Step 100/195 Loss 0.384 Prec@(1,5) (91.5%, 99.8%)
+05/08 07:52:57午後 augmentStage_main.py:152 [INFO] Train: [ 50/100] Step 150/195 Loss 0.385 Prec@(1,5) (91.3%, 99.8%)
+05/08 07:53:04午後 augmentStage_main.py:152 [INFO] Train: [ 50/100] Step 195/195 Loss 0.382 Prec@(1,5) (91.5%, 99.8%)
+05/08 07:53:04午後 augmentStage_main.py:163 [INFO] Train: [ 50/100] Final Prec@1 91.4520%
+05/08 07:53:04午後 augmentStage_main.py:189 [INFO] Valid: [ 50/100] Step 000/039 Loss 0.497 Prec@(1,5) (86.7%, 100.0%)
+05/08 07:53:06午後 augmentStage_main.py:189 [INFO] Valid: [ 50/100] Step 039/039 Loss 0.411 Prec@(1,5) (88.6%, 99.6%)
+05/08 07:53:06午後 augmentStage_main.py:199 [INFO] Valid: [ 50/100] Final Prec@1 88.6000%
+05/08 07:53:06午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.2800%
+05/08 07:53:06午後 augmentStage_main.py:127 [INFO] Epoch 50 LR 0.012107365511523405
+05/08 07:53:07午後 augmentStage_main.py:152 [INFO] Train: [ 51/100] Step 000/195 Loss 0.403 Prec@(1,5) (89.8%, 100.0%)
+05/08 07:53:14午後 augmentStage_main.py:152 [INFO] Train: [ 51/100] Step 050/195 Loss 0.387 Prec@(1,5) (91.2%, 99.9%)
+05/08 07:53:22午後 augmentStage_main.py:152 [INFO] Train: [ 51/100] Step 100/195 Loss 0.381 Prec@(1,5) (91.2%, 99.9%)
+05/08 07:53:30午後 augmentStage_main.py:152 [INFO] Train: [ 51/100] Step 150/195 Loss 0.376 Prec@(1,5) (91.5%, 99.8%)
+05/08 07:53:37午後 augmentStage_main.py:152 [INFO] Train: [ 51/100] Step 195/195 Loss 0.382 Prec@(1,5) (91.3%, 99.8%)
+05/08 07:53:37午後 augmentStage_main.py:163 [INFO] Train: [ 51/100] Final Prec@1 91.2920%
+05/08 07:53:37午後 augmentStage_main.py:189 [INFO] Valid: [ 51/100] Step 000/039 Loss 0.311 Prec@(1,5) (89.1%, 100.0%)
+05/08 07:53:38午後 augmentStage_main.py:189 [INFO] Valid: [ 51/100] Step 039/039 Loss 0.391 Prec@(1,5) (89.5%, 99.5%)
+05/08 07:53:39午後 augmentStage_main.py:199 [INFO] Valid: [ 51/100] Final Prec@1 89.5200%
+05/08 07:53:39午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 89.5200%
+05/08 07:53:39午後 augmentStage_main.py:127 [INFO] Epoch 51 LR 0.011715118505883592
+05/08 07:53:39午後 augmentStage_main.py:152 [INFO] Train: [ 52/100] Step 000/195 Loss 0.316 Prec@(1,5) (93.0%, 100.0%)
+05/08 07:53:47午後 augmentStage_main.py:152 [INFO] Train: [ 52/100] Step 050/195 Loss 0.355 Prec@(1,5) (91.8%, 99.8%)
+05/08 07:53:55午後 augmentStage_main.py:152 [INFO] Train: [ 52/100] Step 100/195 Loss 0.366 Prec@(1,5) (91.6%, 99.8%)
+05/08 07:54:02午後 augmentStage_main.py:152 [INFO] Train: [ 52/100] Step 150/195 Loss 0.372 Prec@(1,5) (91.6%, 99.8%)
+05/08 07:54:09午後 augmentStage_main.py:152 [INFO] Train: [ 52/100] Step 195/195 Loss 0.372 Prec@(1,5) (91.5%, 99.8%)
+05/08 07:54:09午後 augmentStage_main.py:163 [INFO] Train: [ 52/100] Final Prec@1 91.5480%
+05/08 07:54:09午後 augmentStage_main.py:189 [INFO] Valid: [ 52/100] Step 000/039 Loss 0.500 Prec@(1,5) (86.7%, 99.2%)
+05/08 07:54:11午後 augmentStage_main.py:189 [INFO] Valid: [ 52/100] Step 039/039 Loss 0.375 Prec@(1,5) (90.1%, 99.5%)
+05/08 07:54:11午後 augmentStage_main.py:199 [INFO] Valid: [ 52/100] Final Prec@1 90.0600%
+05/08 07:54:11午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.0600%
+05/08 07:54:11午後 augmentStage_main.py:127 [INFO] Epoch 52 LR 0.011323646083518579
+05/08 07:54:12午後 augmentStage_main.py:152 [INFO] Train: [ 53/100] Step 000/195 Loss 0.319 Prec@(1,5) (92.2%, 100.0%)
+05/08 07:54:19午後 augmentStage_main.py:152 [INFO] Train: [ 53/100] Step 050/195 Loss 0.368 Prec@(1,5) (91.6%, 99.9%)
+05/08 07:54:27午後 augmentStage_main.py:152 [INFO] Train: [ 53/100] Step 100/195 Loss 0.362 Prec@(1,5) (91.9%, 99.8%)
+05/08 07:54:35午後 augmentStage_main.py:152 [INFO] Train: [ 53/100] Step 150/195 Loss 0.360 Prec@(1,5) (91.9%, 99.8%)
+05/08 07:54:42午後 augmentStage_main.py:152 [INFO] Train: [ 53/100] Step 195/195 Loss 0.363 Prec@(1,5) (91.8%, 99.8%)
+05/08 07:54:42午後 augmentStage_main.py:163 [INFO] Train: [ 53/100] Final Prec@1 91.8480%
+05/08 07:54:42午後 augmentStage_main.py:189 [INFO] Valid: [ 53/100] Step 000/039 Loss 0.436 Prec@(1,5) (85.9%, 99.2%)
+05/08 07:54:43午後 augmentStage_main.py:189 [INFO] Valid: [ 53/100] Step 039/039 Loss 0.361 Prec@(1,5) (89.8%, 99.7%)
+05/08 07:54:44午後 augmentStage_main.py:199 [INFO] Valid: [ 53/100] Final Prec@1 89.8200%
+05/08 07:54:44午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.0600%
+05/08 07:54:44午後 augmentStage_main.py:127 [INFO] Epoch 53 LR 0.010933334580446206
+05/08 07:54:44午後 augmentStage_main.py:152 [INFO] Train: [ 54/100] Step 000/195 Loss 0.382 Prec@(1,5) (92.2%, 99.2%)
+05/08 07:54:52午後 augmentStage_main.py:152 [INFO] Train: [ 54/100] Step 050/195 Loss 0.367 Prec@(1,5) (91.7%, 99.8%)
+05/08 07:55:00午後 augmentStage_main.py:152 [INFO] Train: [ 54/100] Step 100/195 Loss 0.362 Prec@(1,5) (91.9%, 99.8%)
+05/08 07:55:08午後 augmentStage_main.py:152 [INFO] Train: [ 54/100] Step 150/195 Loss 0.359 Prec@(1,5) (91.8%, 99.8%)
+05/08 07:55:15午後 augmentStage_main.py:152 [INFO] Train: [ 54/100] Step 195/195 Loss 0.366 Prec@(1,5) (91.6%, 99.8%)
+05/08 07:55:15午後 augmentStage_main.py:163 [INFO] Train: [ 54/100] Final Prec@1 91.6000%
+05/08 07:55:15午後 augmentStage_main.py:189 [INFO] Valid: [ 54/100] Step 000/039 Loss 0.293 Prec@(1,5) (90.6%, 100.0%)
+05/08 07:55:17午後 augmentStage_main.py:189 [INFO] Valid: [ 54/100] Step 039/039 Loss 0.363 Prec@(1,5) (89.8%, 99.7%)
+05/08 07:55:17午後 augmentStage_main.py:199 [INFO] Valid: [ 54/100] Final Prec@1 89.8000%
+05/08 07:55:17午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.0600%
+05/08 07:55:17午後 augmentStage_main.py:127 [INFO] Epoch 54 LR 0.010544569186997121
+05/08 07:55:17午後 augmentStage_main.py:152 [INFO] Train: [ 55/100] Step 000/195 Loss 0.339 Prec@(1,5) (93.0%, 100.0%)
+05/08 07:55:25午後 augmentStage_main.py:152 [INFO] Train: [ 55/100] Step 050/195 Loss 0.335 Prec@(1,5) (92.5%, 99.9%)
+05/08 07:55:33午後 augmentStage_main.py:152 [INFO] Train: [ 55/100] Step 100/195 Loss 0.336 Prec@(1,5) (92.6%, 99.9%)
+05/08 07:55:41午後 augmentStage_main.py:152 [INFO] Train: [ 55/100] Step 150/195 Loss 0.344 Prec@(1,5) (92.5%, 99.9%)
+05/08 07:55:48午後 augmentStage_main.py:152 [INFO] Train: [ 55/100] Step 195/195 Loss 0.348 Prec@(1,5) (92.4%, 99.8%)
+05/08 07:55:48午後 augmentStage_main.py:163 [INFO] Train: [ 55/100] Final Prec@1 92.4120%
+05/08 07:55:48午後 augmentStage_main.py:189 [INFO] Valid: [ 55/100] Step 000/039 Loss 0.316 Prec@(1,5) (89.8%, 100.0%)
+05/08 07:55:49午後 augmentStage_main.py:189 [INFO] Valid: [ 55/100] Step 039/039 Loss 0.405 Prec@(1,5) (89.2%, 99.6%)
+05/08 07:55:49午後 augmentStage_main.py:199 [INFO] Valid: [ 55/100] Final Prec@1 89.1600%
+05/08 07:55:50午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.0600%
+05/08 07:55:50午後 augmentStage_main.py:127 [INFO] Epoch 55 LR 0.01015773356767845
+05/08 07:55:50午後 augmentStage_main.py:152 [INFO] Train: [ 56/100] Step 000/195 Loss 0.279 Prec@(1,5) (94.5%, 99.2%)
+05/08 07:55:58午後 augmentStage_main.py:152 [INFO] Train: [ 56/100] Step 050/195 Loss 0.345 Prec@(1,5) (92.4%, 99.9%)
+05/08 07:56:06午後 augmentStage_main.py:152 [INFO] Train: [ 56/100] Step 100/195 Loss 0.346 Prec@(1,5) (92.3%, 99.8%)
+05/08 07:56:14午後 augmentStage_main.py:152 [INFO] Train: [ 56/100] Step 150/195 Loss 0.348 Prec@(1,5) (92.1%, 99.8%)
+05/08 07:56:20午後 augmentStage_main.py:152 [INFO] Train: [ 56/100] Step 195/195 Loss 0.355 Prec@(1,5) (92.0%, 99.8%)
+05/08 07:56:20午後 augmentStage_main.py:163 [INFO] Train: [ 56/100] Final Prec@1 92.0120%
+05/08 07:56:21午後 augmentStage_main.py:189 [INFO] Valid: [ 56/100] Step 000/039 Loss 0.595 Prec@(1,5) (83.6%, 99.2%)
+05/08 07:56:22午後 augmentStage_main.py:189 [INFO] Valid: [ 56/100] Step 039/039 Loss 0.402 Prec@(1,5) (88.7%, 99.6%)
+05/08 07:56:22午後 augmentStage_main.py:199 [INFO] Valid: [ 56/100] Final Prec@1 88.7200%
+05/08 07:56:23午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.0600%
+05/08 07:56:23午後 augmentStage_main.py:127 [INFO] Epoch 56 LR 0.009773209482543229
+05/08 07:56:23午後 augmentStage_main.py:152 [INFO] Train: [ 57/100] Step 000/195 Loss 0.358 Prec@(1,5) (92.2%, 100.0%)
+05/08 07:56:31午後 augmentStage_main.py:152 [INFO] Train: [ 57/100] Step 050/195 Loss 0.315 Prec@(1,5) (93.3%, 99.9%)
+05/08 07:56:38午後 augmentStage_main.py:152 [INFO] Train: [ 57/100] Step 100/195 Loss 0.330 Prec@(1,5) (92.9%, 99.9%)
+05/08 07:56:46午後 augmentStage_main.py:152 [INFO] Train: [ 57/100] Step 150/195 Loss 0.335 Prec@(1,5) (92.7%, 99.8%)
+05/08 07:56:53午後 augmentStage_main.py:152 [INFO] Train: [ 57/100] Step 195/195 Loss 0.341 Prec@(1,5) (92.5%, 99.8%)
+05/08 07:56:53午後 augmentStage_main.py:163 [INFO] Train: [ 57/100] Final Prec@1 92.5400%
+05/08 07:56:54午後 augmentStage_main.py:189 [INFO] Valid: [ 57/100] Step 000/039 Loss 0.405 Prec@(1,5) (89.8%, 99.2%)
+05/08 07:56:55午後 augmentStage_main.py:189 [INFO] Valid: [ 57/100] Step 039/039 Loss 0.387 Prec@(1,5) (89.8%, 99.5%)
+05/08 07:56:55午後 augmentStage_main.py:199 [INFO] Valid: [ 57/100] Final Prec@1 89.7800%
+05/08 07:56:56午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.0600%
+05/08 07:56:56午後 augmentStage_main.py:127 [INFO] Epoch 57 LR 0.009391376410439321
+05/08 07:56:56午後 augmentStage_main.py:152 [INFO] Train: [ 58/100] Step 000/195 Loss 0.532 Prec@(1,5) (89.1%, 99.2%)
+05/08 07:57:04午後 augmentStage_main.py:152 [INFO] Train: [ 58/100] Step 050/195 Loss 0.336 Prec@(1,5) (92.6%, 99.8%)
+05/08 07:57:11午後 augmentStage_main.py:152 [INFO] Train: [ 58/100] Step 100/195 Loss 0.340 Prec@(1,5) (92.4%, 99.9%)
+05/08 07:57:19午後 augmentStage_main.py:152 [INFO] Train: [ 58/100] Step 150/195 Loss 0.340 Prec@(1,5) (92.4%, 99.9%)
+05/08 07:57:26午後 augmentStage_main.py:152 [INFO] Train: [ 58/100] Step 195/195 Loss 0.336 Prec@(1,5) (92.5%, 99.9%)
+05/08 07:57:26午後 augmentStage_main.py:163 [INFO] Train: [ 58/100] Final Prec@1 92.4800%
+05/08 07:57:26午後 augmentStage_main.py:189 [INFO] Valid: [ 58/100] Step 000/039 Loss 0.715 Prec@(1,5) (86.7%, 98.4%)
+05/08 07:57:28午後 augmentStage_main.py:189 [INFO] Valid: [ 58/100] Step 039/039 Loss 0.407 Prec@(1,5) (89.4%, 99.4%)
+05/08 07:57:28午後 augmentStage_main.py:199 [INFO] Valid: [ 58/100] Final Prec@1 89.4400%
+05/08 07:57:28午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.0600%
+05/08 07:57:28午後 augmentStage_main.py:127 [INFO] Epoch 58 LR 0.009012611174509643
+05/08 07:57:29午後 augmentStage_main.py:152 [INFO] Train: [ 59/100] Step 000/195 Loss 0.335 Prec@(1,5) (92.2%, 100.0%)
+05/08 07:57:37午後 augmentStage_main.py:152 [INFO] Train: [ 59/100] Step 050/195 Loss 0.325 Prec@(1,5) (92.9%, 99.9%)
+05/08 07:57:44午後 augmentStage_main.py:152 [INFO] Train: [ 59/100] Step 100/195 Loss 0.318 Prec@(1,5) (93.0%, 99.9%)
+05/08 07:57:52午後 augmentStage_main.py:152 [INFO] Train: [ 59/100] Step 150/195 Loss 0.323 Prec@(1,5) (92.7%, 99.9%)
+05/08 07:57:59午後 augmentStage_main.py:152 [INFO] Train: [ 59/100] Step 195/195 Loss 0.323 Prec@(1,5) (92.7%, 99.9%)
+05/08 07:57:59午後 augmentStage_main.py:163 [INFO] Train: [ 59/100] Final Prec@1 92.7280%
+05/08 07:57:59午後 augmentStage_main.py:189 [INFO] Valid: [ 59/100] Step 000/039 Loss 0.219 Prec@(1,5) (92.2%, 100.0%)
+05/08 07:58:01午後 augmentStage_main.py:189 [INFO] Valid: [ 59/100] Step 039/039 Loss 0.363 Prec@(1,5) (90.2%, 99.6%)
+05/08 07:58:01午後 augmentStage_main.py:199 [INFO] Valid: [ 59/100] Final Prec@1 90.2400%
+05/08 07:58:01午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.2400%
+05/08 07:58:01午後 augmentStage_main.py:127 [INFO] Epoch 59 LR 0.008637287570313169
+05/08 07:58:02午後 augmentStage_main.py:152 [INFO] Train: [ 60/100] Step 000/195 Loss 0.330 Prec@(1,5) (93.0%, 99.2%)
+05/08 07:58:09午後 augmentStage_main.py:152 [INFO] Train: [ 60/100] Step 050/195 Loss 0.304 Prec@(1,5) (93.4%, 99.9%)
+05/08 07:58:17午後 augmentStage_main.py:152 [INFO] Train: [ 60/100] Step 100/195 Loss 0.304 Prec@(1,5) (93.3%, 99.9%)
+05/08 07:58:25午後 augmentStage_main.py:152 [INFO] Train: [ 60/100] Step 150/195 Loss 0.311 Prec@(1,5) (93.1%, 99.9%)
+05/08 07:58:32午後 augmentStage_main.py:152 [INFO] Train: [ 60/100] Step 195/195 Loss 0.319 Prec@(1,5) (92.9%, 99.9%)
+05/08 07:58:32午後 augmentStage_main.py:163 [INFO] Train: [ 60/100] Final Prec@1 92.8520%
+05/08 07:58:32午後 augmentStage_main.py:189 [INFO] Valid: [ 60/100] Step 000/039 Loss 0.533 Prec@(1,5) (87.5%, 99.2%)
+05/08 07:58:33午後 augmentStage_main.py:189 [INFO] Valid: [ 60/100] Step 039/039 Loss 0.353 Prec@(1,5) (90.2%, 99.7%)
+05/08 07:58:34午後 augmentStage_main.py:199 [INFO] Valid: [ 60/100] Final Prec@1 90.2000%
+05/08 07:58:34午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.2400%
+05/08 07:58:34午後 augmentStage_main.py:127 [INFO] Epoch 60 LR 0.008265775996933865
+05/08 07:58:35午後 augmentStage_main.py:152 [INFO] Train: [ 61/100] Step 000/195 Loss 0.357 Prec@(1,5) (94.5%, 100.0%)
+05/08 07:58:42午後 augmentStage_main.py:152 [INFO] Train: [ 61/100] Step 050/195 Loss 0.304 Prec@(1,5) (93.4%, 99.9%)
+05/08 07:58:50午後 augmentStage_main.py:152 [INFO] Train: [ 61/100] Step 100/195 Loss 0.301 Prec@(1,5) (93.4%, 99.9%)
+05/08 07:58:57午後 augmentStage_main.py:152 [INFO] Train: [ 61/100] Step 150/195 Loss 0.304 Prec@(1,5) (93.2%, 99.9%)
+05/08 07:59:04午後 augmentStage_main.py:152 [INFO] Train: [ 61/100] Step 195/195 Loss 0.304 Prec@(1,5) (93.3%, 99.9%)
+05/08 07:59:04午後 augmentStage_main.py:163 [INFO] Train: [ 61/100] Final Prec@1 93.2960%
+05/08 07:59:05午後 augmentStage_main.py:189 [INFO] Valid: [ 61/100] Step 000/039 Loss 0.185 Prec@(1,5) (94.5%, 100.0%)
+05/08 07:59:06午後 augmentStage_main.py:189 [INFO] Valid: [ 61/100] Step 039/039 Loss 0.342 Prec@(1,5) (90.7%, 99.7%)
+05/08 07:59:06午後 augmentStage_main.py:199 [INFO] Valid: [ 61/100] Final Prec@1 90.6800%
+05/08 07:59:06午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.6800%
+05/08 07:59:07午後 augmentStage_main.py:127 [INFO] Epoch 61 LR 0.007898443091441536
+05/08 07:59:07午後 augmentStage_main.py:152 [INFO] Train: [ 62/100] Step 000/195 Loss 0.273 Prec@(1,5) (93.7%, 100.0%)
+05/08 07:59:15午後 augmentStage_main.py:152 [INFO] Train: [ 62/100] Step 050/195 Loss 0.303 Prec@(1,5) (93.2%, 99.9%)
+05/08 07:59:23午後 augmentStage_main.py:152 [INFO] Train: [ 62/100] Step 100/195 Loss 0.302 Prec@(1,5) (93.2%, 99.9%)
+05/08 07:59:30午後 augmentStage_main.py:152 [INFO] Train: [ 62/100] Step 150/195 Loss 0.300 Prec@(1,5) (93.3%, 99.9%)
+05/08 07:59:37午後 augmentStage_main.py:152 [INFO] Train: [ 62/100] Step 195/195 Loss 0.305 Prec@(1,5) (93.2%, 99.9%)
+05/08 07:59:37午後 augmentStage_main.py:163 [INFO] Train: [ 62/100] Final Prec@1 93.2320%
+05/08 07:59:37午後 augmentStage_main.py:189 [INFO] Valid: [ 62/100] Step 000/039 Loss 0.323 Prec@(1,5) (89.1%, 100.0%)
+05/08 07:59:39午後 augmentStage_main.py:189 [INFO] Valid: [ 62/100] Step 039/039 Loss 0.333 Prec@(1,5) (90.9%, 99.7%)
+05/08 07:59:39午後 augmentStage_main.py:199 [INFO] Valid: [ 62/100] Final Prec@1 90.9400%
+05/08 07:59:39午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.9400%
+05/08 07:59:39午後 augmentStage_main.py:127 [INFO] Epoch 62 LR 0.007535651367065248
+05/08 07:59:40午後 augmentStage_main.py:152 [INFO] Train: [ 63/100] Step 000/195 Loss 0.394 Prec@(1,5) (89.1%, 100.0%)
+05/08 07:59:48午後 augmentStage_main.py:152 [INFO] Train: [ 63/100] Step 050/195 Loss 0.295 Prec@(1,5) (93.4%, 99.9%)
+05/08 07:59:55午後 augmentStage_main.py:152 [INFO] Train: [ 63/100] Step 100/195 Loss 0.298 Prec@(1,5) (93.4%, 99.9%)
+05/08 08:00:03午後 augmentStage_main.py:152 [INFO] Train: [ 63/100] Step 150/195 Loss 0.299 Prec@(1,5) (93.3%, 99.9%)
+05/08 08:00:10午後 augmentStage_main.py:152 [INFO] Train: [ 63/100] Step 195/195 Loss 0.299 Prec@(1,5) (93.3%, 99.9%)
+05/08 08:00:10午後 augmentStage_main.py:163 [INFO] Train: [ 63/100] Final Prec@1 93.3280%
+05/08 08:00:10午後 augmentStage_main.py:189 [INFO] Valid: [ 63/100] Step 000/039 Loss 0.249 Prec@(1,5) (93.0%, 100.0%)
+05/08 08:00:12午後 augmentStage_main.py:189 [INFO] Valid: [ 63/100] Step 039/039 Loss 0.351 Prec@(1,5) (90.6%, 99.7%)
+05/08 08:00:12午後 augmentStage_main.py:199 [INFO] Valid: [ 63/100] Final Prec@1 90.6000%
+05/08 08:00:12午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.9400%
+05/08 08:00:12午後 augmentStage_main.py:127 [INFO] Epoch 63 LR 0.0071777588554365985
+05/08 08:00:12午後 augmentStage_main.py:152 [INFO] Train: [ 64/100] Step 000/195 Loss 0.158 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:00:20午後 augmentStage_main.py:152 [INFO] Train: [ 64/100] Step 050/195 Loss 0.287 Prec@(1,5) (93.8%, 99.9%)
+05/08 08:00:28午後 augmentStage_main.py:152 [INFO] Train: [ 64/100] Step 100/195 Loss 0.281 Prec@(1,5) (94.0%, 99.9%)
+05/08 08:00:35午後 augmentStage_main.py:152 [INFO] Train: [ 64/100] Step 150/195 Loss 0.288 Prec@(1,5) (93.8%, 99.9%)
+05/08 08:00:42午後 augmentStage_main.py:152 [INFO] Train: [ 64/100] Step 195/195 Loss 0.287 Prec@(1,5) (93.8%, 99.9%)
+05/08 08:00:42午後 augmentStage_main.py:163 [INFO] Train: [ 64/100] Final Prec@1 93.8400%
+05/08 08:00:43午後 augmentStage_main.py:189 [INFO] Valid: [ 64/100] Step 000/039 Loss 0.378 Prec@(1,5) (88.3%, 100.0%)
+05/08 08:00:44午後 augmentStage_main.py:189 [INFO] Valid: [ 64/100] Step 039/039 Loss 0.357 Prec@(1,5) (90.8%, 99.7%)
+05/08 08:00:44午後 augmentStage_main.py:199 [INFO] Valid: [ 64/100] Final Prec@1 90.8400%
+05/08 08:00:44午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.9400%
+05/08 08:00:45午後 augmentStage_main.py:127 [INFO] Epoch 64 LR 0.006825118753255672
+05/08 08:00:45午後 augmentStage_main.py:152 [INFO] Train: [ 65/100] Step 000/195 Loss 0.202 Prec@(1,5) (94.5%, 100.0%)
+05/08 08:00:53午後 augmentStage_main.py:152 [INFO] Train: [ 65/100] Step 050/195 Loss 0.285 Prec@(1,5) (93.4%, 99.9%)
+05/08 08:01:00午後 augmentStage_main.py:152 [INFO] Train: [ 65/100] Step 100/195 Loss 0.291 Prec@(1,5) (93.5%, 99.9%)
+05/08 08:01:08午後 augmentStage_main.py:152 [INFO] Train: [ 65/100] Step 150/195 Loss 0.287 Prec@(1,5) (93.7%, 99.9%)
+05/08 08:01:15午後 augmentStage_main.py:152 [INFO] Train: [ 65/100] Step 195/195 Loss 0.288 Prec@(1,5) (93.7%, 99.9%)
+05/08 08:01:15午後 augmentStage_main.py:163 [INFO] Train: [ 65/100] Final Prec@1 93.6600%
+05/08 08:01:15午後 augmentStage_main.py:189 [INFO] Valid: [ 65/100] Step 000/039 Loss 0.336 Prec@(1,5) (88.3%, 100.0%)
+05/08 08:01:17午後 augmentStage_main.py:189 [INFO] Valid: [ 65/100] Step 039/039 Loss 0.370 Prec@(1,5) (90.4%, 99.7%)
+05/08 08:01:17午後 augmentStage_main.py:199 [INFO] Valid: [ 65/100] Final Prec@1 90.4000%
+05/08 08:01:17午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 90.9400%
+05/08 08:01:17午後 augmentStage_main.py:127 [INFO] Epoch 65 LR 0.0064780790737285635
+05/08 08:01:18午後 augmentStage_main.py:152 [INFO] Train: [ 66/100] Step 000/195 Loss 0.286 Prec@(1,5) (93.7%, 100.0%)
+05/08 08:01:25午後 augmentStage_main.py:152 [INFO] Train: [ 66/100] Step 050/195 Loss 0.298 Prec@(1,5) (93.4%, 99.9%)
+05/08 08:01:33午後 augmentStage_main.py:152 [INFO] Train: [ 66/100] Step 100/195 Loss 0.291 Prec@(1,5) (93.7%, 99.9%)
+05/08 08:01:41午後 augmentStage_main.py:152 [INFO] Train: [ 66/100] Step 150/195 Loss 0.293 Prec@(1,5) (93.7%, 99.9%)
+05/08 08:01:48午後 augmentStage_main.py:152 [INFO] Train: [ 66/100] Step 195/195 Loss 0.290 Prec@(1,5) (93.8%, 99.9%)
+05/08 08:01:48午後 augmentStage_main.py:163 [INFO] Train: [ 66/100] Final Prec@1 93.7720%
+05/08 08:01:48午後 augmentStage_main.py:189 [INFO] Valid: [ 66/100] Step 000/039 Loss 0.186 Prec@(1,5) (94.5%, 100.0%)
+05/08 08:01:49午後 augmentStage_main.py:189 [INFO] Valid: [ 66/100] Step 039/039 Loss 0.334 Prec@(1,5) (91.4%, 99.7%)
+05/08 08:01:50午後 augmentStage_main.py:199 [INFO] Valid: [ 66/100] Final Prec@1 91.4400%
+05/08 08:01:50午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 91.4400%
+05/08 08:01:50午後 augmentStage_main.py:127 [INFO] Epoch 66 LR 0.006136982303120365
+05/08 08:01:50午後 augmentStage_main.py:152 [INFO] Train: [ 67/100] Step 000/195 Loss 0.209 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:01:58午後 augmentStage_main.py:152 [INFO] Train: [ 67/100] Step 050/195 Loss 0.269 Prec@(1,5) (94.3%, 100.0%)
+05/08 08:02:06午後 augmentStage_main.py:152 [INFO] Train: [ 67/100] Step 100/195 Loss 0.262 Prec@(1,5) (94.3%, 100.0%)
+05/08 08:02:13午後 augmentStage_main.py:152 [INFO] Train: [ 67/100] Step 150/195 Loss 0.265 Prec@(1,5) (94.2%, 100.0%)
+05/08 08:02:20午後 augmentStage_main.py:152 [INFO] Train: [ 67/100] Step 195/195 Loss 0.270 Prec@(1,5) (94.1%, 99.9%)
+05/08 08:02:20午後 augmentStage_main.py:163 [INFO] Train: [ 67/100] Final Prec@1 94.1160%
+05/08 08:02:21午後 augmentStage_main.py:189 [INFO] Valid: [ 67/100] Step 000/039 Loss 0.367 Prec@(1,5) (92.2%, 100.0%)
+05/08 08:02:22午後 augmentStage_main.py:189 [INFO] Valid: [ 67/100] Step 039/039 Loss 0.362 Prec@(1,5) (91.0%, 99.7%)
+05/08 08:02:22午後 augmentStage_main.py:199 [INFO] Valid: [ 67/100] Final Prec@1 91.0200%
+05/08 08:02:22午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 91.4400%
+05/08 08:02:23午後 augmentStage_main.py:127 [INFO] Epoch 67 LR 0.005802165062762545
+05/08 08:02:23午後 augmentStage_main.py:152 [INFO] Train: [ 68/100] Step 000/195 Loss 0.299 Prec@(1,5) (93.7%, 100.0%)
+05/08 08:02:31午後 augmentStage_main.py:152 [INFO] Train: [ 68/100] Step 050/195 Loss 0.259 Prec@(1,5) (94.4%, 100.0%)
+05/08 08:02:38午後 augmentStage_main.py:152 [INFO] Train: [ 68/100] Step 100/195 Loss 0.263 Prec@(1,5) (94.4%, 99.9%)
+05/08 08:02:46午後 augmentStage_main.py:152 [INFO] Train: [ 68/100] Step 150/195 Loss 0.271 Prec@(1,5) (94.2%, 99.9%)
+05/08 08:02:53午後 augmentStage_main.py:152 [INFO] Train: [ 68/100] Step 195/195 Loss 0.273 Prec@(1,5) (94.1%, 99.9%)
+05/08 08:02:53午後 augmentStage_main.py:163 [INFO] Train: [ 68/100] Final Prec@1 94.1440%
+05/08 08:02:53午後 augmentStage_main.py:189 [INFO] Valid: [ 68/100] Step 000/039 Loss 0.300 Prec@(1,5) (90.6%, 100.0%)
+05/08 08:02:55午後 augmentStage_main.py:189 [INFO] Valid: [ 68/100] Step 039/039 Loss 0.342 Prec@(1,5) (91.6%, 99.7%)
+05/08 08:02:55午後 augmentStage_main.py:199 [INFO] Valid: [ 68/100] Final Prec@1 91.5800%
+05/08 08:02:55午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 91.5800%
+05/08 08:02:55午後 augmentStage_main.py:127 [INFO] Epoch 68 LR 0.005473957776848372
+05/08 08:02:56午後 augmentStage_main.py:152 [INFO] Train: [ 69/100] Step 000/195 Loss 0.351 Prec@(1,5) (93.7%, 100.0%)
+05/08 08:03:03午後 augmentStage_main.py:152 [INFO] Train: [ 69/100] Step 050/195 Loss 0.266 Prec@(1,5) (94.3%, 99.9%)
+05/08 08:03:11午後 augmentStage_main.py:152 [INFO] Train: [ 69/100] Step 100/195 Loss 0.263 Prec@(1,5) (94.5%, 99.9%)
+05/08 08:03:19午後 augmentStage_main.py:152 [INFO] Train: [ 69/100] Step 150/195 Loss 0.266 Prec@(1,5) (94.4%, 99.9%)
+05/08 08:03:25午後 augmentStage_main.py:152 [INFO] Train: [ 69/100] Step 195/195 Loss 0.266 Prec@(1,5) (94.3%, 99.9%)
+05/08 08:03:25午後 augmentStage_main.py:163 [INFO] Train: [ 69/100] Final Prec@1 94.3280%
+05/08 08:03:26午後 augmentStage_main.py:189 [INFO] Valid: [ 69/100] Step 000/039 Loss 0.280 Prec@(1,5) (91.4%, 100.0%)
+05/08 08:03:27午後 augmentStage_main.py:189 [INFO] Valid: [ 69/100] Step 039/039 Loss 0.345 Prec@(1,5) (91.0%, 99.7%)
+05/08 08:03:27午後 augmentStage_main.py:199 [INFO] Valid: [ 69/100] Final Prec@1 91.0200%
+05/08 08:03:27午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 91.5800%
+05/08 08:03:28午後 augmentStage_main.py:127 [INFO] Epoch 69 LR 0.0051526843463440926
+05/08 08:03:28午後 augmentStage_main.py:152 [INFO] Train: [ 70/100] Step 000/195 Loss 0.159 Prec@(1,5) (99.2%, 100.0%)
+05/08 08:03:36午後 augmentStage_main.py:152 [INFO] Train: [ 70/100] Step 050/195 Loss 0.265 Prec@(1,5) (94.6%, 99.8%)
+05/08 08:03:44午後 augmentStage_main.py:152 [INFO] Train: [ 70/100] Step 100/195 Loss 0.259 Prec@(1,5) (94.7%, 99.9%)
+05/08 08:03:51午後 augmentStage_main.py:152 [INFO] Train: [ 70/100] Step 150/195 Loss 0.258 Prec@(1,5) (94.7%, 99.9%)
+05/08 08:03:58午後 augmentStage_main.py:152 [INFO] Train: [ 70/100] Step 195/195 Loss 0.258 Prec@(1,5) (94.7%, 99.9%)
+05/08 08:03:58午後 augmentStage_main.py:163 [INFO] Train: [ 70/100] Final Prec@1 94.6600%
+05/08 08:03:58午後 augmentStage_main.py:189 [INFO] Valid: [ 70/100] Step 000/039 Loss 0.305 Prec@(1,5) (90.6%, 100.0%)
+05/08 08:04:00午後 augmentStage_main.py:189 [INFO] Valid: [ 70/100] Step 039/039 Loss 0.334 Prec@(1,5) (91.5%, 99.8%)
+05/08 08:04:00午後 augmentStage_main.py:199 [INFO] Valid: [ 70/100] Final Prec@1 91.4600%
+05/08 08:04:00午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 91.5800%
+05/08 08:04:00午後 augmentStage_main.py:127 [INFO] Epoch 70 LR 0.004838661829337797
+05/08 08:04:01午後 augmentStage_main.py:152 [INFO] Train: [ 71/100] Step 000/195 Loss 0.280 Prec@(1,5) (93.7%, 100.0%)
+05/08 08:04:09午後 augmentStage_main.py:152 [INFO] Train: [ 71/100] Step 050/195 Loss 0.258 Prec@(1,5) (94.6%, 100.0%)
+05/08 08:04:16午後 augmentStage_main.py:152 [INFO] Train: [ 71/100] Step 100/195 Loss 0.250 Prec@(1,5) (94.8%, 99.9%)
+05/08 08:04:24午後 augmentStage_main.py:152 [INFO] Train: [ 71/100] Step 150/195 Loss 0.247 Prec@(1,5) (94.8%, 100.0%)
+05/08 08:04:31午後 augmentStage_main.py:152 [INFO] Train: [ 71/100] Step 195/195 Loss 0.255 Prec@(1,5) (94.7%, 99.9%)
+05/08 08:04:31午後 augmentStage_main.py:163 [INFO] Train: [ 71/100] Final Prec@1 94.7120%
+05/08 08:04:31午後 augmentStage_main.py:189 [INFO] Valid: [ 71/100] Step 000/039 Loss 0.352 Prec@(1,5) (92.2%, 99.2%)
+05/08 08:04:32午後 augmentStage_main.py:189 [INFO] Valid: [ 71/100] Step 039/039 Loss 0.346 Prec@(1,5) (91.9%, 99.6%)
+05/08 08:04:33午後 augmentStage_main.py:199 [INFO] Valid: [ 71/100] Final Prec@1 91.9400%
+05/08 08:04:33午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 91.9400%
+05/08 08:04:33午後 augmentStage_main.py:127 [INFO] Epoch 71 LR 0.004532200128141383
+05/08 08:04:33午後 augmentStage_main.py:152 [INFO] Train: [ 72/100] Step 000/195 Loss 0.314 Prec@(1,5) (94.5%, 100.0%)
+05/08 08:04:41午後 augmentStage_main.py:152 [INFO] Train: [ 72/100] Step 050/195 Loss 0.253 Prec@(1,5) (94.6%, 100.0%)
+05/08 08:04:49午後 augmentStage_main.py:152 [INFO] Train: [ 72/100] Step 100/195 Loss 0.266 Prec@(1,5) (94.3%, 99.9%)
+05/08 08:04:56午後 augmentStage_main.py:152 [INFO] Train: [ 72/100] Step 150/195 Loss 0.260 Prec@(1,5) (94.5%, 99.9%)
+05/08 08:05:03午後 augmentStage_main.py:152 [INFO] Train: [ 72/100] Step 195/195 Loss 0.257 Prec@(1,5) (94.6%, 99.9%)
+05/08 08:05:03午後 augmentStage_main.py:163 [INFO] Train: [ 72/100] Final Prec@1 94.6080%
+05/08 08:05:04午後 augmentStage_main.py:189 [INFO] Valid: [ 72/100] Step 000/039 Loss 0.559 Prec@(1,5) (90.6%, 96.9%)
+05/08 08:05:05午後 augmentStage_main.py:189 [INFO] Valid: [ 72/100] Step 039/039 Loss 0.334 Prec@(1,5) (91.8%, 99.6%)
+05/08 08:05:05午後 augmentStage_main.py:199 [INFO] Valid: [ 72/100] Final Prec@1 91.7800%
+05/08 08:05:06午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 91.9400%
+05/08 08:05:06午後 augmentStage_main.py:127 [INFO] Epoch 72 LR 0.004233601683454358
+05/08 08:05:06午後 augmentStage_main.py:152 [INFO] Train: [ 73/100] Step 000/195 Loss 0.154 Prec@(1,5) (98.4%, 100.0%)
+05/08 08:05:14午後 augmentStage_main.py:152 [INFO] Train: [ 73/100] Step 050/195 Loss 0.243 Prec@(1,5) (94.8%, 99.9%)
+05/08 08:05:21午後 augmentStage_main.py:152 [INFO] Train: [ 73/100] Step 100/195 Loss 0.241 Prec@(1,5) (94.9%, 100.0%)
+05/08 08:05:29午後 augmentStage_main.py:152 [INFO] Train: [ 73/100] Step 150/195 Loss 0.247 Prec@(1,5) (94.8%, 100.0%)
+05/08 08:05:36午後 augmentStage_main.py:152 [INFO] Train: [ 73/100] Step 195/195 Loss 0.249 Prec@(1,5) (94.8%, 99.9%)
+05/08 08:05:36午後 augmentStage_main.py:163 [INFO] Train: [ 73/100] Final Prec@1 94.8440%
+05/08 08:05:36午後 augmentStage_main.py:189 [INFO] Valid: [ 73/100] Step 000/039 Loss 0.278 Prec@(1,5) (92.2%, 99.2%)
+05/08 08:05:38午後 augmentStage_main.py:189 [INFO] Valid: [ 73/100] Step 039/039 Loss 0.325 Prec@(1,5) (92.2%, 99.7%)
+05/08 08:05:38午後 augmentStage_main.py:199 [INFO] Valid: [ 73/100] Final Prec@1 92.1600%
+05/08 08:05:38午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.1600%
+05/08 08:05:38午後 augmentStage_main.py:127 [INFO] Epoch 73 LR 0.003943161175891395
+05/08 08:05:39午後 augmentStage_main.py:152 [INFO] Train: [ 74/100] Step 000/195 Loss 0.274 Prec@(1,5) (93.7%, 100.0%)
+05/08 08:05:46午後 augmentStage_main.py:152 [INFO] Train: [ 74/100] Step 050/195 Loss 0.242 Prec@(1,5) (94.7%, 99.9%)
+05/08 08:05:54午後 augmentStage_main.py:152 [INFO] Train: [ 74/100] Step 100/195 Loss 0.242 Prec@(1,5) (95.0%, 99.9%)
+05/08 08:06:01午後 augmentStage_main.py:152 [INFO] Train: [ 74/100] Step 150/195 Loss 0.243 Prec@(1,5) (95.0%, 99.9%)
+05/08 08:06:08午後 augmentStage_main.py:152 [INFO] Train: [ 74/100] Step 195/195 Loss 0.245 Prec@(1,5) (94.9%, 99.9%)
+05/08 08:06:08午後 augmentStage_main.py:163 [INFO] Train: [ 74/100] Final Prec@1 94.8920%
+05/08 08:06:09午後 augmentStage_main.py:189 [INFO] Valid: [ 74/100] Step 000/039 Loss 0.555 Prec@(1,5) (89.8%, 98.4%)
+05/08 08:06:10午後 augmentStage_main.py:189 [INFO] Valid: [ 74/100] Step 039/039 Loss 0.353 Prec@(1,5) (91.5%, 99.7%)
+05/08 08:06:10午後 augmentStage_main.py:199 [INFO] Valid: [ 74/100] Final Prec@1 91.4800%
+05/08 08:06:10午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.1600%
+05/08 08:06:11午後 augmentStage_main.py:127 [INFO] Epoch 74 LR 0.0036611652351681606
+05/08 08:06:11午後 augmentStage_main.py:152 [INFO] Train: [ 75/100] Step 000/195 Loss 0.186 Prec@(1,5) (96.9%, 100.0%)
+05/08 08:06:19午後 augmentStage_main.py:152 [INFO] Train: [ 75/100] Step 050/195 Loss 0.226 Prec@(1,5) (95.4%, 99.9%)
+05/08 08:06:26午後 augmentStage_main.py:152 [INFO] Train: [ 75/100] Step 100/195 Loss 0.231 Prec@(1,5) (95.2%, 99.9%)
+05/08 08:06:34午後 augmentStage_main.py:152 [INFO] Train: [ 75/100] Step 150/195 Loss 0.230 Prec@(1,5) (95.3%, 99.9%)
+05/08 08:06:41午後 augmentStage_main.py:152 [INFO] Train: [ 75/100] Step 195/195 Loss 0.231 Prec@(1,5) (95.3%, 99.9%)
+05/08 08:06:41午後 augmentStage_main.py:163 [INFO] Train: [ 75/100] Final Prec@1 95.3320%
+05/08 08:06:41午後 augmentStage_main.py:189 [INFO] Valid: [ 75/100] Step 000/039 Loss 0.185 Prec@(1,5) (94.5%, 100.0%)
+05/08 08:06:43午後 augmentStage_main.py:189 [INFO] Valid: [ 75/100] Step 039/039 Loss 0.329 Prec@(1,5) (91.9%, 99.7%)
+05/08 08:06:43午後 augmentStage_main.py:199 [INFO] Valid: [ 75/100] Final Prec@1 91.9200%
+05/08 08:06:43午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.1600%
+05/08 08:06:43午後 augmentStage_main.py:127 [INFO] Epoch 75 LR 0.003387892157232362
+05/08 08:06:43午後 augmentStage_main.py:152 [INFO] Train: [ 76/100] Step 000/195 Loss 0.117 Prec@(1,5) (97.7%, 100.0%)
+05/08 08:06:51午後 augmentStage_main.py:152 [INFO] Train: [ 76/100] Step 050/195 Loss 0.237 Prec@(1,5) (95.1%, 100.0%)
+05/08 08:06:59午後 augmentStage_main.py:152 [INFO] Train: [ 76/100] Step 100/195 Loss 0.231 Prec@(1,5) (95.1%, 99.9%)
+05/08 08:07:06午後 augmentStage_main.py:152 [INFO] Train: [ 76/100] Step 150/195 Loss 0.234 Prec@(1,5) (95.1%, 99.9%)
+05/08 08:07:13午後 augmentStage_main.py:152 [INFO] Train: [ 76/100] Step 195/195 Loss 0.235 Prec@(1,5) (95.1%, 99.9%)
+05/08 08:07:13午後 augmentStage_main.py:163 [INFO] Train: [ 76/100] Final Prec@1 95.1320%
+05/08 08:07:14午後 augmentStage_main.py:189 [INFO] Valid: [ 76/100] Step 000/039 Loss 0.388 Prec@(1,5) (92.2%, 99.2%)
+05/08 08:07:15午後 augmentStage_main.py:189 [INFO] Valid: [ 76/100] Step 039/039 Loss 0.324 Prec@(1,5) (92.3%, 99.8%)
+05/08 08:07:15午後 augmentStage_main.py:199 [INFO] Valid: [ 76/100] Final Prec@1 92.3200%
+05/08 08:07:16午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.3200%
+05/08 08:07:16午後 augmentStage_main.py:127 [INFO] Epoch 76 LR 0.0031236116296192583
+05/08 08:07:16午後 augmentStage_main.py:152 [INFO] Train: [ 77/100] Step 000/195 Loss 0.309 Prec@(1,5) (91.4%, 100.0%)
+05/08 08:07:24午後 augmentStage_main.py:152 [INFO] Train: [ 77/100] Step 050/195 Loss 0.239 Prec@(1,5) (95.1%, 100.0%)
+05/08 08:07:32午後 augmentStage_main.py:152 [INFO] Train: [ 77/100] Step 100/195 Loss 0.231 Prec@(1,5) (95.3%, 100.0%)
+05/08 08:07:39午後 augmentStage_main.py:152 [INFO] Train: [ 77/100] Step 150/195 Loss 0.224 Prec@(1,5) (95.4%, 100.0%)
+05/08 08:07:46午後 augmentStage_main.py:152 [INFO] Train: [ 77/100] Step 195/195 Loss 0.232 Prec@(1,5) (95.3%, 100.0%)
+05/08 08:07:46午後 augmentStage_main.py:163 [INFO] Train: [ 77/100] Final Prec@1 95.3280%
+05/08 08:07:46午後 augmentStage_main.py:189 [INFO] Valid: [ 77/100] Step 000/039 Loss 0.273 Prec@(1,5) (91.4%, 100.0%)
+05/08 08:07:48午後 augmentStage_main.py:189 [INFO] Valid: [ 77/100] Step 039/039 Loss 0.308 Prec@(1,5) (92.4%, 99.7%)
+05/08 08:07:48午後 augmentStage_main.py:199 [INFO] Valid: [ 77/100] Final Prec@1 92.4000%
+05/08 08:07:48午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.4000%
+05/08 08:07:48午後 augmentStage_main.py:127 [INFO] Epoch 77 LR 0.002868584465302639
+05/08 08:07:49午後 augmentStage_main.py:152 [INFO] Train: [ 78/100] Step 000/195 Loss 0.279 Prec@(1,5) (92.2%, 100.0%)
+05/08 08:07:57午後 augmentStage_main.py:152 [INFO] Train: [ 78/100] Step 050/195 Loss 0.225 Prec@(1,5) (95.6%, 99.9%)
+05/08 08:08:04午後 augmentStage_main.py:152 [INFO] Train: [ 78/100] Step 100/195 Loss 0.222 Prec@(1,5) (95.5%, 99.9%)
+05/08 08:08:12午後 augmentStage_main.py:152 [INFO] Train: [ 78/100] Step 150/195 Loss 0.223 Prec@(1,5) (95.5%, 99.9%)
+05/08 08:08:19午後 augmentStage_main.py:152 [INFO] Train: [ 78/100] Step 195/195 Loss 0.226 Prec@(1,5) (95.4%, 99.9%)
+05/08 08:08:19午後 augmentStage_main.py:163 [INFO] Train: [ 78/100] Final Prec@1 95.3920%
+05/08 08:08:19午後 augmentStage_main.py:189 [INFO] Valid: [ 78/100] Step 000/039 Loss 0.198 Prec@(1,5) (94.5%, 100.0%)
+05/08 08:08:21午後 augmentStage_main.py:189 [INFO] Valid: [ 78/100] Step 039/039 Loss 0.318 Prec@(1,5) (92.1%, 99.7%)
+05/08 08:08:21午後 augmentStage_main.py:199 [INFO] Valid: [ 78/100] Final Prec@1 92.0600%
+05/08 08:08:21午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.4000%
+05/08 08:08:21午後 augmentStage_main.py:127 [INFO] Epoch 78 LR 0.0026230623453038725
+05/08 08:08:22午後 augmentStage_main.py:152 [INFO] Train: [ 79/100] Step 000/195 Loss 0.257 Prec@(1,5) (95.3%, 99.2%)
+05/08 08:08:29午後 augmentStage_main.py:152 [INFO] Train: [ 79/100] Step 050/195 Loss 0.224 Prec@(1,5) (95.4%, 99.9%)
+05/08 08:08:37午後 augmentStage_main.py:152 [INFO] Train: [ 79/100] Step 100/195 Loss 0.225 Prec@(1,5) (95.3%, 99.9%)
+05/08 08:08:44午後 augmentStage_main.py:152 [INFO] Train: [ 79/100] Step 150/195 Loss 0.223 Prec@(1,5) (95.4%, 100.0%)
+05/08 08:08:51午後 augmentStage_main.py:152 [INFO] Train: [ 79/100] Step 195/195 Loss 0.223 Prec@(1,5) (95.4%, 99.9%)
+05/08 08:08:51午後 augmentStage_main.py:163 [INFO] Train: [ 79/100] Final Prec@1 95.4240%
+05/08 08:08:52午後 augmentStage_main.py:189 [INFO] Valid: [ 79/100] Step 000/039 Loss 0.218 Prec@(1,5) (93.7%, 100.0%)
+05/08 08:08:53午後 augmentStage_main.py:189 [INFO] Valid: [ 79/100] Step 039/039 Loss 0.317 Prec@(1,5) (92.5%, 99.8%)
+05/08 08:08:53午後 augmentStage_main.py:199 [INFO] Valid: [ 79/100] Final Prec@1 92.4800%
+05/08 08:08:54午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.4800%
+05/08 08:08:54午後 augmentStage_main.py:127 [INFO] Epoch 79 LR 0.0023872875703131605
+05/08 08:08:55午後 augmentStage_main.py:152 [INFO] Train: [ 80/100] Step 000/195 Loss 0.240 Prec@(1,5) (93.7%, 100.0%)
+05/08 08:09:02午後 augmentStage_main.py:152 [INFO] Train: [ 80/100] Step 050/195 Loss 0.224 Prec@(1,5) (95.5%, 99.9%)
+05/08 08:09:10午後 augmentStage_main.py:152 [INFO] Train: [ 80/100] Step 100/195 Loss 0.217 Prec@(1,5) (95.5%, 100.0%)
+05/08 08:09:18午後 augmentStage_main.py:152 [INFO] Train: [ 80/100] Step 150/195 Loss 0.220 Prec@(1,5) (95.5%, 99.9%)
+05/08 08:09:24午後 augmentStage_main.py:152 [INFO] Train: [ 80/100] Step 195/195 Loss 0.220 Prec@(1,5) (95.5%, 99.9%)
+05/08 08:09:25午後 augmentStage_main.py:163 [INFO] Train: [ 80/100] Final Prec@1 95.5000%
+05/08 08:09:25午後 augmentStage_main.py:189 [INFO] Valid: [ 80/100] Step 000/039 Loss 0.478 Prec@(1,5) (90.6%, 99.2%)
+05/08 08:09:26午後 augmentStage_main.py:189 [INFO] Valid: [ 80/100] Step 039/039 Loss 0.314 Prec@(1,5) (92.4%, 99.6%)
+05/08 08:09:26午後 augmentStage_main.py:199 [INFO] Valid: [ 80/100] Final Prec@1 92.4000%
+05/08 08:09:27午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.4800%
+05/08 08:09:27午後 augmentStage_main.py:127 [INFO] Epoch 80 LR 0.0021614928215679804
+05/08 08:09:27午後 augmentStage_main.py:152 [INFO] Train: [ 81/100] Step 000/195 Loss 0.199 Prec@(1,5) (95.3%, 100.0%)
+05/08 08:09:35午後 augmentStage_main.py:152 [INFO] Train: [ 81/100] Step 050/195 Loss 0.220 Prec@(1,5) (95.6%, 99.9%)
+05/08 08:09:43午後 augmentStage_main.py:152 [INFO] Train: [ 81/100] Step 100/195 Loss 0.223 Prec@(1,5) (95.5%, 99.9%)
+05/08 08:09:51午後 augmentStage_main.py:152 [INFO] Train: [ 81/100] Step 150/195 Loss 0.218 Prec@(1,5) (95.6%, 99.9%)
+05/08 08:09:57午後 augmentStage_main.py:152 [INFO] Train: [ 81/100] Step 195/195 Loss 0.219 Prec@(1,5) (95.5%, 99.9%)
+05/08 08:09:57午後 augmentStage_main.py:163 [INFO] Train: [ 81/100] Final Prec@1 95.5240%
+05/08 08:09:58午後 augmentStage_main.py:189 [INFO] Valid: [ 81/100] Step 000/039 Loss 0.260 Prec@(1,5) (96.9%, 100.0%)
+05/08 08:09:59午後 augmentStage_main.py:189 [INFO] Valid: [ 81/100] Step 039/039 Loss 0.317 Prec@(1,5) (92.5%, 99.7%)
+05/08 08:09:59午後 augmentStage_main.py:199 [INFO] Valid: [ 81/100] Final Prec@1 92.4600%
+05/08 08:10:00午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.4800%
+05/08 08:10:00午後 augmentStage_main.py:127 [INFO] Epoch 81 LR 0.001945900931224816
+05/08 08:10:00午後 augmentStage_main.py:152 [INFO] Train: [ 82/100] Step 000/195 Loss 0.172 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:10:08午後 augmentStage_main.py:152 [INFO] Train: [ 82/100] Step 050/195 Loss 0.205 Prec@(1,5) (95.9%, 100.0%)
+05/08 08:10:15午後 augmentStage_main.py:152 [INFO] Train: [ 82/100] Step 100/195 Loss 0.211 Prec@(1,5) (95.8%, 100.0%)
+05/08 08:10:23午後 augmentStage_main.py:152 [INFO] Train: [ 82/100] Step 150/195 Loss 0.208 Prec@(1,5) (95.9%, 100.0%)
+05/08 08:10:30午後 augmentStage_main.py:152 [INFO] Train: [ 82/100] Step 195/195 Loss 0.209 Prec@(1,5) (95.9%, 99.9%)
+05/08 08:10:30午後 augmentStage_main.py:163 [INFO] Train: [ 82/100] Final Prec@1 95.8560%
+05/08 08:10:31午後 augmentStage_main.py:189 [INFO] Valid: [ 82/100] Step 000/039 Loss 0.328 Prec@(1,5) (89.8%, 100.0%)
+05/08 08:10:32午後 augmentStage_main.py:189 [INFO] Valid: [ 82/100] Step 039/039 Loss 0.307 Prec@(1,5) (92.4%, 99.7%)
+05/08 08:10:32午後 augmentStage_main.py:199 [INFO] Valid: [ 82/100] Final Prec@1 92.4400%
+05/08 08:10:32午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.4800%
+05/08 08:10:33午後 augmentStage_main.py:127 [INFO] Epoch 82 LR 0.0017407246624507047
+05/08 08:10:33午後 augmentStage_main.py:152 [INFO] Train: [ 83/100] Step 000/195 Loss 0.111 Prec@(1,5) (98.4%, 100.0%)
+05/08 08:10:41午後 augmentStage_main.py:152 [INFO] Train: [ 83/100] Step 050/195 Loss 0.203 Prec@(1,5) (95.6%, 99.9%)
+05/08 08:10:48午後 augmentStage_main.py:152 [INFO] Train: [ 83/100] Step 100/195 Loss 0.205 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:10:56午後 augmentStage_main.py:152 [INFO] Train: [ 83/100] Step 150/195 Loss 0.210 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:11:03午後 augmentStage_main.py:152 [INFO] Train: [ 83/100] Step 195/195 Loss 0.208 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:11:03午後 augmentStage_main.py:163 [INFO] Train: [ 83/100] Final Prec@1 95.8280%
+05/08 08:11:03午後 augmentStage_main.py:189 [INFO] Valid: [ 83/100] Step 000/039 Loss 0.230 Prec@(1,5) (95.3%, 100.0%)
+05/08 08:11:05午後 augmentStage_main.py:189 [INFO] Valid: [ 83/100] Step 039/039 Loss 0.316 Prec@(1,5) (92.5%, 99.8%)
+05/08 08:11:05午後 augmentStage_main.py:199 [INFO] Valid: [ 83/100] Final Prec@1 92.5200%
+05/08 08:11:05午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.5200%
+05/08 08:11:05午後 augmentStage_main.py:127 [INFO] Epoch 83 LR 0.0015461664994517066
+05/08 08:11:06午後 augmentStage_main.py:152 [INFO] Train: [ 84/100] Step 000/195 Loss 0.274 Prec@(1,5) (93.7%, 100.0%)
+05/08 08:11:13午後 augmentStage_main.py:152 [INFO] Train: [ 84/100] Step 050/195 Loss 0.213 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:11:21午後 augmentStage_main.py:152 [INFO] Train: [ 84/100] Step 100/195 Loss 0.211 Prec@(1,5) (95.9%, 99.9%)
+05/08 08:11:29午後 augmentStage_main.py:152 [INFO] Train: [ 84/100] Step 150/195 Loss 0.205 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:11:35午後 augmentStage_main.py:152 [INFO] Train: [ 84/100] Step 195/195 Loss 0.206 Prec@(1,5) (96.1%, 99.9%)
+05/08 08:11:35午後 augmentStage_main.py:163 [INFO] Train: [ 84/100] Final Prec@1 96.0520%
+05/08 08:11:36午後 augmentStage_main.py:189 [INFO] Valid: [ 84/100] Step 000/039 Loss 0.378 Prec@(1,5) (89.8%, 100.0%)
+05/08 08:11:37午後 augmentStage_main.py:189 [INFO] Valid: [ 84/100] Step 039/039 Loss 0.315 Prec@(1,5) (92.4%, 99.8%)
+05/08 08:11:37午後 augmentStage_main.py:199 [INFO] Valid: [ 84/100] Final Prec@1 92.3800%
+05/08 08:11:38午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.5200%
+05/08 08:11:38午後 augmentStage_main.py:127 [INFO] Epoch 84 LR 0.0013624184476454038
+05/08 08:11:38午後 augmentStage_main.py:152 [INFO] Train: [ 85/100] Step 000/195 Loss 0.269 Prec@(1,5) (93.0%, 100.0%)
+05/08 08:11:46午後 augmentStage_main.py:152 [INFO] Train: [ 85/100] Step 050/195 Loss 0.203 Prec@(1,5) (95.7%, 100.0%)
+05/08 08:11:54午後 augmentStage_main.py:152 [INFO] Train: [ 85/100] Step 100/195 Loss 0.202 Prec@(1,5) (95.9%, 100.0%)
+05/08 08:12:02午後 augmentStage_main.py:152 [INFO] Train: [ 85/100] Step 150/195 Loss 0.211 Prec@(1,5) (95.7%, 99.9%)
+05/08 08:12:08午後 augmentStage_main.py:152 [INFO] Train: [ 85/100] Step 195/195 Loss 0.213 Prec@(1,5) (95.6%, 99.9%)
+05/08 08:12:09午後 augmentStage_main.py:163 [INFO] Train: [ 85/100] Final Prec@1 95.6480%
+05/08 08:12:09午後 augmentStage_main.py:189 [INFO] Valid: [ 85/100] Step 000/039 Loss 0.626 Prec@(1,5) (88.3%, 99.2%)
+05/08 08:12:10午後 augmentStage_main.py:189 [INFO] Valid: [ 85/100] Step 039/039 Loss 0.310 Prec@(1,5) (92.3%, 99.8%)
+05/08 08:12:10午後 augmentStage_main.py:199 [INFO] Valid: [ 85/100] Final Prec@1 92.3400%
+05/08 08:12:11午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.5200%
+05/08 08:12:11午後 augmentStage_main.py:127 [INFO] Epoch 85 LR 0.001189661844174759
+05/08 08:12:11午後 augmentStage_main.py:152 [INFO] Train: [ 86/100] Step 000/195 Loss 0.238 Prec@(1,5) (94.5%, 100.0%)
+05/08 08:12:19午後 augmentStage_main.py:152 [INFO] Train: [ 86/100] Step 050/195 Loss 0.206 Prec@(1,5) (95.7%, 99.9%)
+05/08 08:12:27午後 augmentStage_main.py:152 [INFO] Train: [ 86/100] Step 100/195 Loss 0.207 Prec@(1,5) (95.7%, 99.9%)
+05/08 08:12:34午後 augmentStage_main.py:152 [INFO] Train: [ 86/100] Step 150/195 Loss 0.208 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:12:41午後 augmentStage_main.py:152 [INFO] Train: [ 86/100] Step 195/195 Loss 0.209 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:12:41午後 augmentStage_main.py:163 [INFO] Train: [ 86/100] Final Prec@1 95.7800%
+05/08 08:12:41午後 augmentStage_main.py:189 [INFO] Valid: [ 86/100] Step 000/039 Loss 0.365 Prec@(1,5) (93.7%, 100.0%)
+05/08 08:12:43午後 augmentStage_main.py:189 [INFO] Valid: [ 86/100] Step 039/039 Loss 0.311 Prec@(1,5) (92.5%, 99.8%)
+05/08 08:12:43午後 augmentStage_main.py:199 [INFO] Valid: [ 86/100] Final Prec@1 92.5400%
+05/08 08:12:44午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.5400%
+05/08 08:12:44午後 augmentStage_main.py:127 [INFO] Epoch 86 LR 0.0010280671789502393
+05/08 08:12:44午後 augmentStage_main.py:152 [INFO] Train: [ 87/100] Step 000/195 Loss 0.214 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:12:52午後 augmentStage_main.py:152 [INFO] Train: [ 87/100] Step 050/195 Loss 0.207 Prec@(1,5) (95.9%, 100.0%)
+05/08 08:13:00午後 augmentStage_main.py:152 [INFO] Train: [ 87/100] Step 100/195 Loss 0.212 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:13:07午後 augmentStage_main.py:152 [INFO] Train: [ 87/100] Step 150/195 Loss 0.212 Prec@(1,5) (95.7%, 99.9%)
+05/08 08:13:14午後 augmentStage_main.py:152 [INFO] Train: [ 87/100] Step 195/195 Loss 0.209 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:13:14午後 augmentStage_main.py:163 [INFO] Train: [ 87/100] Final Prec@1 95.8200%
+05/08 08:13:15午後 augmentStage_main.py:189 [INFO] Valid: [ 87/100] Step 000/039 Loss 0.317 Prec@(1,5) (88.3%, 99.2%)
+05/08 08:13:16午後 augmentStage_main.py:189 [INFO] Valid: [ 87/100] Step 039/039 Loss 0.314 Prec@(1,5) (92.4%, 99.8%)
+05/08 08:13:16午後 augmentStage_main.py:199 [INFO] Valid: [ 87/100] Final Prec@1 92.3600%
+05/08 08:13:16午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.5400%
+05/08 08:13:16午後 augmentStage_main.py:127 [INFO] Epoch 87 LR 0.0008777939263968587
+05/08 08:13:17午後 augmentStage_main.py:152 [INFO] Train: [ 88/100] Step 000/195 Loss 0.148 Prec@(1,5) (98.4%, 100.0%)
+05/08 08:13:25午後 augmentStage_main.py:152 [INFO] Train: [ 88/100] Step 050/195 Loss 0.201 Prec@(1,5) (95.8%, 100.0%)
+05/08 08:13:33午後 augmentStage_main.py:152 [INFO] Train: [ 88/100] Step 100/195 Loss 0.200 Prec@(1,5) (96.0%, 100.0%)
+05/08 08:13:40午後 augmentStage_main.py:152 [INFO] Train: [ 88/100] Step 150/195 Loss 0.198 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:13:47午後 augmentStage_main.py:152 [INFO] Train: [ 88/100] Step 195/195 Loss 0.199 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:13:47午後 augmentStage_main.py:163 [INFO] Train: [ 88/100] Final Prec@1 96.1120%
+05/08 08:13:47午後 augmentStage_main.py:189 [INFO] Valid: [ 88/100] Step 000/039 Loss 0.225 Prec@(1,5) (92.2%, 100.0%)
+05/08 08:13:49午後 augmentStage_main.py:189 [INFO] Valid: [ 88/100] Step 039/039 Loss 0.305 Prec@(1,5) (92.5%, 99.8%)
+05/08 08:13:49午後 augmentStage_main.py:199 [INFO] Valid: [ 88/100] Final Prec@1 92.4800%
+05/08 08:13:49午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.5400%
+05/08 08:13:49午後 augmentStage_main.py:127 [INFO] Epoch 88 LR 0.0007389903880721824
+05/08 08:13:50午後 augmentStage_main.py:152 [INFO] Train: [ 89/100] Step 000/195 Loss 0.222 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:13:58午後 augmentStage_main.py:152 [INFO] Train: [ 89/100] Step 050/195 Loss 0.213 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:14:05午後 augmentStage_main.py:152 [INFO] Train: [ 89/100] Step 100/195 Loss 0.211 Prec@(1,5) (95.9%, 99.9%)
+05/08 08:14:13午後 augmentStage_main.py:152 [INFO] Train: [ 89/100] Step 150/195 Loss 0.207 Prec@(1,5) (95.9%, 99.9%)
+05/08 08:14:20午後 augmentStage_main.py:152 [INFO] Train: [ 89/100] Step 195/195 Loss 0.207 Prec@(1,5) (95.9%, 99.9%)
+05/08 08:14:20午後 augmentStage_main.py:163 [INFO] Train: [ 89/100] Final Prec@1 95.9160%
+05/08 08:14:20午後 augmentStage_main.py:189 [INFO] Valid: [ 89/100] Step 000/039 Loss 0.193 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:14:22午後 augmentStage_main.py:189 [INFO] Valid: [ 89/100] Step 039/039 Loss 0.315 Prec@(1,5) (92.5%, 99.8%)
+05/08 08:14:22午後 augmentStage_main.py:199 [INFO] Valid: [ 89/100] Final Prec@1 92.5400%
+05/08 08:14:22午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.5400%
+05/08 08:14:22午後 augmentStage_main.py:127 [INFO] Epoch 89 LR 0.0006117935463105813
+05/08 08:14:23午後 augmentStage_main.py:152 [INFO] Train: [ 90/100] Step 000/195 Loss 0.149 Prec@(1,5) (98.4%, 100.0%)
+05/08 08:14:30午後 augmentStage_main.py:152 [INFO] Train: [ 90/100] Step 050/195 Loss 0.201 Prec@(1,5) (96.0%, 100.0%)
+05/08 08:14:38午後 augmentStage_main.py:152 [INFO] Train: [ 90/100] Step 100/195 Loss 0.200 Prec@(1,5) (96.0%, 99.9%)
+05/08 08:14:46午後 augmentStage_main.py:152 [INFO] Train: [ 90/100] Step 150/195 Loss 0.198 Prec@(1,5) (96.0%, 99.9%)
+05/08 08:14:52午後 augmentStage_main.py:152 [INFO] Train: [ 90/100] Step 195/195 Loss 0.201 Prec@(1,5) (95.9%, 100.0%)
+05/08 08:14:53午後 augmentStage_main.py:163 [INFO] Train: [ 90/100] Final Prec@1 95.8920%
+05/08 08:14:53午後 augmentStage_main.py:189 [INFO] Valid: [ 90/100] Step 000/039 Loss 0.151 Prec@(1,5) (96.9%, 100.0%)
+05/08 08:14:54午後 augmentStage_main.py:189 [INFO] Valid: [ 90/100] Step 039/039 Loss 0.314 Prec@(1,5) (92.7%, 99.8%)
+05/08 08:14:55午後 augmentStage_main.py:199 [INFO] Valid: [ 90/100] Final Prec@1 92.7000%
+05/08 08:14:55午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.7000%
+05/08 08:14:55午後 augmentStage_main.py:127 [INFO] Epoch 90 LR 0.0004963289290382134
+05/08 08:14:56午後 augmentStage_main.py:152 [INFO] Train: [ 91/100] Step 000/195 Loss 0.125 Prec@(1,5) (98.4%, 100.0%)
+05/08 08:15:03午後 augmentStage_main.py:152 [INFO] Train: [ 91/100] Step 050/195 Loss 0.194 Prec@(1,5) (96.3%, 99.9%)
+05/08 08:15:11午後 augmentStage_main.py:152 [INFO] Train: [ 91/100] Step 100/195 Loss 0.201 Prec@(1,5) (96.1%, 99.9%)
+05/08 08:15:19午後 augmentStage_main.py:152 [INFO] Train: [ 91/100] Step 150/195 Loss 0.205 Prec@(1,5) (96.0%, 99.9%)
+05/08 08:15:25午後 augmentStage_main.py:152 [INFO] Train: [ 91/100] Step 195/195 Loss 0.204 Prec@(1,5) (96.0%, 99.9%)
+05/08 08:15:26午後 augmentStage_main.py:163 [INFO] Train: [ 91/100] Final Prec@1 95.9560%
+05/08 08:15:26午後 augmentStage_main.py:189 [INFO] Valid: [ 91/100] Step 000/039 Loss 0.374 Prec@(1,5) (89.8%, 100.0%)
+05/08 08:15:27午後 augmentStage_main.py:189 [INFO] Valid: [ 91/100] Step 039/039 Loss 0.313 Prec@(1,5) (92.6%, 99.9%)
+05/08 08:15:27午後 augmentStage_main.py:199 [INFO] Valid: [ 91/100] Final Prec@1 92.6000%
+05/08 08:15:28午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.7000%
+05/08 08:15:28午後 augmentStage_main.py:127 [INFO] Epoch 91 LR 0.0003927104858921132
+05/08 08:15:28午後 augmentStage_main.py:152 [INFO] Train: [ 92/100] Step 000/195 Loss 0.211 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:15:36午後 augmentStage_main.py:152 [INFO] Train: [ 92/100] Step 050/195 Loss 0.201 Prec@(1,5) (96.1%, 99.9%)
+05/08 08:15:43午後 augmentStage_main.py:152 [INFO] Train: [ 92/100] Step 100/195 Loss 0.202 Prec@(1,5) (96.0%, 99.9%)
+05/08 08:15:51午後 augmentStage_main.py:152 [INFO] Train: [ 92/100] Step 150/195 Loss 0.203 Prec@(1,5) (95.9%, 99.9%)
+05/08 08:15:58午後 augmentStage_main.py:152 [INFO] Train: [ 92/100] Step 195/195 Loss 0.203 Prec@(1,5) (95.9%, 99.9%)
+05/08 08:15:58午後 augmentStage_main.py:163 [INFO] Train: [ 92/100] Final Prec@1 95.9240%
+05/08 08:15:59午後 augmentStage_main.py:189 [INFO] Valid: [ 92/100] Step 000/039 Loss 0.534 Prec@(1,5) (87.5%, 100.0%)
+05/08 08:16:00午後 augmentStage_main.py:189 [INFO] Valid: [ 92/100] Step 039/039 Loss 0.314 Prec@(1,5) (92.6%, 99.8%)
+05/08 08:16:00午後 augmentStage_main.py:199 [INFO] Valid: [ 92/100] Final Prec@1 92.6200%
+05/08 08:16:01午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.7000%
+05/08 08:16:01午後 augmentStage_main.py:127 [INFO] Epoch 92 LR 0.00030104047576565867
+05/08 08:16:01午後 augmentStage_main.py:152 [INFO] Train: [ 93/100] Step 000/195 Loss 0.262 Prec@(1,5) (92.2%, 100.0%)
+05/08 08:16:09午後 augmentStage_main.py:152 [INFO] Train: [ 93/100] Step 050/195 Loss 0.207 Prec@(1,5) (95.6%, 99.9%)
+05/08 08:16:16午後 augmentStage_main.py:152 [INFO] Train: [ 93/100] Step 100/195 Loss 0.209 Prec@(1,5) (95.7%, 99.9%)
+05/08 08:16:24午後 augmentStage_main.py:152 [INFO] Train: [ 93/100] Step 150/195 Loss 0.207 Prec@(1,5) (95.7%, 99.9%)
+05/08 08:16:31午後 augmentStage_main.py:152 [INFO] Train: [ 93/100] Step 195/195 Loss 0.206 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:16:31午後 augmentStage_main.py:163 [INFO] Train: [ 93/100] Final Prec@1 95.8000%
+05/08 08:16:31午後 augmentStage_main.py:189 [INFO] Valid: [ 93/100] Step 000/039 Loss 0.321 Prec@(1,5) (91.4%, 99.2%)
+05/08 08:16:33午後 augmentStage_main.py:189 [INFO] Valid: [ 93/100] Step 039/039 Loss 0.313 Prec@(1,5) (92.5%, 99.8%)
+05/08 08:16:33午後 augmentStage_main.py:199 [INFO] Valid: [ 93/100] Final Prec@1 92.5200%
+05/08 08:16:33午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.7000%
+05/08 08:16:33午後 augmentStage_main.py:127 [INFO] Epoch 93 LR 0.00022140936589139115
+05/08 08:16:34午後 augmentStage_main.py:152 [INFO] Train: [ 94/100] Step 000/195 Loss 0.224 Prec@(1,5) (95.3%, 100.0%)
+05/08 08:16:41午後 augmentStage_main.py:152 [INFO] Train: [ 94/100] Step 050/195 Loss 0.193 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:16:49午後 augmentStage_main.py:152 [INFO] Train: [ 94/100] Step 100/195 Loss 0.197 Prec@(1,5) (95.9%, 99.9%)
+05/08 08:16:57午後 augmentStage_main.py:152 [INFO] Train: [ 94/100] Step 150/195 Loss 0.199 Prec@(1,5) (95.9%, 99.9%)
+05/08 08:17:03午後 augmentStage_main.py:152 [INFO] Train: [ 94/100] Step 195/195 Loss 0.201 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:17:04午後 augmentStage_main.py:163 [INFO] Train: [ 94/100] Final Prec@1 95.8280%
+05/08 08:17:04午後 augmentStage_main.py:189 [INFO] Valid: [ 94/100] Step 000/039 Loss 0.381 Prec@(1,5) (93.0%, 99.2%)
+05/08 08:17:05午後 augmentStage_main.py:189 [INFO] Valid: [ 94/100] Step 039/039 Loss 0.315 Prec@(1,5) (92.6%, 99.8%)
+05/08 08:17:05午後 augmentStage_main.py:199 [INFO] Valid: [ 94/100] Final Prec@1 92.5800%
+05/08 08:17:06午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.7000%
+05/08 08:17:06午後 augmentStage_main.py:127 [INFO] Epoch 94 LR 0.00015389574256077936
+05/08 08:17:06午後 augmentStage_main.py:152 [INFO] Train: [ 95/100] Step 000/195 Loss 0.281 Prec@(1,5) (94.5%, 99.2%)
+05/08 08:17:14午後 augmentStage_main.py:152 [INFO] Train: [ 95/100] Step 050/195 Loss 0.218 Prec@(1,5) (95.6%, 99.9%)
+05/08 08:17:22午後 augmentStage_main.py:152 [INFO] Train: [ 95/100] Step 100/195 Loss 0.212 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:17:29午後 augmentStage_main.py:152 [INFO] Train: [ 95/100] Step 150/195 Loss 0.207 Prec@(1,5) (96.0%, 99.9%)
+05/08 08:17:36午後 augmentStage_main.py:152 [INFO] Train: [ 95/100] Step 195/195 Loss 0.206 Prec@(1,5) (95.9%, 99.9%)
+05/08 08:17:36午後 augmentStage_main.py:163 [INFO] Train: [ 95/100] Final Prec@1 95.9200%
+05/08 08:17:37午後 augmentStage_main.py:189 [INFO] Valid: [ 95/100] Step 000/039 Loss 0.383 Prec@(1,5) (91.4%, 100.0%)
+05/08 08:17:38午後 augmentStage_main.py:189 [INFO] Valid: [ 95/100] Step 039/039 Loss 0.311 Prec@(1,5) (92.6%, 99.8%)
+05/08 08:17:38午後 augmentStage_main.py:199 [INFO] Valid: [ 95/100] Final Prec@1 92.5800%
+05/08 08:17:38午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.7000%
+05/08 08:17:39午後 augmentStage_main.py:127 [INFO] Epoch 95 LR 9.856623356902801e-05
+05/08 08:17:39午後 augmentStage_main.py:152 [INFO] Train: [ 96/100] Step 000/195 Loss 0.160 Prec@(1,5) (96.9%, 100.0%)
+05/08 08:17:47午後 augmentStage_main.py:152 [INFO] Train: [ 96/100] Step 050/195 Loss 0.209 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:17:54午後 augmentStage_main.py:152 [INFO] Train: [ 96/100] Step 100/195 Loss 0.210 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:18:02午後 augmentStage_main.py:152 [INFO] Train: [ 96/100] Step 150/195 Loss 0.213 Prec@(1,5) (95.7%, 99.9%)
+05/08 08:18:08午後 augmentStage_main.py:152 [INFO] Train: [ 96/100] Step 195/195 Loss 0.213 Prec@(1,5) (95.6%, 99.9%)
+05/08 08:18:09午後 augmentStage_main.py:163 [INFO] Train: [ 96/100] Final Prec@1 95.6440%
+05/08 08:18:09午後 augmentStage_main.py:189 [INFO] Valid: [ 96/100] Step 000/039 Loss 0.326 Prec@(1,5) (91.4%, 100.0%)
+05/08 08:18:10午後 augmentStage_main.py:189 [INFO] Valid: [ 96/100] Step 039/039 Loss 0.315 Prec@(1,5) (92.7%, 99.8%)
+05/08 08:18:10午後 augmentStage_main.py:199 [INFO] Valid: [ 96/100] Final Prec@1 92.6600%
+05/08 08:18:11午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.7000%
+05/08 08:18:11午後 augmentStage_main.py:127 [INFO] Epoch 96 LR 5.547544246150009e-05
+05/08 08:18:12午後 augmentStage_main.py:152 [INFO] Train: [ 97/100] Step 000/195 Loss 0.183 Prec@(1,5) (96.9%, 100.0%)
+05/08 08:18:19午後 augmentStage_main.py:152 [INFO] Train: [ 97/100] Step 050/195 Loss 0.209 Prec@(1,5) (95.9%, 99.9%)
+05/08 08:18:27午後 augmentStage_main.py:152 [INFO] Train: [ 97/100] Step 100/195 Loss 0.208 Prec@(1,5) (96.0%, 99.9%)
+05/08 08:18:34午後 augmentStage_main.py:152 [INFO] Train: [ 97/100] Step 150/195 Loss 0.207 Prec@(1,5) (96.0%, 99.9%)
+05/08 08:18:41午後 augmentStage_main.py:152 [INFO] Train: [ 97/100] Step 195/195 Loss 0.207 Prec@(1,5) (96.0%, 99.9%)
+05/08 08:18:41午後 augmentStage_main.py:163 [INFO] Train: [ 97/100] Final Prec@1 95.9560%
+05/08 08:18:42午後 augmentStage_main.py:189 [INFO] Valid: [ 97/100] Step 000/039 Loss 0.262 Prec@(1,5) (92.2%, 100.0%)
+05/08 08:18:43午後 augmentStage_main.py:189 [INFO] Valid: [ 97/100] Step 039/039 Loss 0.310 Prec@(1,5) (92.6%, 99.8%)
+05/08 08:18:43午後 augmentStage_main.py:199 [INFO] Valid: [ 97/100] Final Prec@1 92.6400%
+05/08 08:18:43午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.7000%
+05/08 08:18:44午後 augmentStage_main.py:127 [INFO] Epoch 97 LR 2.4665894646605532e-05
+05/08 08:18:44午後 augmentStage_main.py:152 [INFO] Train: [ 98/100] Step 000/195 Loss 0.160 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:18:52午後 augmentStage_main.py:152 [INFO] Train: [ 98/100] Step 050/195 Loss 0.203 Prec@(1,5) (96.0%, 99.9%)
+05/08 08:19:00午後 augmentStage_main.py:152 [INFO] Train: [ 98/100] Step 100/195 Loss 0.203 Prec@(1,5) (96.0%, 99.9%)
+05/08 08:19:07午後 augmentStage_main.py:152 [INFO] Train: [ 98/100] Step 150/195 Loss 0.214 Prec@(1,5) (95.7%, 99.9%)
+05/08 08:19:14午後 augmentStage_main.py:152 [INFO] Train: [ 98/100] Step 195/195 Loss 0.213 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:19:14午後 augmentStage_main.py:163 [INFO] Train: [ 98/100] Final Prec@1 95.7720%
+05/08 08:19:15午後 augmentStage_main.py:189 [INFO] Valid: [ 98/100] Step 000/039 Loss 0.342 Prec@(1,5) (93.0%, 100.0%)
+05/08 08:19:16午後 augmentStage_main.py:189 [INFO] Valid: [ 98/100] Step 039/039 Loss 0.312 Prec@(1,5) (92.6%, 99.8%)
+05/08 08:19:16午後 augmentStage_main.py:199 [INFO] Valid: [ 98/100] Final Prec@1 92.6200%
+05/08 08:19:16午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.7000%
+05/08 08:19:17午後 augmentStage_main.py:127 [INFO] Epoch 98 LR 6.167995428355004e-06
+05/08 08:19:17午後 augmentStage_main.py:152 [INFO] Train: [ 99/100] Step 000/195 Loss 0.198 Prec@(1,5) (96.1%, 100.0%)
+05/08 08:19:25午後 augmentStage_main.py:152 [INFO] Train: [ 99/100] Step 050/195 Loss 0.207 Prec@(1,5) (95.8%, 100.0%)
+05/08 08:19:32午後 augmentStage_main.py:152 [INFO] Train: [ 99/100] Step 100/195 Loss 0.211 Prec@(1,5) (95.8%, 100.0%)
+05/08 08:19:40午後 augmentStage_main.py:152 [INFO] Train: [ 99/100] Step 150/195 Loss 0.210 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:19:47午後 augmentStage_main.py:152 [INFO] Train: [ 99/100] Step 195/195 Loss 0.212 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:19:47午後 augmentStage_main.py:163 [INFO] Train: [ 99/100] Final Prec@1 95.7680%
+05/08 08:19:47午後 augmentStage_main.py:189 [INFO] Valid: [ 99/100] Step 000/039 Loss 0.293 Prec@(1,5) (89.8%, 100.0%)
+05/08 08:19:49午後 augmentStage_main.py:189 [INFO] Valid: [ 99/100] Step 039/039 Loss 0.309 Prec@(1,5) (92.6%, 99.8%)
+05/08 08:19:49午後 augmentStage_main.py:199 [INFO] Valid: [ 99/100] Final Prec@1 92.5800%
+05/08 08:19:49午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.7000%
+05/08 08:19:49午後 augmentStage_main.py:127 [INFO] Epoch 99 LR 0.0
+05/08 08:19:50午後 augmentStage_main.py:152 [INFO] Train: [100/100] Step 000/195 Loss 0.238 Prec@(1,5) (96.9%, 100.0%)
+05/08 08:19:58午後 augmentStage_main.py:152 [INFO] Train: [100/100] Step 050/195 Loss 0.228 Prec@(1,5) (95.5%, 99.8%)
+05/08 08:20:05午後 augmentStage_main.py:152 [INFO] Train: [100/100] Step 100/195 Loss 0.214 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:20:13午後 augmentStage_main.py:152 [INFO] Train: [100/100] Step 150/195 Loss 0.216 Prec@(1,5) (95.8%, 99.9%)
+05/08 08:20:20午後 augmentStage_main.py:152 [INFO] Train: [100/100] Step 195/195 Loss 0.217 Prec@(1,5) (95.7%, 99.9%)
+05/08 08:20:20午後 augmentStage_main.py:163 [INFO] Train: [100/100] Final Prec@1 95.7240%
+05/08 08:20:20午後 augmentStage_main.py:189 [INFO] Valid: [100/100] Step 000/039 Loss 0.368 Prec@(1,5) (90.6%, 100.0%)
+05/08 08:20:21午後 augmentStage_main.py:189 [INFO] Valid: [100/100] Step 039/039 Loss 0.313 Prec@(1,5) (92.5%, 99.8%)
+05/08 08:20:22午後 augmentStage_main.py:199 [INFO] Valid: [100/100] Final Prec@1 92.5400%
+05/08 08:20:22午後 augmentStage_main.py:112 [INFO] until now best Prec@1 = 92.7000%
+05/08 08:20:22午後 augmentStage_main.py:117 [INFO] Final best Prec@1 = 92.7000%

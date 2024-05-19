@@ -7,7 +7,7 @@
 
 import os
 from utils.parser import get_parser, parse_gpus, BaseConfig
-import genotypes as gt
+import genotypes.genotypes as gt
 
 class AugmentCellConfig(BaseConfig):
     def build_parser(self):
@@ -45,7 +45,7 @@ class AugmentCellConfig(BaseConfig):
         args = parser.parse_args()
         super().__init__(**vars(args))
 
-        self.data_path = './data/'
+        self.data_path = '../data/'
         self.path = os.path.join('results/augment_Cell_HcDAS/cifar/', self.name)
         self.genotype = gt.from_str(self.genotype)
         self.gpus = parse_gpus(self.gpus)

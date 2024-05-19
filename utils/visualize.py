@@ -6,7 +6,7 @@
 # This source code is licensed under the LICENSE file in the root directory of this source tree.
 
 import sys
-import genotypes as gt
+import genotypes.genotypes as gt
 from graphviz import Digraph
 
 

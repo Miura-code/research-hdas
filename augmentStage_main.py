@@ -13,9 +13,12 @@ import numpy as np
 import utils
 import torch.backends.cudnn as cudnn
 from tensorboardX import SummaryWriter
+from tqdm import tqdm
+
 from utils.data_util import get_data
 from utils.logging_util import get_std_logging
 from utils.eval_util import AverageMeter, accuracy
+from utils.eval_util import RecordDataclass
 from models.augment_stage import AugmentStage
 from config.augmentStage_config import AugmentStageConfig
 
@@ -41,11 +44,7 @@ def main():
     torch.cuda.set_device(config.gpus[0])
 
     # set seed
-    np.random.seed(config.seed)
-    torch.manual_seed(config.seed)
-    torch.cuda.manual_seed_all(config.seed)
-
-    torch.backends.cudnn.benchmark = True
+    utils.set_seed_gpu(config.seed, config.gpus[0])
 
     # get data with meta info
     input_size, input_channels, n_classes, train_data, valid_data = get_data(
@@ -62,35 +61,48 @@ def main():
     optimizer = torch.optim.SGD(model.parameters(), config.lr, momentum=config.momentum,
                                 weight_decay=config.weight_decay)
 
+    # データ数を減らす
+    n_train = len(train_data)
+    split = int(np.floor(config.train_portion * n_train))
+    indices = list(range(n_train))
+    train_sampler = torch.utils.data.sampler.SubsetRandomSampler(indices[:split])
+
     train_loader = torch.utils.data.DataLoader(train_data,
                                                batch_size=config.batch_size,
-                                               shuffle=True,
+                                               sampler=train_sampler,
                                                num_workers=config.workers,
                                                pin_memory=True)
+    n_val = len(valid_data)
+    split = int(np.floor(config.train_portion * n_val))
+    indices = list(range(n_val))
+    val_sampler = torch.utils.data.sampler.SubsetRandomSampler(indices[:split])
     valid_loader = torch.utils.data.DataLoader(valid_data,
                                                batch_size=config.batch_size,
-                                               shuffle=False,
+                                               sampler=val_sampler,
                                                num_workers=config.workers,
                                                pin_memory=True)
     lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, config.epochs)
 
+    # loss, accを格納する配列
+    record = RecordDataclass()
+
     best_top1 = 0.
     # training loop
-    for epoch in range(config.epochs):
+    for epoch in tqdm(range(config.epochs)):
         lr_scheduler.step()
         drop_prob = config.drop_path_prob * epoch / config.epochs
         model.module.drop_path_prob(drop_prob)
 
         # training
-        train(train_loader, model, optimizer, criterion, epoch)
+        train_top1, train_loss = train(train_loader, model, optimizer, criterion, epoch)
 
         # validation
         cur_step = (epoch + 1) * len(train_loader)
-        top1 = validate(valid_loader, model, criterion, epoch, cur_step)
+        val_top1, val_loss = validate(valid_loader, model, criterion, epoch, cur_step)
 
         # save
-        if best_top1 < top1:
-            best_top1 = top1
+        if best_top1 < val_top1:
+            best_top1 = val_top1
             is_best = True
         else:
             is_best = False
@@ -98,6 +110,9 @@ def main():
 
         print("")
         logger.info("until now best Prec@1 = {:.4%}".format(best_top1))
+
+        record.add(train_loss, val_loss, train_top1, val_top1)
+        record.save(config.path)
 
     logger.info("Final best Prec@1 = {:.4%}".format(best_top1))
 
@@ -114,7 +129,7 @@ def train(train_loader, model, optimizer, criterion, epoch):
 
     model.train()
 
-    for step, (X, y) in enumerate(train_loader):
+    for step, (X, y) in enumerate(tqdm(train_loader)):
         X, y = X.to(device, non_blocking=True), y.to(device, non_blocking=True)
         N = X.size(0)
 
@@ -146,6 +161,8 @@ def train(train_loader, model, optimizer, criterion, epoch):
         cur_step += 1
 
     logger.info("Train: [{:3d}/{}] Final Prec@1 {:.4%}".format(epoch + 1, config.epochs, top1.avg))
+    
+    return top1.avg, losses.avg
 
 
 def validate(valid_loader, model, criterion, epoch, cur_step):
@@ -181,7 +198,7 @@ def validate(valid_loader, model, criterion, epoch, cur_step):
 
     logger.info("Valid: [{:3d}/{}] Final Prec@1 {:.4%}".format(epoch + 1, config.epochs, top1.avg))
 
-    return top1.avg
+    return top1.avg, losses.avg
 
 
 if __name__ == "__main__":

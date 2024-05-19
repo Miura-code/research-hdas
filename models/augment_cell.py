@@ -8,7 +8,7 @@
 import torch
 import torch.nn as nn
 from models import ops
-import genotypes as gt
+import genotypes.genotypes as gt
 
 
 class AugmentCell(nn.Module):

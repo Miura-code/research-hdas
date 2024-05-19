@@ -1,3 +1,11 @@
 .vscode
 .VSCodeCounter
 augments
+
+*.pyc
+
+plots/
+tb/
+DAG/
+
+# history_*.png
