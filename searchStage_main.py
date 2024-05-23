@@ -18,7 +18,7 @@ from tqdm import tqdm
 
 
 def run_task(config):
-    logger = get_std_logging(os.path.join(config.path, "{}.log".format(config.name)))
+    logger = get_std_logging(os.path.join(config.path, "{}.log".format(config.exp_name)))
     config.logger = logger
 
     config.print_params(logger.info)

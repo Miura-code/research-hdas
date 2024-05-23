@@ -53,12 +53,13 @@ class SearchStageConfig(BaseConfig):
         super().__init__(**vars(args))
 
         self.data_path = '../data/'
-        self.path = os.path.join('results/search_Stage/cifar/', self.name)
         self.genotype = gt.from_str(self.genotype)
         self.gpus = parse_gpus(self.gpus)
         
-        self.path = '{}/{}-{}'.format(self.path, args.save, time.strftime("%Y%m%d-%H%M%S"))
-        utils.create_exp_dir(args.save, scripts_to_save=None)
+        self.path = os.path.join('results/search_Stage/cifar/', self.name)
+        self.exp_name = '{}-{}'.format(args.save, time.strftime("%Y%m%d-%H%M%S"))
+        self.path = os.path.join(self.path, self.exp_name)
+        # utils.create_exp_dir(args.save, scripts_to_save=None)
         self.DAG_path = os.path.join(self.path, 'DAG')
 
 

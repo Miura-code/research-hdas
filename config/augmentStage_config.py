@@ -56,12 +56,14 @@ class AugmentStageConfig(BaseConfig):
 
         self.data_path = '../data/'
         # self.data_path = './data/imagenet'
-        self.path = os.path.join('results/augment_Stage/cifar/', self.name)
         self.genotype = gt.from_str(self.genotype)
         self.DAG = gt.from_str(self.DAG)
         self.gpus = parse_gpus(self.gpus)
         self.amp_sync_bn = True
         self.amp_opt_level = "O0"
+        
+        self.path = os.path.join('results/augment_Stage/cifar/', self.name)
+        self.exp_name = '{}-{}'.format(args.save, time.strftime("%Y%m%d-%H%M%S"))
+        self.path = os.path.join(self.path, self.exp_name)
 
-        self.path = '{}/{}-{}'.format(self.path, args.save, time.strftime("%Y%m%d-%H%M%S"))
-        utils.create_exp_dir(args.save, scripts_to_save=None)
+        # utils.create_exp_dir(args.save, scripts_to_save=None)
