@@ -9,6 +9,7 @@ import os
 from utils.logging_util import get_std_logging
 from config.searchStage_config import SearchStageConfig
 from trainer.searchStage_trainer import SearchStageTrainer
+from trainer.searchShareStage_trainer import SearchShareStageTrainer
 from utils.visualize import plot2
 
 
@@ -18,7 +19,10 @@ def run_task(config):
 
     config.print_params(logger.info)
 
-    trainer = SearchStageTrainer(config)
+    if config.share_stage:
+        trainer = SearchShareStageTrainer(config)
+    else:
+        trainer = SearchStageTrainer(config)
     trainer.resume_model()
     start_epoch = trainer.start_epoch
 
