@@ -11,6 +11,8 @@
     - dag: real ops (can be mixed or discrete, but Genotype has only discrete information itself)
 """
 from collections import namedtuple
+import os
+import pickle
 import torch
 import torch.nn as nn
 from models import ops
@@ -177,3 +179,13 @@ def parse_concat(beta):
     """
     _, index = torch.topk(beta, 1, dim=0)
     return range(index + 4, index + 6)
+
+def save_DAG(DAG, path):
+    with open(path + '.pickle', mode='wb') as f:
+        pickle.dump(DAG, f)
+        
+def load_DAG(path):
+    with open(path, 'rb') as rh:
+        dag = pickle.load(rh)
+        
+    return dag
