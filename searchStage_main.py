@@ -11,6 +11,9 @@ from config.searchStage_config import SearchStageConfig
 from trainer.searchStage_trainer import SearchStageTrainer
 from trainer.searchShareStage_trainer import SearchShareStageTrainer
 from utils.visualize import plot2
+from utils.eval_util import RecordDataclass
+
+from tqdm import tqdm
 
 
 def run_task(config):
@@ -18,18 +21,21 @@ def run_task(config):
     config.logger = logger
 
     config.print_params(logger.info)
-
+    
     if config.share_stage:
         trainer = SearchShareStageTrainer(config)
     else:
         trainer = SearchStageTrainer(config)
     trainer.resume_model()
     start_epoch = trainer.start_epoch
+    
+    # loss, accを格納する配列
+    record = RecordDataclass()
 
     best_top1 = 0.
-    for epoch in range(start_epoch, trainer.total_epochs):
-        trainer.train_epoch(epoch, printer=logger.info)
-        top1 = trainer.val_epoch(epoch, printer=logger.info)
+    for epoch in tqdm(range(start_epoch, trainer.total_epochs)):
+        train_top1, train_loss = trainer.train_epoch(epoch, printer=logger.info)
+        val_top1, val_loss = trainer.val_epoch(epoch, printer=logger.info)
         trainer.lr_scheduler.step()
 
         # plot macro architecture
@@ -38,17 +44,18 @@ def run_task(config):
 
         plot_path = os.path.join(config.DAG_path, "EP{:02d}".format(epoch + 1))
         caption = "Epoch {}".format(epoch + 1)
-        plot2(macro_arch.DAG1, plot_path + '-DAG1', caption)
-        plot2(macro_arch.DAG2, plot_path + '-DAG2', caption)
-        plot2(macro_arch.DAG3, plot_path + '-DAG3', caption)
+        plot2(macro_arch.DAG1, plot_path + '-DAG', caption)
 
-        if best_top1 < top1:
-            best_top1, is_best = top1, True
+        if best_top1 < val_top1:
+            best_top1, is_best = val_top1, True
             best_macro = macro_arch
         else:
             is_best = False
         trainer.save_checkpoint(epoch, is_best=is_best)
         logger.info("Until now, best Prec@1 = {:.4%}".format(best_top1))
+        
+        record.add(train_loss, val_loss, train_top1, val_top1)
+        record.save(config.path)
 
     logger.info("Final best Prec@1 = {:.4%}".format(best_top1))
     logger.info("Final Best Genotype = {}".format(best_macro))
