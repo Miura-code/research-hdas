@@ -5,10 +5,34 @@ name=$1
 # stage_architecture=("HS_DAS_CIFAR" "HS_DAS_CIFAR_SKIP" "STAGE_HSDAS_V1" "STAGE_HSDAS_V2" "STAGE_HSDAS_V3" "STAGE_SHALLOW" "STAGE_MIDDLE" "STAGE_DEEP" "STAGE_DARTS" )
 stage_architecture=("STAGE_DARTS" "STAGE_DEEP" "STAGE_MIDDLE" "STAGE_SHALLOW")
 
-batch_size=128
-epoch=100
-train_portion=0.5
+batch_size=64
+epoch=50
+train_portion=0.5 # train_portionは0.5が最大値
 seed=0
+
+## ステージの探索
+# python searchStage_main.py \
+#     --name $name \
+#     --batch_size $batch_size \
+#     --dataset cifar10 \
+#     --epochs $epoch \
+#     --genotype DARTS_V1 \
+#     --train_portion $train_portion \
+#     --seed $seed \
+#     --share_stage
+
+for seed in 0 1 2 3; do
+    echo $arch
+    python searchStage_main.py \
+        --name $name \
+        --batch_size $batch_size \
+        --dataset cifar10 \
+        --epochs $epoch \
+        --genotype DARTS_V1 \
+        --train_portion $train_portion \
+        --seed $seed \
+        --share_stage
+done
 
 ## ステージの評価・ファインチューニング
 # python augmentStage_main.py \
@@ -59,19 +83,19 @@ seed=0
 #     --workers 0  \
 #     --genotype DARTS_V1
 
-## ステージのテスト
-arch=$1
-seed=0
+# ## ステージのテスト
+# arch=$1
+# seed=0
 
-path=$2
-python testStage_main.py \
-    --name test \
-    --dataset cifar10 \
-    --batch_size 128 \
-    --genotype DARTS_V1 \
-    --DAG $arch \
-    --seed $seed \
-    --resume_path $path
+# path=$2
+# python testStage_main.py \
+#     --name test \
+#     --dataset cifar10 \
+#     --batch_size 128 \
+#     --genotype DARTS_V1 \
+#     --DAG $arch \
+#     --seed $seed \
+#     --resume_path $path
 
 # ディレクトリパスを指定
 # arch=$1
