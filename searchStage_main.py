@@ -10,6 +10,7 @@ from utils.logging_util import get_std_logging
 from config.searchStage_config import SearchStageConfig
 from trainer.searchStage_trainer import SearchStageTrainer
 from trainer.searchShareStage_trainer import SearchShareStageTrainer
+from genotypes.genotypes import save_DAG
 from utils.visualize import plot2
 from utils.eval_util import RecordDataclass
 
@@ -29,6 +30,11 @@ def run_task(config):
     trainer.resume_model()
     start_epoch = trainer.start_epoch
     
+    previous_arch = macro_arch = trainer.model.DAG()
+    plot_path = os.path.join(config.DAG_path, "EP00-DAG")
+    plot2(macro_arch.DAG1, plot_path, "Initial DAG")
+    save_DAG(macro_arch, plot_path)
+    
     # loss, accを格納する配列
     record = RecordDataclass()
 
@@ -45,6 +51,8 @@ def run_task(config):
         plot_path = os.path.join(config.DAG_path, "EP{:02d}".format(epoch + 1))
         caption = "Epoch {}".format(epoch + 1)
         plot2(macro_arch.DAG1, plot_path + '-DAG', caption)
+        if previous_arch != macro_arch:
+            save_DAG(macro_arch, plot_path + '-DAG')
 
         if best_top1 < val_top1:
             best_top1, is_best = val_top1, True
