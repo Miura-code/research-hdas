@@ -8,6 +8,8 @@
 import sys
 import genotypes.genotypes as gt
 from graphviz import Digraph
+from PIL import Image
+import glob
 
 
 def plot(genotype, file_path, caption=None):
@@ -126,3 +128,14 @@ def plot2(genotype, file_path, caption=None, concat=None):
         g.attr(label=caption, overlap='false', fontsize='20', fontname='times')
 
     g.render(file_path, view=False)
+
+
+def png2gif(dir_path:str, size=(1000, 130)):
+    files = sorted(glob.glob(dir_path + '/*.png'))
+    images = []
+    for file in files:
+        img = Image.open(file)
+        print(img.size)
+        img = img.resize(size)
+        images.append(img)
+    images[0].save(dir_path + '/DAG_History.gif' , save_all = True , append_images = images[1:] , duration = 400 , loop = 1)
