@@ -11,7 +11,7 @@ from config.searchStage_config import SearchStageConfig
 from trainer.searchStage_trainer import SearchStageTrainer
 from trainer.searchShareStage_trainer import SearchShareStageTrainer
 from genotypes.genotypes import save_DAG
-from utils.visualize import plot2
+from utils.visualize import plot2, png2gif
 from utils.eval_util import RecordDataclass
 
 from tqdm import tqdm
@@ -68,6 +68,8 @@ def run_task(config):
 
     logger.info("Final best Prec@1 = {:.4%}".format(best_top1))
     logger.info("Final Best Genotype = {}".format(best_macro))
+
+    png2gif(config.DAG_path)
 
 
 def main():
