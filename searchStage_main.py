@@ -53,6 +53,7 @@ def run_task(config):
         plot2(macro_arch.DAG1, plot_path + '-DAG', caption)
         if previous_arch != macro_arch:
             save_DAG(macro_arch, plot_path + '-DAG')
+        previous_arch = macro_arch
 
         if best_top1 < val_top1:
             best_top1, is_best = val_top1, True
