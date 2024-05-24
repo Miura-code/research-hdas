@@ -56,7 +56,7 @@ class SearchStageConfig(BaseConfig):
         self.genotype = gt.from_str(self.genotype)
         self.gpus = parse_gpus(self.gpus)
         
-        self.path = os.path.join('results/search_Stage/cifar/', self.name)
+        self.path = os.path.join(f'results/search_Stage/{self.dataset}/', self.name)
         self.exp_name = '{}-{}'.format(args.save, time.strftime("%Y%m%d-%H%M%S"))
         self.path = os.path.join(self.path, self.exp_name)
         # utils.create_exp_dir(args.save, scripts_to_save=None)
