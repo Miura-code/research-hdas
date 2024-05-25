@@ -135,7 +135,6 @@ def png2gif(dir_path:str, size=(1000, 130)):
     images = []
     for file in files:
         img = Image.open(file)
-        print(img.size)
         img = img.resize(size)
         images.append(img)
     images[0].save(dir_path + '/DAG_History.gif' , save_all = True , append_images = images[1:] , duration = 400 , loop = 1)
