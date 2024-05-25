@@ -219,6 +219,8 @@ class SearchStageTrainer():
             val_X, val_y = prefetcher_val.next()
         
         printer("Train: [{:3d}/{}] Final Prec@1 {:.4%}".format(epoch, self.total_epochs - 1, top1.avg))
+        
+        return top1.avg, losses.avg
 
     def val_epoch(self, epoch, printer):
         top1 = AverageMeter()
@@ -257,4 +259,4 @@ class SearchStageTrainer():
 
         printer("Valid: [{:3d}/{}] Final Prec@1 {:.4%}".format(epoch, self.total_epochs - 1, top1.avg))
         
-        return top1.avg
+        return top1.avg, losses.avg
