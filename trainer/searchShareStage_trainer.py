@@ -26,6 +26,7 @@ from utils.data_prefetcher import data_prefetcher
 from models.search_stage import SearchShareStageController
 from models.architect import Architect
 
+from trainer.searchStage_trainer import SearchStageTrainer, SearchStageController
 
 class SearchShareStageTrainer():
     def __init__(self, config) -> None:
@@ -52,6 +53,7 @@ class SearchShareStageTrainer():
             self.device = torch.device('cpu')
         self.construct_model()
 
+        self.checkpoint_reset = self.config.checkpoint_reset
         self.steps = 0
         self.log_step = 10
         self.logger = self.config.logger
@@ -96,10 +98,18 @@ class SearchShareStageTrainer():
         self.lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(self.w_optim, self.total_epochs, eta_min=self.config.w_lr_min)
         self.architect = Architect(self.model, self.config.w_momentum, self.config.w_weight_decay)
 
-    def resume_model(self, model_path=None):
+    def resume_model(self, reset=False, model_path=None):
+        print(f"{self.checkpoint_reset}")
         if model_path is None and not self.resume_path:
             self.start_epoch = 0
             self.logger.info("--> No loaded checkpoint!")
+        elif reset or self.checkpoint_reset:
+            model_path = model_path or self.resume_path
+            checkpoint = torch.load(model_path, map_location=self.device)
+
+            self.start_epoch = 0
+            self.model.load_state_dict(checkpoint['model'], strict=True)
+            self.logger.info(f"--> Loaded checkpoint '{model_path}'(Reseted epoch {self.start_epoch})")
         else:
             model_path = model_path or self.resume_path
             checkpoint = torch.load(model_path, map_location=self.device)

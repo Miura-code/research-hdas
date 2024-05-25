@@ -40,6 +40,7 @@ class SearchStageConfig(BaseConfig):
         parser.add_argument('--genotype', required=True, help='Cell genotype')
         parser.add_argument('--local_rank', default=0)
         parser.add_argument('--resume_path', type=str, default=None)
+        parser.add_argument('--checkpoint_reset', action='store_true', help='reset resumed model to be as epoch 0')
 
         parser.add_argument('--train_portion', type=float, default=0.5, help='portion of training data')
         parser.add_argument('--share_stage', action='store_true', help='Search shared stage structure at each stage')
