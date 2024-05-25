@@ -6,6 +6,7 @@
 # This source code is licensed under the LICENSE file in the root directory of this source tree.
 
 import os
+import utils
 from utils.logging_util import get_std_logging
 from config.searchStage_config import SearchStageConfig
 from trainer.searchStage_trainer import SearchStageTrainer
@@ -22,6 +23,9 @@ def run_task(config):
     config.logger = logger
 
     config.print_params(logger.info)
+    
+    # set seed
+    utils.set_seed_gpu(config.seed, config.gpus[0])
     
     if config.share_stage:
         trainer = SearchShareStageTrainer(config)
