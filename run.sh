@@ -7,32 +7,65 @@ stage_architecture=("STAGE_DARTS" "STAGE_DEEP" "STAGE_MIDDLE" "STAGE_SHALLOW")
 
 batch_size=64
 epoch=50
-train_portion=0.5 # train_portionは0.5が最大値
+train_portion=0.5 # searchの場合train_portionは0.5が最大値
 seed=0
 
-## ステージの探索
+# ステージの探索
 # python searchStage_main.py \
 #     --name $name \
 #     --batch_size $batch_size \
-#     --dataset cifar10 \
+#     --dataset mnist \
 #     --epochs $epoch \
 #     --genotype DARTS_V1 \
 #     --train_portion $train_portion \
 #     --seed $seed \
 #     --share_stage
 
-for seed in 0 1 2 3; do
+for seed in 1 2 3; do
     echo $arch
     python searchStage_main.py \
         --name $name \
         --batch_size $batch_size \
-        --dataset cifar10 \
+        --dataset mnist \
         --epochs $epoch \
         --genotype DARTS_V1 \
         --train_portion $train_portion \
         --seed $seed \
         --share_stage
 done
+
+## 事前学習アーキテクチャからステージの探索
+# checkpoint_path=$2
+# python searchStage_main.py \
+#     --name $name \
+#     --batch_size $batch_size \
+#     --dataset CIFAR10 \
+#     --epochs $epoch \
+#     --genotype DARTS_V1 \
+#     --train_portion $train_portion \
+#     --seed $seed \
+#     --share_stage \
+#     --resume_path $checkpoint_path \
+#     --checkpoint_reset
+
+# checkpoints=(/home/miura/lab/research-hdas/results/search_Stage/CIFAR10/SCRATCH/EXP-20240524-032729/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/CIFAR10/SCRATCH/EXP-20240524-052120/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/CIFAR10/SCRATCH/EXP-20240524-071444/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/CIFAR10/SCRATCH/EXP-20240524-090821/best.pth.tar)
+# for checkpoint_path in "${checkpoints[@]}"; do
+#     echo $checkpoint_path
+#     exp_id=$(echo "$checkpoint_path" | grep -oP '\d{8}-\d{6}')  
+#     echo "EXP($exp_id)"
+#     python searchStage_main.py \
+#         --name $name \
+#         --batch_size $batch_size \
+#         --dataset CIFAR10 \
+#         --epochs $epoch \
+#         --genotype DARTS_V1 \
+#         --train_portion $train_portion \
+#         --seed $seed \
+#         --share_stage \
+#         --resume_path $checkpoint_path \
+#         --checkpoint_reset \
+#         --save "EXP($exp_id)"
+# done
 
 ## ステージの評価・ファインチューニング
 # python augmentStage_main.py \
