@@ -21,7 +21,7 @@ seed=0
 #     --seed $seed \
 #     --share_stage
 
-for seed in 1 2 3; do
+for seed in 0 1 2 3; do
     echo $arch
     python searchStage_main.py \
         --name $name \
@@ -31,7 +31,8 @@ for seed in 1 2 3; do
         --genotype DARTS_V1 \
         --train_portion $train_portion \
         --seed $seed \
-        --share_stage
+        --share_stage \
+        --gpus 1
 done
 
 ## 事前学習アーキテクチャからステージの探索
