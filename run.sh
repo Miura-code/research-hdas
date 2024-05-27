@@ -2,8 +2,8 @@
 
 name=$1
 
-# stage_architecture=("HS_DAS_CIFAR" "HS_DAS_CIFAR_SKIP" "STAGE_HSDAS_V1" "STAGE_HSDAS_V2" "STAGE_HSDAS_V3" "STAGE_SHALLOW" "STAGE_MIDDLE" "STAGE_DEEP" "STAGE_DARTS" )
-stage_architecture=("STAGE_DARTS" "STAGE_DEEP" "STAGE_MIDDLE" "STAGE_SHALLOW")
+stage_architecture=("HS_DAS_CIFAR" "HS_DAS_CIFAR_SKIP" "STAGE_HSDAS_V1" "STAGE_HSDAS_V2" "STAGE_HSDAS_V3" "STAGE_SHALLOW" "STAGE_MIDDLE" "STAGE_DEEP" "STAGE_DARTS" )
+stage_architecture=("HS_DAS_CIFAR" "HS_DAS_CIFAR_SKIP" "STAGE_SHALLOW" "STAGE_MIDDLE" "STAGE_DEEP" "STAGE_DARTS" "STAGE_FULL_CASCADE")
 
 batch_size=64
 epoch=50
@@ -79,21 +79,21 @@ seed=0
 #     --train_portion $train_portion \
 #     --seed $seed \
 
-# for seed in 1 2; do
-#     for arch in "${stage_architecture[@]}"; do
-#         echo $arch
-#         python augmentStage_main.py \
-#         --name $arch  \
-#         --batch_size $batch_size \
-#         --dataset cifar10 \
-#         --epochs $epoch \
-#         --genotype DARTS_V1 \
-#         --DAG $arch \
-#         --train_portion $train_portion \
-#         --seed $seed \
-#         --save eval
-#     done
-# done
+for seed in 1 2; do
+    for arch in "${stage_architecture[@]}"; do
+        echo $arch
+        python augmentStage_main.py \
+        --name $arch  \
+        --batch_size $batch_size \
+        --dataset cifar10 \
+        --epochs $epoch \
+        --genotype DARTS_V1 \
+        --DAG $arch \
+        --train_portion $train_portion \
+        --seed $seed \
+        --save E600
+    done
+done
 
 # for arch in "${stage_architecture[@]}"; do
 #     echo $arch
@@ -159,3 +159,15 @@ for directory in "$target_directory"/*; do
             --layer $layer
     fi
 done
+#         python testStage_main.py \
+#             --name test \
+#             --dataset cifar10 \
+#             --batch_size 128 \
+#             --genotype DARTS_V1 \
+#             --DAG $arch \
+#             --seed $seed \
+#             --resume_path $resume_path \
+#             --layer $layer
+#     fi
+# done
+# done
