@@ -21,19 +21,19 @@ seed=0
 #     --seed $seed \
 #     --share_stage
 
-for seed in 0 1 2 3; do
-    echo $arch
-    python searchStage_main.py \
-        --name $name \
-        --batch_size $batch_size \
-        --dataset mnist \
-        --epochs $epoch \
-        --genotype DARTS_V1 \
-        --train_portion $train_portion \
-        --seed $seed \
-        --share_stage \
-        --gpus 1
-done
+# for seed in 0 1 2 3; do
+#     echo $arch
+#     python searchStage_main.py \
+#         --name $name \
+#         --batch_size $batch_size \
+#         --dataset mnist \
+#         --epochs $epoch \
+#         --genotype DARTS_V1 \
+#         --train_portion $train_portion \
+#         --seed $seed \
+#         --share_stage \
+#         --gpus 1
+# done
 
 ## 事前学習アーキテクチャからステージの探索
 # checkpoint_path=$2
@@ -49,7 +49,7 @@ done
 #     --resume_path $checkpoint_path \
 #     --checkpoint_reset
 
-# checkpoints=(/home/miura/lab/research-hdas/results/search_Stage/CIFAR10/SCRATCH/EXP-20240524-032729/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/CIFAR10/SCRATCH/EXP-20240524-052120/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/CIFAR10/SCRATCH/EXP-20240524-071444/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/CIFAR10/SCRATCH/EXP-20240524-090821/best.pth.tar)
+# checkpoints=(/home/miura/lab/research-hdas/results/search_Stage/mnist/SCRATCH/EXP-20240525-152620/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/mnist/SCRATCH/EXP-20240525-175220/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/mnist/SCRATCH/EXP-20240525-201945/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/mnist/SCRATCH/EXP-20240525-224521/best.pth.tar)
 # for checkpoint_path in "${checkpoints[@]}"; do
 #     echo $checkpoint_path
 #     exp_id=$(echo "$checkpoint_path" | grep -oP '\d{8}-\d{6}')  
@@ -132,30 +132,30 @@ done
 #     --resume_path $path
 
 # ディレクトリパスを指定
-# arch=$1
-# target_directory=/home/miura/lab/research-hdas/results/augment_Stage/cifar/$arch
-# specific_name="eval-"
-# seed=0
-# layer=20
+arch=$1
+target_directory=/home/miura/lab/research-hdas/results/search_Stage/CIFAR10/SCRATCH
+specific_name="EXP-"
+seed=0
+layer=20
 
 # # # ディレクトリ内の全てのディレクトリ名を取得し、test.pyを実行する
-# for directory in "$target_directory"/*; do
-#     # ディレクトリ名を変数に格納
-#     directory_path="$directory"
-#     if [[ "$directory_path" == *"$specific_name"* ]]; then
-#         # ディレクトリ名を表示
-#         echo "Directory name: $directory_path"
-#         resume_path=$directory_path/best.pth.tar
-#         echo $resume_path
+for directory in "$target_directory"/*; do
+    # ディレクトリ名を変数に格納
+    directory_path="$directory"
+    if [[ "$directory_path" == *"$specific_name"* ]]; then
+        # ディレクトリ名を表示
+        echo "Directory name: $directory_path"
+        resume_path=$directory_path/best.pth.tar
+        echo $resume_path
     
-#         python testStage_main.py \
-#             --name test \
-#             --dataset cifar10 \
-#             --batch_size 128 \
-#             --genotype DARTS_V1 \
-#             --DAG $arch \
-#             --seed $seed \
-#             --resume_path $resume_path \
-#             --layer $layer
-#     fi
-# done
+        python testStage_main.py \
+            --name test \
+            --dataset cifar10 \
+            --batch_size 128 \
+            --genotype DARTS_V1 \
+            --DAG $arch \
+            --seed $seed \
+            --resume_path $resume_path \
+            --layer $layer
+    fi
+done
