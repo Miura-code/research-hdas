@@ -11,14 +11,14 @@ train_portion=0.5 # searchの場合train_portionは0.5が最大値
 seed=0
 
 # ステージの探索
-python searchStage_main.py \
-    --name $name \
-    --batch_size $batch_size \
-    --dataset CIFAR10 \
-    --epochs $epoch \
-    --genotype DARTS_V1 \
-    --train_portion $train_portion \
-    --seed $seed
+# python searchStage_main.py \
+#     --name $name \
+#     --batch_size $batch_size \
+#     --dataset CIFAR10 \
+#     --epochs $epoch \
+#     --genotype DARTS_V1 \
+#     --train_portion $train_portion \
+#     --seed $seed
 
 for seed in 0 1 2 3; do
     echo $arch
