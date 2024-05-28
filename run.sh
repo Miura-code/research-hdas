@@ -31,9 +31,6 @@ for seed in 0 1 2 3; do
         --train_portion $train_portion \
         --seed $seed
 done
-
-## 事前学習アーキテクチャからステージの探索
-# checkpoint_path=$2
 # python searchStage_main.py \
 #     --name $name \
 #     --batch_size $batch_size \
@@ -41,10 +38,33 @@ done
 #     --epochs $epoch \
 #     --genotype DARTS_V1 \
 #     --train_portion $train_portion \
-#     --seed $seed \
-#     --share_stage \
-#     --resume_path $checkpoint_path \
-#     --checkpoint_reset
+#     --seed $seed
+
+# for seed in 0 1 2 3; do
+#     echo $arch
+#     python searchStage_main.py \
+#         --name $name \
+#         --batch_size $batch_size \
+#         --dataset CIFAR10 \
+#         --epochs $epoch \
+#         --genotype DARTS_V1 \
+#         --train_portion $train_portion \
+#         --seed $seed \
+# done
+
+## 事前学習アーキテクチャからステージの探索
+checkpoint_path=$2
+python searchStage_main.py \
+    --name $name \
+    --batch_size $batch_size \
+    --dataset CIFAR10 \
+    --epochs $epoch \
+    --genotype DARTS_V1 \
+    --train_portion $train_portion \
+    --seed $seed \
+    --share_stage \
+    --resume_path $checkpoint_path \
+    --checkpoint_reset
 
 # checkpoints=(/home/miura/lab/research-hdas/results/search_Stage/mnist/SCRATCH/EXP-20240525-152620/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/mnist/SCRATCH/EXP-20240525-175220/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/mnist/SCRATCH/EXP-20240525-201945/best.pth.tar /home/miura/lab/research-hdas/results/search_Stage/mnist/SCRATCH/EXP-20240525-224521/best.pth.tar)
 # for checkpoint_path in "${checkpoints[@]}"; do
