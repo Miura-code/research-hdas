@@ -54,7 +54,12 @@ def run_task(config):
 
         plot_path = os.path.join(config.DAG_path, "EP{:02d}".format(epoch + 1))
         caption = "Epoch {}".format(epoch + 1)
-        plot2(macro_arch.DAG1, plot_path + '-DAG', caption)
+        if config.shre_stage:
+            plot2(macro_arch.DAG1, plot_path + '-DAG', caption)
+        else:
+            plot2(macro_arch.DAG1, plot_path + '-DAG1', caption)
+            plot2(macro_arch.DAG2, plot_path + '-DAG2', caption)
+            plot2(macro_arch.DAG3, plot_path + '-DAG3', caption)
         if previous_arch != macro_arch:
             save_DAG(macro_arch, plot_path + '-DAG')
         previous_arch = macro_arch
