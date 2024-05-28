@@ -35,8 +35,14 @@ def run_task(config):
     start_epoch = trainer.start_epoch
     
     previous_arch = macro_arch = trainer.model.DAG()
-    plot_path = os.path.join(config.DAG_path, "EP00-DAG")
-    plot2(macro_arch.DAG1, plot_path, "Initial DAG")
+    plot_path = os.path.join(config.DAG_path, "EP00")
+    caption = "Initial DAG"
+    if config.share_stage:
+        plot2(macro_arch.DAG1, plot_path + '-DAG', caption)
+    else:
+        plot2(macro_arch.DAG1, plot_path + '-DAG1', caption)
+        plot2(macro_arch.DAG2, plot_path + '-DAG2', caption)
+        plot2(macro_arch.DAG3, plot_path + '-DAG3', caption)
     save_DAG(macro_arch, plot_path)
     
     # loss, accを格納する配列
@@ -54,7 +60,7 @@ def run_task(config):
 
         plot_path = os.path.join(config.DAG_path, "EP{:02d}".format(epoch + 1))
         caption = "Epoch {}".format(epoch + 1)
-        if config.shre_stage:
+        if config.share_stage:
             plot2(macro_arch.DAG1, plot_path + '-DAG', caption)
         else:
             plot2(macro_arch.DAG1, plot_path + '-DAG1', caption)
