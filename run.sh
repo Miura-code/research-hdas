@@ -11,29 +11,26 @@ train_portion=0.5 # searchの場合train_portionは0.5が最大値
 seed=0
 
 # ステージの探索
-# python searchStage_main.py \
-#     --name $name \
-#     --batch_size $batch_size \
-#     --dataset mnist \
-#     --epochs $epoch \
-#     --genotype DARTS_V1 \
-#     --train_portion $train_portion \
-#     --seed $seed \
-#     --share_stage
+python searchStage_main.py \
+    --name $name \
+    --batch_size $batch_size \
+    --dataset CIFAR10 \
+    --epochs $epoch \
+    --genotype DARTS_V1 \
+    --train_portion $train_portion \
+    --seed $seed
 
-# for seed in 0 1 2 3; do
-#     echo $arch
-#     python searchStage_main.py \
-#         --name $name \
-#         --batch_size $batch_size \
-#         --dataset mnist \
-#         --epochs $epoch \
-#         --genotype DARTS_V1 \
-#         --train_portion $train_portion \
-#         --seed $seed \
-#         --share_stage \
-#         --gpus 1
-# done
+for seed in 0 1 2 3; do
+    echo $arch
+    python searchStage_main.py \
+        --name $name \
+        --batch_size $batch_size \
+        --dataset CIFAR10 \
+        --epochs $epoch \
+        --genotype HC_DAS \
+        --train_portion $train_portion \
+        --seed $seed
+done
 
 ## 事前学習アーキテクチャからステージの探索
 # checkpoint_path=$2
@@ -79,21 +76,21 @@ seed=0
 #     --train_portion $train_portion \
 #     --seed $seed \
 
-for seed in 1 2; do
-    for arch in "${stage_architecture[@]}"; do
-        echo $arch
-        python augmentStage_main.py \
-        --name $arch  \
-        --batch_size $batch_size \
-        --dataset cifar10 \
-        --epochs $epoch \
-        --genotype DARTS_V1 \
-        --DAG $arch \
-        --train_portion $train_portion \
-        --seed $seed \
-        --save E600
-    done
-done
+# for seed in 1 2; do
+#     for arch in "${stage_architecture[@]}"; do
+#         echo $arch
+#         python augmentStage_main.py \
+#         --name $arch  \
+#         --batch_size $batch_size \
+#         --dataset cifar10 \
+#         --epochs $epoch \
+#         --genotype DARTS_V1 \
+#         --DAG $arch \
+#         --train_portion $train_portion \
+#         --seed $seed \
+#         --save E600
+#     done
+# done
 
 # for arch in "${stage_architecture[@]}"; do
 #     echo $arch
@@ -132,33 +129,33 @@ done
 #     --resume_path $path
 
 # ディレクトリパスを指定
-arch=$1
-target_directory=/home/miura/lab/research-hdas/results/search_Stage/CIFAR10/SCRATCH
-specific_name="EXP-"
-seed=0
-layer=20
+# arch=$1
+# target_directory=/home/miura/lab/research-hdas/results/search_Stage/CIFAR10/SCRATCH
+# specific_name="EXP-"
+# seed=0
+# layer=20
 
-# # # ディレクトリ内の全てのディレクトリ名を取得し、test.pyを実行する
-for directory in "$target_directory"/*; do
-    # ディレクトリ名を変数に格納
-    directory_path="$directory"
-    if [[ "$directory_path" == *"$specific_name"* ]]; then
-        # ディレクトリ名を表示
-        echo "Directory name: $directory_path"
-        resume_path=$directory_path/best.pth.tar
-        echo $resume_path
+# # # # ディレクトリ内の全てのディレクトリ名を取得し、test.pyを実行する
+# for directory in "$target_directory"/*; do
+#     # ディレクトリ名を変数に格納
+#     directory_path="$directory"
+#     if [[ "$directory_path" == *"$specific_name"* ]]; then
+#         # ディレクトリ名を表示
+#         echo "Directory name: $directory_path"
+#         resume_path=$directory_path/best.pth.tar
+#         echo $resume_path
     
-        python testStage_main.py \
-            --name test \
-            --dataset cifar10 \
-            --batch_size 128 \
-            --genotype DARTS_V1 \
-            --DAG $arch \
-            --seed $seed \
-            --resume_path $resume_path \
-            --layer $layer
-    fi
-done
+#         python testStage_main.py \
+#             --name test \
+#             --dataset cifar10 \
+#             --batch_size 128 \
+#             --genotype DARTS_V1 \
+#             --DAG $arch \
+#             --seed $seed \
+#             --resume_path $resume_path \
+#             --layer $layer
+#     fi
+# done
 #         python testStage_main.py \
 #             --name test \
 #             --dataset cifar10 \
