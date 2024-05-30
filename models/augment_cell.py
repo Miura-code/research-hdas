@@ -18,6 +18,10 @@ class AugmentCell(nn.Module):
         self.n_nodes = len(genotype.normal1)
         self.layer_id = layer_id
 
+        self.C_pp = C_pp
+        self.C_p = C_p
+        self.C = C
+
         if reduction_p:
             self.preproc0 = ops.FactorizedReduce(C_pp, C)
         else:
@@ -42,6 +46,7 @@ class AugmentCell(nn.Module):
         
         self.dag = gt.to_dag(C, gene, reduction)
         # print(self.dag)
+        self.multiplier = len(self.concat)
     
     def forward(self, s0, s1):
         s0 = self.preproc0(s0)

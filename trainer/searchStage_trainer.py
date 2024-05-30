@@ -84,7 +84,7 @@ class SearchStageTrainer():
         """build model"""
         print("init model")
         self.criterion = nn.CrossEntropyLoss().to(self.device)
-        model = SearchStageController(input_channels, self.config.init_channels, n_classes, self.config.layers, self.criterion, self.config.genotype, device_ids=self.config.gpus)
+        model = SearchStageController(input_channels, self.config.init_channels, n_classes, self.config.layers, self.criterion, self.config.genotype, device_ids=self.config.gpus, spec_cell=self.config.spec_cell)
         self.model = model.to(self.device)
         print("init model end!")
 

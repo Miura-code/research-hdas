@@ -43,7 +43,8 @@ class SearchStageConfig(BaseConfig):
         parser.add_argument('--checkpoint_reset', action='store_true', help='reset resumed model to be as epoch 0')
 
         parser.add_argument('--train_portion', type=float, default=0.5, help='portion of training data')
-        parser.add_argument('--share_stage', action='store_true', help='Search shared stage structure at each stage')
+        parser.add_argument('--share_stage', action='store_true', help='Search shared stage architecture at each stage')
+        parser.add_argument('--spec_cell', action='store_true', help='Use stage specified cell architecture at each stage')
         parser.add_argument('--save', type=str, default='EXP', help='experiment name')
 
         return parser
