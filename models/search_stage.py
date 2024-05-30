@@ -96,7 +96,6 @@ class SearchStage(nn.Module):
         logits = self.linear(out)
         return logits
 
-
 class SearchStageController(nn.Module):
     """ SearchDAG controller supporting multi-gpu """
     def __init__(self, C_in, C, n_classes, n_layers, criterion, genotype, stem_multiplier=4, device_ids=None):
@@ -188,7 +187,70 @@ class SearchStageController(nn.Module):
     def named_alphas(self):
         for n, p in self._alphas:
             yield n, p
+       
+class SearchShareStage(SearchStage):
+    """
+    DAG for search
+    Each edge is mixed and continuous relaxed
+    """
+    def __init__(self, C_in, C, n_classes, n_layers, genotype, n_big_nodes, stem_multiplier):
+        """
+        C_in: # of input channels
+        C: # of starting model channels
+        n_classes: # of classes
+        n_layers: # of layers
+        n_big_nodes: # of intermediate n_cells  # 6
+        genotype: the shape of normal cell and reduce cell
+        """
+        super().__init__(C_in, C, n_classes, n_layers, genotype, n_big_nodes, stem_multiplier)
+    
+    def forward(self, x, weights_DAG):
+        s0 = s1 = self.stem(x)
+        s0 = s1 = self.bigDAG1(s0, s1, weights_DAG)
+        s0 = s1 = self.cells[1 * self.n_layers // 3](s0, s1)
+        s0 = s1 = self.bigDAG2(s0, s1, weights_DAG)
+        s0 = s1 = self.cells[2 * self.n_layers // 3](s0, s1)
+        s0 = s1 = self.bigDAG3(s0, s1, weights_DAG)
 
+        out = self.gap(s1)
+        out = out.view(out.size(0), -1)
+        logits = self.linear(out)
+        return logits
+            
+class SearchShareStageController(SearchStageController):
+    """ SearchDAG controller supporting multi-gpu """
+    def __init__(self, C_in, C, n_classes, n_layers, criterion, genotype, stem_multiplier=4, device_ids=None):
+        super().__init__(C_in, C, n_classes, n_layers, criterion, genotype, stem_multiplier, device_ids=device_ids)
+        
+        n_ops = len(gt.PRIMITIVES2)
+
+        self.alpha_DAG = nn.ParameterList()
+        # There is one DAG shared for each stage
+        # initialize architecture parameter(alpha)
+        for i in range(self.n_big_nodes):
+            # sliding window
+            if i < 1:
+                self.alpha_DAG.append(nn.Parameter(1e-3 * torch.randn(i + 2, n_ops)))
+            else:
+                self.alpha_DAG.append(nn.Parameter(1e-3 * torch.randn(3, n_ops)))
+        
+        self._alphas = []
+        for n, p in self.named_parameters():
+            if 'alpha' in n:
+                self._alphas.append((n, p))
+                        
+        self.net = SearchShareStage(C_in, C, n_classes, n_layers, genotype, self.n_big_nodes, stem_multiplier)
+    
+    def DAG(self):
+        gene_DAG = gt.parse(self.alpha_DAG, k=2)
+        # gene_DAG2 = gt.parse(self.alpha_DAG[1 * self.n_big_nodes: 2 * self.n_big_nodes], k=2)
+        # gene_DAG3 = gt.parse(self.alpha_DAG[2 * self.n_big_nodes: 3 * self.n_big_nodes], k=2)
+
+        concat = range(self.n_big_nodes, self.n_big_nodes + 2)
+
+        return gt.Genotype2(DAG1=gene_DAG, DAG1_concat=concat,
+                            DAG2=gene_DAG, DAG2_concat=concat,
+                            DAG3=gene_DAG, DAG3_concat=concat)
 
 class SearchDistributionDag(SearchStage):
     def __init__(self, C_in, C, n_classes, n_layers, genotype, n_big_nodes, stem_multiplier):
@@ -210,7 +272,6 @@ class SearchDistributionDag(SearchStage):
         out = out.view(out.size(0), -1)
         logits = self.linear(out)
         return logits
-
 
 class SearchDistributionController(SearchStageController):
     def __init__(self, C_in, C, n_classes, n_layers, criterion, genotype, stem_multiplier=4, device_ids=None):

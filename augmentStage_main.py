@@ -31,7 +31,7 @@ device = torch.device("cuda")
 writer = SummaryWriter(log_dir=os.path.join(config.path, "tb"))
 writer.add_text('config', config.as_markdown(), 0)
 
-logger = get_std_logging(os.path.join(config.path, "{}.log".format(config.name)))
+logger = get_std_logging(os.path.join(config.path, "{}.log".format(config.exp_name)))
 config.logger = logger
 
 config.print_params(logger.info)

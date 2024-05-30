@@ -32,7 +32,15 @@ class Cutout(object):
         img *= mask
 
         return img
+    
+class GrayToRGB:
+    # input is PIL image
+    def __init__(self) -> None:
+        pass
 
+    def __call__(self, x):
+        x = x.convert("L").convert("RGB")
+        return x
 
 def data_transforms(dataset, cutout_length):
     dataset = dataset.lower()
@@ -47,7 +55,9 @@ def data_transforms(dataset, cutout_length):
         MEAN = [0.13066051707548254]
         STD = [0.30810780244715075]
         transf = [
-            transforms.RandomAffine(degrees=15, translate=(0.1, 0.1), scale=(0.9, 1.1), shear=0.1)
+            transforms.Resize(size=(32, 32)),
+            transforms.RandomAffine(degrees=15, translate=(0.1, 0.1), scale=(0.9, 1.1), shear=0.1),
+            GrayToRGB()
         ]
     elif dataset == 'fashionmnist':
         MEAN = [0.28604063146254594]

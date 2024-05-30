@@ -14,6 +14,9 @@ def get_data(dataset, data_path, cutout_length, validation):
     if dataset == 'cifar10':
         dset_cls = dset.CIFAR10
         n_classes = 10
+    elif dataset == 'mnist':
+        dset_cls = dset.MNIST
+        n_classes = 10
     else:
         raise ValueError(dataset)
 
@@ -22,7 +25,8 @@ def get_data(dataset, data_path, cutout_length, validation):
 
     # assuming shape is NHW or NHWC
     shape = trn_data.data.shape
-    input_channels = 3 if len(shape) == 4 else 1
+    # input_channels = 3 if len(shape) == 4 else 1
+    input_channels = 3
     assert shape[1] == shape[2], "not expected shape = {}".format(shape)
     input_size = shape[1]
 

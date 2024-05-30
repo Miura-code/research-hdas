@@ -6,6 +6,8 @@
 # This source code is licensed under the LICENSE file in the root directory of this source tree.
 
 import os
+import time
+import utils
 from utils.parser import get_parser, parse_gpus, BaseConfig
 import genotypes.genotypes as gt
 
@@ -38,9 +40,11 @@ class SearchStageConfig(BaseConfig):
         parser.add_argument('--genotype', required=True, help='Cell genotype')
         parser.add_argument('--local_rank', default=0)
         parser.add_argument('--resume_path', type=str, default=None)
+        parser.add_argument('--checkpoint_reset', action='store_true', help='reset resumed model to be as epoch 0')
 
         parser.add_argument('--train_portion', type=float, default=0.5, help='portion of training data')
-
+        parser.add_argument('--share_stage', action='store_true', help='Search shared stage structure at each stage')
+        parser.add_argument('--save', type=str, default='EXP', help='experiment name')
 
         return parser
     
@@ -50,10 +54,14 @@ class SearchStageConfig(BaseConfig):
         super().__init__(**vars(args))
 
         self.data_path = '../data/'
-        self.path = os.path.join('results/search_Stage/cifar/', self.name)
         self.genotype = gt.from_str(self.genotype)
-        self.DAG_path = os.path.join(self.path, 'DAG')
         self.gpus = parse_gpus(self.gpus)
+        
+        self.path = os.path.join(f'results/search_Stage/{self.dataset}/', self.name)
+        self.exp_name = '{}-{}'.format(args.save, time.strftime("%Y%m%d-%H%M%S"))
+        self.path = os.path.join(self.path, self.exp_name)
+        # utils.create_exp_dir(args.save, scripts_to_save=None)
+        self.DAG_path = os.path.join(self.path, 'DAG')
 
 
 class SearchDistributionConfig(BaseConfig):
