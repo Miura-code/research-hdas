@@ -88,8 +88,8 @@ def run_task(config):
         png2gif(config.DAG_path, pattern="*DAG*")
     else:
         png2gif(config.DAG_path, file_name="DAG1_history", pattern="*DAG1*")
-        png2gif(config.DAG_path, file_name="DAG1_history", pattern="*DAG2*")
-        png2gif(config.DAG_path, file_name="DAG1_history", pattern="*DAG3*")
+        png2gif(config.DAG_path, file_name="DAG2_history", pattern="*DAG2*")
+        png2gif(config.DAG_path, file_name="DAG3_history", pattern="*DAG3*")
 
 
 def main():
