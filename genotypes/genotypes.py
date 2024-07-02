@@ -75,7 +75,10 @@ def from_str(s):
             reduce_concat=range(2, 6))"
     """
 
-    genotype = eval(s)
+    if s.endswith(".pickle"):
+        genotype = load_DAG(s)
+    else:
+        genotype = eval(s)
 
     return genotype
 
@@ -180,7 +183,10 @@ def parse_concat(beta):
     _, index = torch.topk(beta, 1, dim=0)
     return range(index + 4, index + 6)
 
-def save_DAG(DAG, path):
+def save_DAG(DAG, path, is_best=False):
+    if is_best:
+        path = path + '-best'
+        
     with open(path + '.pickle', mode='wb') as f:
         pickle.dump(DAG, f)
         

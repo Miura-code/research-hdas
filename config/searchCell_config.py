@@ -6,6 +6,7 @@
 # This source code is licensed under the LICENSE file in the root directory of this source tree.
 
 import os
+import time
 from utils.parser import get_parser, parse_gpus, BaseConfig
 import genotypes.genotypes as gt
 
@@ -39,7 +40,7 @@ class SearchCellConfig(BaseConfig):
         parser.add_argument('--resume_path', type=str, default=None)
 
         parser.add_argument('--train_portion', type=float, default=0.5, help='portion of training data')
-
+        parser.add_argument('--save', type=str, default='EXP', help='experiment name')
 
         return parser
     
@@ -49,6 +50,17 @@ class SearchCellConfig(BaseConfig):
         super().__init__(**vars(args))
 
         self.data_path = '../data/'
-        self.path = os.path.join(f'results/search_cell/{self.dataset}/', self.name)
+        self.path = os.path.join(f'./results/search_cell/{self.dataset}/', self.name)
+        self.exp_name = '{}-{}'.format(args.save, time.strftime("%Y%m%d-%H%M%S"))
+        self.path = os.path.join(self.path, self.exp_name)
         self.plot_path = os.path.join(self.path, 'plots')
         self.gpus = parse_gpus(self.gpus)
+
+        self.DAG_path = os.path.join(self.path, 'GENO')
+
+        if not os.path.isdir((self.plot_path)):
+            os.makedirs((self.plot_path))
+            print("make dirs")
+        if not os.path.isdir((self.DAG_path)):
+            os.makedirs((self.DAG_path))
+            print("make dirs")
