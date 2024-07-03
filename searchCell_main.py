@@ -14,7 +14,7 @@ from config.searchCell_config import SearchCellConfig
 from genotypes.genotypes import save_DAG
 from trainer.searchCell_trainer import SearchCellTrainer
 from utils.logging_util import get_std_logging
-from utils.visualize import plot, plot2
+from utils.visualize import plot, plot2, png2gif
 
 
 def run_task(config):
@@ -64,12 +64,17 @@ def run_task(config):
         if previous_arch != micro_arch:
             save_DAG(micro_arch, DAG_path, is_best=is_best)
         previous_arch = micro_arch
-        
+
         logger.info("Until now, best Prec@1 = {:.4%}".format(best_top1))
     
     logger.info("Final best Prec@1 = {:.4%}".format(best_top1))
     logger.info("Final Best Genotype = {}".format(best_genotype))
 
+    png2gif(config.plot_path, save_path=config.DAG_path, file_name="normal1_history", pattern="*normal1*")
+    png2gif(config.plot_path, save_path=config.DAG_path, file_name="normal2_history", pattern="*normal2*")
+    png2gif(config.plot_path, save_path=config.DAG_path, file_name="normal3_history", pattern="*normal3*")
+    png2gif(config.plot_path, save_path=config.DAG_path, file_name="reduce1_history", pattern="*reduce1*")
+    png2gif(config.plot_path, save_path=config.DAG_path, file_name="reduce2_history", pattern="*reduce2*")
 
 def main():
     config = SearchCellConfig()
