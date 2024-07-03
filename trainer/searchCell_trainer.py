@@ -12,7 +12,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.backends.cudnn as cudnn
-from tensorboardX import SummaryWriter
+from torch.utils.tensorboard import SummaryWriter
 
 from utils.data_util import get_data
 from utils.params_util import collect_params
@@ -144,7 +144,7 @@ class SearchCellTrainer():
 
             # architect step (alpha)
             self.alpha_optim.zero_grad()
-            self.architect.unrolled_backward(trn_X, trn_y, val_X, val_y, cur_lr, self.w_optim)
+            arch_loss = self.architect.unrolled_backward(trn_X, trn_y, val_X, val_y, cur_lr, self.w_optim)
             self.alpha_optim.step()
 
             # child network step (w)
@@ -163,6 +163,7 @@ class SearchCellTrainer():
             if self.steps % self.log_step == 0:
                 self.writer.add_scalar('train/lr', round(cur_lr, 5), self.steps)
                 self.writer.add_scalar('train/loss', loss.item(), self.steps)
+                self.writer.add_scalar('train/archloss', arch_loss.item(), self.steps)
                 self.writer.add_scalar('train/top1', prec1.item(), self.steps)
                 self.writer.add_scalar('train/top5', prec5.item(), self.steps)
 
