@@ -14,7 +14,7 @@ from torch.cuda import current_blas_handle, device
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.backends.cudnn as cudnn
-from tensorboardX import SummaryWriter
+from torch.utils.tensorboard import SummaryWriter
 
 from utils.data_util import get_data
 from utils.params_util import collect_params
@@ -157,6 +157,7 @@ class SearchStageTrainer():
         top1 = AverageMeter()
         top5 = AverageMeter()
         losses = AverageMeter()
+        arch_losses = AverageMeter()
 
         cur_lr = self.lr_scheduler.get_last_lr()[0]
 
@@ -175,7 +176,7 @@ class SearchStageTrainer():
 
             # architect step (alpha)
             self.alpha_optim.zero_grad()
-            self.architect.unrolled_backward(trn_X, trn_y, val_X, val_y, cur_lr, self.w_optim)
+            arch_loss = self.architect.unrolled_backward(trn_X, trn_y, val_X, val_y, cur_lr, self.w_optim)
             self.alpha_optim.step()
 
             self.alpha_optim.zero_grad()
@@ -198,12 +199,14 @@ class SearchStageTrainer():
 
             prec1, prec5 = accuracy(logits, trn_y, topk=(1, 5))
             losses.update(loss.item(), N)
+            arch_losses.update(arch_loss.item(), N)
             top1.update(prec1.item(), N)
             top5.update(prec5.item(), N)
 
             if self.steps % self.log_step == 0:
                 self.writer.add_scalar('train/lr', round(cur_lr, 5), self.steps)
                 self.writer.add_scalar('train/loss', loss.item(), self.steps)
+                self.writer.add_scalar('train/archloss', arch_loss.item(), self.steps)
                 self.writer.add_scalar('train/top1', prec1.item(), self.steps)
                 self.writer.add_scalar('train/top5', prec5.item(), self.steps)
 
@@ -212,6 +215,7 @@ class SearchStageTrainer():
                         f'Step {self.steps}\t'
                         f'lr {round(cur_lr, 5)}\t'
                         f'Loss {losses.val:.4f} ({losses.avg:.4f})\t'
+                        f'Architecture Loss {arch_losses.val:.4f} ({arch_losses.avg:.4f})\t'
                         f'Prec@(1,5) ({top1.avg:.1%}, {top5.avg:.1%})\t'
                         )
             

@@ -35,6 +35,7 @@ def run_task(config):
     start_epoch = trainer.start_epoch
     
     previous_arch = macro_arch = trainer.model.DAG()
+    DAG_path = os.path.join(config.DAG_path, "EP00")
     plot_path = os.path.join(config.DAG_path, "EP00")
     caption = "Initial DAG"
     if config.share_stage:
@@ -43,21 +44,22 @@ def run_task(config):
         plot2(macro_arch.DAG1, plot_path + '-DAG1', caption)
         plot2(macro_arch.DAG2, plot_path + '-DAG2', caption)
         plot2(macro_arch.DAG3, plot_path + '-DAG3', caption)
-    save_DAG(macro_arch, plot_path)
+    save_DAG(macro_arch, DAG_path)
     
     # loss, accを格納する配列
     record = RecordDataclass()
-
+    # ======== start search stage level architecture ============
     best_top1 = 0.
     for epoch in tqdm(range(start_epoch, trainer.total_epochs)):
         train_top1, train_loss = trainer.train_epoch(epoch, printer=logger.info)
         val_top1, val_loss = trainer.val_epoch(epoch, printer=logger.info)
         trainer.lr_scheduler.step()
 
-        # plot macro architecture
+        # ======== save DAG ============
         macro_arch = trainer.model.DAG()
         logger.info("DAG = {}".format(macro_arch))
 
+        DAG_path = os.path.join(config.DAG_path, "EP{:02d}".format(epoch + 1))
         plot_path = os.path.join(config.DAG_path, "EP{:02d}".format(epoch + 1))
         caption = "Epoch {}".format(epoch + 1)
         if config.share_stage:
@@ -66,9 +68,6 @@ def run_task(config):
             plot2(macro_arch.DAG1, plot_path + '-DAG1', caption)
             plot2(macro_arch.DAG2, plot_path + '-DAG2', caption)
             plot2(macro_arch.DAG3, plot_path + '-DAG3', caption)
-        if previous_arch != macro_arch:
-            save_DAG(macro_arch, plot_path + '-DAG')
-        previous_arch = macro_arch
 
         if best_top1 < val_top1:
             best_top1, is_best = val_top1, True
@@ -76,6 +75,10 @@ def run_task(config):
         else:
             is_best = False
         trainer.save_checkpoint(epoch, is_best=is_best)
+        if previous_arch != macro_arch:
+            save_DAG(macro_arch, DAG_path, is_best=is_best)
+        previous_arch = macro_arch
+
         logger.info("Until now, best Prec@1 = {:.4%}".format(best_top1))
         
         record.add(train_loss, val_loss, train_top1, val_top1)
