@@ -61,8 +61,15 @@ class SearchStageConfig(BaseConfig):
         self.path = os.path.join(f'results/search_Stage/{self.dataset}/', self.name)
         self.exp_name = '{}-{}'.format(args.save, time.strftime("%Y%m%d-%H%M%S"))
         self.path = os.path.join(self.path, self.exp_name)
-        # utils.create_exp_dir(args.save, scripts_to_save=None)
+
+        self.plot_path = os.path.join(self.path, 'plots')
         self.DAG_path = os.path.join(self.path, 'DAG')
+        if not os.path.isdir((self.plot_path)):
+            os.makedirs((self.plot_path))
+            print("make dirs")
+        if not os.path.isdir((self.DAG_path)):
+            os.makedirs((self.DAG_path))
+            print("make dirs")
 
 
 class SearchDistributionConfig(BaseConfig):

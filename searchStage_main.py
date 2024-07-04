@@ -36,7 +36,7 @@ def run_task(config):
     
     previous_arch = macro_arch = trainer.model.DAG()
     DAG_path = os.path.join(config.DAG_path, "EP00")
-    plot_path = os.path.join(config.DAG_path, "EP00")
+    plot_path = os.path.join(config.plot_path, "EP00")
     caption = "Initial DAG"
     if config.share_stage:
         plot2(macro_arch.DAG1, plot_path + '-DAG', caption)
@@ -60,7 +60,7 @@ def run_task(config):
         logger.info("DAG = {}".format(macro_arch))
 
         DAG_path = os.path.join(config.DAG_path, "EP{:02d}".format(epoch + 1))
-        plot_path = os.path.join(config.DAG_path, "EP{:02d}".format(epoch + 1))
+        plot_path = os.path.join(config.plot_path, "EP{:02d}".format(epoch + 1))
         caption = "Epoch {}".format(epoch + 1)
         if config.share_stage:
             plot2(macro_arch.DAG1, plot_path + '-DAG', caption)

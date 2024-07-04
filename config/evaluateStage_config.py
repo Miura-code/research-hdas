@@ -61,7 +61,7 @@ class EvaluateStageConfig(BaseConfig):
         self.genotype = gt.from_str(self.genotype)
         self.DAG = gt.from_str(self.DAG)
         
-        self.path = os.path.join(f'results/evaluate_Cell/{self.dataset}', self.name)
+        self.path = os.path.join(f'results/evaluate_Stage/{self.dataset}', self.name)
         self.exp_name = '{}-{}'.format(args.save, time.strftime("%Y%m%d-%H%M%S"))
         self.path = os.path.join(self.path, self.exp_name)
 
