@@ -87,6 +87,8 @@ def run_task(config):
     logger.info("Final best Prec@1 = {:.4%}".format(best_top1))
     logger.info("Final Best Genotype = {}".format(best_macro))
 
+    trainer.writer.add_text('result/acc', utils.ListToMarkdownTable(["best_val_acc"], [best_top1]), 0)
+
     if config.share_stage:
         png2gif(config.DAG_path, pattern="*DAG*")
     else:

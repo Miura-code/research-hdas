@@ -17,8 +17,6 @@ import utils
 from utils.eval_util import RecordDataclass
 from utils.logging_util import get_std_logging
 
-LOSS_TYPES = ["training_hard_loss", "training_soft_loss", "training_loss", "validation_loss"]
-ACC_TYPES = ["training_accuracy", "validation_accuracy"]
 
 def run_task(config):
     logger = get_std_logging(os.path.join(config.path, "{}.log".format(config.name)))

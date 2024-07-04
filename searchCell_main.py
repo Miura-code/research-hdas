@@ -13,6 +13,7 @@ import os
 from config.searchCell_config import SearchCellConfig
 from genotypes.genotypes import save_DAG
 from trainer.searchCell_trainer import SearchCellTrainer
+import utils
 from utils.logging_util import get_std_logging
 from utils.visualize import plot, plot2, png2gif
 
@@ -69,6 +70,8 @@ def run_task(config):
     
     logger.info("Final best Prec@1 = {:.4%}".format(best_top1))
     logger.info("Final Best Genotype = {}".format(best_genotype))
+
+    trainer.writer.add_text('result/acc', utils.ListToMarkdownTable(["best_val_acc"], [best_top1]), 0)
 
     png2gif(config.plot_path, save_path=config.DAG_path, file_name="normal1_history", pattern="*normal1*")
     png2gif(config.plot_path, save_path=config.DAG_path, file_name="normal2_history", pattern="*normal2*")
