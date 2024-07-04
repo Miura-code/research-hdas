@@ -1,0 +1,33 @@
+07/03 08:15:51PM parser.py:28 [INFO] 
+07/03 08:15:51PM parser.py:29 [INFO] Parameters:
+07/03 08:15:51PM parser.py:31 [INFO] DAG_PATH=results/search_Stage/CIFAR100/BASELINE/EXP-20240703-201551/DAG
+07/03 08:15:51PM parser.py:31 [INFO] ALPHA_LR=0.0003
+07/03 08:15:51PM parser.py:31 [INFO] ALPHA_WEIGHT_DECAY=0.001
+07/03 08:15:51PM parser.py:31 [INFO] BATCH_SIZE=64
+07/03 08:15:51PM parser.py:31 [INFO] CHECKPOINT_RESET=False
+07/03 08:15:51PM parser.py:31 [INFO] DATA_PATH=../data/
+07/03 08:15:51PM parser.py:31 [INFO] DATASET=CIFAR100
+07/03 08:15:51PM parser.py:31 [INFO] EPOCHS=50
+07/03 08:15:51PM parser.py:31 [INFO] EXP_NAME=EXP-20240703-201551
+07/03 08:15:51PM parser.py:31 [INFO] GENOTYPE=Genotype3(normal1=[[('sep_conv_3x3', 0), ('sep_conv_3x3', 1)], [('sep_conv_3x3', 0), ('sep_conv_3x3', 1)], [('sep_conv_3x3', 0), ('sep_conv_3x3', 1)], [('sep_conv_3x3', 2), ('sep_conv_3x3', 3)]], normal1_concat=range(2, 6), reduce1=[[('max_pool_3x3', 0), ('skip_connect', 0)], [('max_pool_3x3', 0), ('max_pool_3x3', 2)], [('sep_conv_3x3', 0), ('skip_connect', 1)], [('sep_conv_3x3', 0), ('dil_conv_3x3', 4)]], reduce1_concat=range(2, 6), normal2=[[('skip_connect', 0), ('dil_conv_3x3', 1)], [('skip_connect', 0), ('sep_conv_3x3', 1)], [('skip_connect', 0), ('sep_conv_3x3', 1)], [('skip_connect', 0), ('sep_conv_3x3', 1)]], normal2_concat=range(2, 6), reduce2=[[('dil_conv_3x3', 0), ('max_pool_3x3', 1)], [('max_pool_3x3', 1), ('dil_conv_5x5', 2)], [('max_pool_3x3', 1), ('dil_conv_5x5', 3)], [('max_pool_3x3', 1), ('skip_connect', 4)]], reduce2_concat=range(2, 6), normal3=[[('dil_conv_5x5', 0), ('sep_conv_3x3', 1)], [('sep_conv_3x3', 1), ('dil_conv_3x3', 2)], [('dil_conv_3x3', 0), ('sep_conv_5x5', 2)], [('sep_conv_5x5', 3), ('sep_conv_3x3', 4)]], normal3_concat=range(2, 6))
+07/03 08:15:51PM parser.py:31 [INFO] GPUS=[0]
+07/03 08:15:51PM parser.py:31 [INFO] INIT_CHANNELS=16
+07/03 08:15:51PM parser.py:31 [INFO] LAYERS=20
+07/03 08:15:51PM parser.py:31 [INFO] LOCAL_RANK=0
+07/03 08:15:51PM parser.py:31 [INFO] LOGGER=<Logger H-DAS (INFO)>
+07/03 08:15:51PM parser.py:31 [INFO] NAME=BASELINE
+07/03 08:15:51PM parser.py:31 [INFO] PATH=results/search_Stage/CIFAR100/BASELINE/EXP-20240703-201551
+07/03 08:15:51PM parser.py:31 [INFO] PRINT_FREQ=50
+07/03 08:15:51PM parser.py:31 [INFO] RESUME_PATH=None
+07/03 08:15:51PM parser.py:31 [INFO] SAVE=EXP
+07/03 08:15:51PM parser.py:31 [INFO] SEED=2
+07/03 08:15:51PM parser.py:31 [INFO] SHARE_STAGE=False
+07/03 08:15:51PM parser.py:31 [INFO] SPEC_CELL=False
+07/03 08:15:51PM parser.py:31 [INFO] TRAIN_PORTION=0.5
+07/03 08:15:51PM parser.py:31 [INFO] W_GRAD_CLIP=5.0
+07/03 08:15:51PM parser.py:31 [INFO] W_LR=0.025
+07/03 08:15:51PM parser.py:31 [INFO] W_LR_MIN=0.001
+07/03 08:15:51PM parser.py:31 [INFO] W_MOMENTUM=0.9
+07/03 08:15:51PM parser.py:31 [INFO] W_WEIGHT_DECAY=0.0003
+07/03 08:15:51PM parser.py:31 [INFO] WORKERS=4
+07/03 08:15:51PM parser.py:32 [INFO] 
