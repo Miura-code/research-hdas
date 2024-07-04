@@ -56,7 +56,7 @@ def main():
                                                num_workers=config.workers,
                                                pin_memory=True)
 
-    # ================= load model from timm ==================
+    # ================= define model ==================
     use_aux = config.aux_weight > 0.
     model = AugmentCellCNN(input_size, input_channels, config.init_channels, n_classes, config.layers, use_aux, config.genotype).to(device)
     # ================= load checkpoint ==================

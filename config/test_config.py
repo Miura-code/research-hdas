@@ -32,7 +32,9 @@ class TestConfig(BaseConfig):
 
         parser.add_argument('--model_name', type=str, default=None, help='teacher model name for testing finetuned teacher')
         parser.add_argument('--resume_path', type=str, default=None)
-        parser.add_argument('--genotype', type=str, default=None, help='Cell genotype for testing searched cell architecture')
+        parser.add_argument('--genotype', type=str, default=None, help='Cell genotype for testing searched architecture')
+        parser.add_argument('--DAG', type=str, default=None, help='Stage genotype for testing searched architecture')
+        parser.add_argument('--spec_cell', action='store_true', help='Use stage specified cell architecture at each stage')
 
         return parser
 
@@ -44,15 +46,19 @@ class TestConfig(BaseConfig):
 
         self.data_path = '../data/'
         
+        # ================= experiment path setting ================= 
         directory, _ = os.path.split(args.resume_path)
         directory = directory.rstrip(os.path.sep)
         self.path = os.path.join(directory, "test")
-
+        self.path = '{}/{}-{}'.format(self.path, args.save, time.strftime("%Y%m%d-%H%M%S"))
+        # ================= parse architecture ================= 
         if self.genotype is not None:
             self.genotype = gt.from_str(self.genotype)
+        if self.DAG is not None:
+            self.DAG = gt.from_str(self.DAG)
 
+        # ================= other settings ================= 
         self.gpus = parse_gpus(self.gpus)
         self.amp_sync_bn = True
         self.amp_opt_level = "O0"
 
-        self.path = '{}/{}-{}'.format(self.path, args.save, time.strftime("%Y%m%d-%H%M%S"))
