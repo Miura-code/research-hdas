@@ -8,7 +8,7 @@
 from models.augment_stage import AuxiliaryHead
 import torch.nn as nn
 from models import ops
-from models.augment_cell import AugmentCell
+from models.get_cell import Get_StageSpecified_Cell
 
 
 class AugmentCellCNN(nn.Module):
@@ -38,7 +38,7 @@ class AugmentCellCNN(nn.Module):
             else:
                 reduction = False
         
-            cell = AugmentCell(genotype, C_pp, C_p, C_cur, reduction_p, reduction, i, n_layers)
+            cell = Get_StageSpecified_Cell(genotype, C_pp, C_p, C_cur, reduction_p, reduction, i, n_layers)
             reduction_p = reduction
             self.cells.append(cell)
             C_cur_out = C_cur * len(cell.concat)

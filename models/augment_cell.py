@@ -11,7 +11,7 @@ from models import ops
 import genotypes.genotypes as gt
 
 
-class AugmentCell(nn.Module):
+class Get_StageSpecified_Cell(nn.Module):
     def __init__(self, genotype, C_pp, C_p, C, reduction_p, reduction, layer_id, n_layers):
         super().__init__()
         self.reduction = reduction
@@ -43,6 +43,8 @@ class AugmentCell(nn.Module):
         elif self.layer_id > 2 * n_layers // 3:
             gene = genotype.normal3
             self.concat = genotype.normal3_concat
+
+
         
         self.dag = gt.to_dag(C, gene, reduction)
         # print(self.dag)
