@@ -20,18 +20,18 @@ seed=0
 #     --train_portion $train_portion \
 #     --seed $seed
 
-for seed in 0 1 2 3; do
-    echo $arch
-    python searchStage_main.py \
-        --name $name \
-        --batch_size $batch_size \
-        --dataset CIFAR10 \
-        --epochs $epoch \
-        --genotype PDARTS \
-        --train_portion $train_portion \
-        --seed $seed \
-        --gpus 1
-done
+# for seed in 0 1 2 3; do
+#     echo $arch
+#     python searchStage_main.py \
+#         --name $name \
+#         --batch_size $batch_size \
+#         --dataset CIFAR10 \
+#         --epochs $epoch \
+#         --genotype PDARTS \
+#         --train_portion $train_portion \
+#         --seed $seed \
+#         --gpus 1
+# done
 
 ## 事前学習アーキテクチャからステージの探索
 # checkpoint_path=$2
@@ -169,3 +169,20 @@ done
 #     fi
 # done
 # done
+
+## Cell-level アーキテクチャを評価
+save=$1
+genotype=$2
+path=$3
+dataset=cifar100
+batch_size=64
+seed=0
+
+python testCell_main.py \
+    --save $save \
+    --dataset $dataset \
+    --batch_size $batch_size \
+    --genotype $genotype \
+    --seed $seed \
+    --resume_path $path \
+    --spec_cell

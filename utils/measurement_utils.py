@@ -16,7 +16,7 @@ def count_ModelSize_byptflops(model, inputSize):
     # SUMMARY = summary(model, inputSize)
 
     macs, params = get_model_complexity_info(model, inputSize, as_strings=True,
-                                            print_per_layer_stat=False, verbose=False)
+                                            print_per_layer_stat=True, verbose=True)
 
     # print(f"TorchInfo summary : \n  {SUMMARY}")
     # print('{:<30}  {:<8}'.format('Computational complexity: ', macs))
