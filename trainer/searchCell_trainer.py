@@ -14,6 +14,7 @@ import torch.nn.functional as F
 import torch.backends.cudnn as cudnn
 from torch.utils.tensorboard import SummaryWriter
 
+import utils
 from utils.data_util import get_data
 from utils.params_util import collect_params
 from utils.eval_util import AverageMeter, accuracy
@@ -40,14 +41,8 @@ class SearchCellTrainer():
 
         """construct the whole network"""
         self.resume_path = self.config.resume_path
-        if torch.cuda.is_available():
-            # self.device = torch.device(f'cuda:{self.gpu}')
-            # torch.cuda.set_device(self.device)
-            torch.cuda.set_device(self.config.gpus[0])
-            # cudnn.benchmark = True
-            self.device = torch.device('cuda')
-        else:
-            self.device = torch.device('cpu')
+
+        self.device = utils.set_seed_gpu(self.config.seed, self.config.gpus[0])
         self.construct_model()
 
         self.steps = 0

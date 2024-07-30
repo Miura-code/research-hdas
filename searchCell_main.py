@@ -71,7 +71,7 @@ def run_task(config):
     logger.info("Final best Prec@1 = {:.4%}".format(best_top1))
     logger.info("Final Best Genotype = {}".format(best_genotype))
 
-    trainer.writer.add_text('result/acc', utils.ListToMarkdownTable(["best_val_acc"], [best_top1]), 0)
+    trainer.writer.add_text('val/acc', utils.ListToMarkdownTable(["best_val_acc"], [best_top1]), 0)
 
     png2gif(config.plot_path, save_path=config.DAG_path, file_name="normal1_history", pattern="*normal1*")
     png2gif(config.plot_path, save_path=config.DAG_path, file_name="normal2_history", pattern="*normal2*")

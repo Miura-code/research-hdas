@@ -43,9 +43,15 @@ def set_seed_gpu(seed, gpu):
     torch.backends.cudnn.deterministic = True
     torch.use_deterministic_algorithms = True
 
-    torch.cuda.set_device(gpu)
     cudnn.benchmark = True
     cudnn.enabled=True
+    if torch.cuda.is_available():
+      torch.cuda.set_device(gpu)
+      device = torch.device('cuda')
+    else:
+      device = torch.device('cpu')
+
+    return device
 
 def get_imagenet(dataset, data_path, cutout_length, validation):
     dataset = dataset.lower()
